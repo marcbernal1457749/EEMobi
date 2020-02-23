@@ -1,0 +1,9 @@
+<?php
+if(!isset($_SESSION))
+{
+        session_start();
+        header("Cache-control:private");
+		header("Cache-control:no-cache,must-revalidate");
+		header("Pragma:no-cache");  
+}
+?>

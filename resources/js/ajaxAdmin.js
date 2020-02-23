@@ -1,0 +1,1 @@
+function getUniversityBackend(){$.ajax({type:"GET",url:"admin.php",data:"controlador=AdminBackendUniversities&accion=getInformationUniversities",success:function(n,i,t){$(".content").html(n)},error:function(n,i,t){}})}
