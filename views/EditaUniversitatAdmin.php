@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label for="comment">Observacions</label>
+                                    <label for="obs">Observacions</label>
                                     <input type="text" class="form-control" id="Observacions" placeholder="Observacions" value="<?php echo $university->observacions; ?>">
                                 </div>
                             </div>

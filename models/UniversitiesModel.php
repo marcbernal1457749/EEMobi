@@ -303,7 +303,18 @@ class UniversitiesModel{
     }
     public function updateUniversityById($idUniversitat,$nomUniversitat,$adreça,$lat,$lng,$urlUniversitat,$urlIntercanvis,$codiUniversitat,$acreditacióIdioma,$observacions){
         $consulta = $this->db->prepare('UPDATE universitats SET nomUniversitat =?, adreça =?, lat=?, lng =?, urlUniversitat =?, urlIntercanvis=?, codiUniversitat =?, acreditacióIdioma =?, observacions =? WHERE idUniversitat=?');
-        $consulta->execute(array($nomUniversitat,$adreça,$lat,$lng,$urlUniversitat,$urlIntercanvis,$codiUniversitat,$acreditacióIdioma,$observacions,$idUniversitat));
+        $consulta -> bindValue(1, $nomUniversitat);
+        $consulta -> bindValue(2, $adreça);
+        $consulta -> bindValue(3, $lat);
+        $consulta -> bindValue(4, $lng);
+        $consulta -> bindValue(5, $urlUniversitat);
+        $consulta -> bindValue(6, $urlIntercanvis);
+        $consulta -> bindValue(7, $codiUniversitat);
+        $consulta -> bindValue(8, $acreditacióIdioma);
+        $consulta -> bindValue(9, $observacions);
+        $consulta -> bindValue(10, $idUniversitat);
+        $consulta->execute();
+        //$consulta->execute(array($nomUniversitat,$adreça,$lat,$lng,$urlUniversitat,$urlIntercanvis,$codiUniversitat,$acreditacióIdioma,$observacions,$idUniversitat));
     }
 
     //Alfred Code

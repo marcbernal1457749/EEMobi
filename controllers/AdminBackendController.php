@@ -127,7 +127,7 @@ class AdminBackendController{
 
         $universitymodel->updateUniversityById($universityData['id'], $universityData['nom'], $universityData['adr'],
             $universityData['lat'], $universityData['lng'], $universityData['urlUni'], $universityData['urlInt'],
-            $universityData['codiUni'], $universityData['idioma'], $universityData['urlInt'], $universityData['obs']);
+            $universityData['codiUni'], $universityData['idioma'], $universityData['obs']);
 
         $universitymodel->disconnect();
     }
@@ -643,11 +643,11 @@ class AdminBackendController{
         $adOrUpdate=$data['ad'];
         if(!empty($country)){
             if($adOrUpdate){
-                $universitymodel->addUniversity($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$data['observacions'],$country->idPais);
+                $universitymodel->addUniversity($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$country->idPais);
 
             }else{
               
-                $universitymodel->updateUniversityById($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$data['observacions'],$country->idPais);
+                $universitymodel->updateUniversityById($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$country->idPais);
             }
         }
         $universitymodel->disconnect();

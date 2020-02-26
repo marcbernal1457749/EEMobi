@@ -40,7 +40,6 @@
                     <ul class="nav navbar-nav navbar-left nav-scroll">
                         <li class="UAB"><a href="/EEmobi">Universitat Autònoma de Barcelona</a></li>
                         <li class="active"><a href="/EEmobi">EEMobi3.0.</a></li>
-                        <li><a href="#footer-menu">Tràmits i gestions</a></li>
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
                    </ul>
                     <ul class="nav navbar-nav navbar-right">
