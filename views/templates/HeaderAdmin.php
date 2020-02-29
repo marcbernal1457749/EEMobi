@@ -81,7 +81,7 @@
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right ">
-                        <li class="welcome"><?php echo $_SESSION['nom']; ?></li>
+                        <li><a  class="welcome" href="/EEmobi/Perfil"><?php echo $_SESSION['nom']; ?></a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i>  <span class="caret"></span></a>
                             <ul class="dropdown-menu">

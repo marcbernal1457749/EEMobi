@@ -418,7 +418,7 @@ class AdminBackendController{
         $failedURLS = array();
 
         //Modificamos el time limit para que no pete
-        set_time_limit(2000);
+        set_time_limit(200);
         $arrayDeUrls = array('http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/',  'https://ddd.uab.cat/pub/procur/2017-18/g1027473a2017-18iCAT.pdf','http://www.uab.cat/guiesdocents/2017-18/g102689a2017-18iCAT.pdf');
 
         $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
@@ -438,7 +438,6 @@ class AdminBackendController{
         }
 
 
-        /*
         //URLS Unis
         foreach ($urlsUniversitat as $urlUni){
             $urlPrincipal = $urlUni['urlUniversitat'];
@@ -509,7 +508,7 @@ class AdminBackendController{
             }
 
             curl_close($handler);
-        }*/
+        }
 
 
         $universitiesModel->disconnect();
