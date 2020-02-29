@@ -40,6 +40,9 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="UAB"><a href="/EEmobi">Universitat Autònoma de Barcelona</a></li>
+                    </ul>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -53,12 +56,11 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="UAB"><a href="/EEmobi">Universitat Autònoma de Barcelona</a></li>
                         <li class="active"><a href="/EEmobi/">EEMobi3.0.</a></li>
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
                    </ul>
                    <ul class="nav navbar-nav navbar-right ">
-                         <li class="welcome"><?php echo $_SESSION['nom']; ?></li> 
+                       <li><a  class="welcome" href="/EEmobi/Perfil"><?php echo $_SESSION['nom']; ?></a></li>
                          <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i>  <span class="caret"></span></a>
                             <ul class="dropdown-menu">

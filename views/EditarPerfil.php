@@ -9,9 +9,10 @@
             <form class="form-horizontal" role="form" action="" id="fileUpload" enctype="multipart/form-data" >    
               <label class="btn btn-primary btn-search">
                     Buscar foto<input type="file" name="file" id="file" style="display: none;">
-              </label>
-              <input type="submit" name="filebuton" class="btn btn-primary btn-custom" value="Desar" disabled="true">
 
+              </label>
+               <input type="submit" name="filebuton" class="btn btn-primary btn-custom" value="Eliminar "> <!-- TODO: Implementar -->
+              <input type="submit" name="filebuton" class="btn btn-primary btn-custom" value="Desar" disabled="true">
             </form>
         </div>
         <div class="text-center" id="debugimg">

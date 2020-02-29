@@ -29,6 +29,9 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="UAB"><a href="/EEmobi">Universitat Autònoma de Barcelona</a></li>
+                    </ul>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -38,13 +41,11 @@
                 </div>               
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left nav-scroll">
-                        <li class="UAB"><a href="/EEmobi">Universitat Autònoma de Barcelona</a></li>
                         <li class="active"><a href="/EEmobi">EEMobi3.0.</a></li>
-                        <li><a href="#footer-menu">Tràmits i gestions</a></li>
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
                    </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="login "><a href="login">Identificat</a></li>
+                        <li class="login "><a href="login">Identifica't</a></li>
 
                     </ul>   
 

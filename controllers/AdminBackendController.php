@@ -127,7 +127,7 @@ class AdminBackendController{
 
         $universitymodel->updateUniversityById($universityData['id'], $universityData['nom'], $universityData['adr'],
             $universityData['lat'], $universityData['lng'], $universityData['urlUni'], $universityData['urlInt'],
-            $universityData['codiUni'], $universityData['idioma'], $universityData['urlInt'], $universityData['obs']);
+            $universityData['codiUni'], $universityData['idioma'], $universityData['obs']);
 
         $universitymodel->disconnect();
     }
@@ -418,8 +418,8 @@ class AdminBackendController{
         $failedURLS = array();
 
         //Modificamos el time limit para que no pete
-        set_time_limit(2000);
-        $arrayDeUrls = array('http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/',  'https://ddd.uab.cat/pub/procur/2017-18/g1027473a2017-18iCAT.pdf','http://www.uab.cat/guiesdocents/2017-18/g102689a2017-18iCAT.pdf');
+        set_time_limit(20000);
+       /* $arrayDeUrls = array('http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/',  'https://ddd.uab.cat/pub/procur/2017-18/g1027473a2017-18iCAT.pdf','http://www.uab.cat/guiesdocents/2017-18/g102689a2017-18iCAT.pdf');
 
         $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
 
@@ -435,10 +435,9 @@ class AdminBackendController{
             }
 
             curl_close($handler);
-        }
+        }*/
 
 
-        /*
         //URLS Unis
         foreach ($urlsUniversitat as $urlUni){
             $urlPrincipal = $urlUni['urlUniversitat'];
@@ -509,7 +508,7 @@ class AdminBackendController{
             }
 
             curl_close($handler);
-        }*/
+        }
 
 
         $universitiesModel->disconnect();
@@ -643,11 +642,11 @@ class AdminBackendController{
         $adOrUpdate=$data['ad'];
         if(!empty($country)){
             if($adOrUpdate){
-                $universitymodel->addUniversity($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$data['observacions'],$country->idPais);
+                $universitymodel->addUniversity($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$country->idPais);
 
             }else{
               
-                $universitymodel->updateUniversityById($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$data['observacions'],$country->idPais);
+                $universitymodel->updateUniversityById($data['id'],$data['nom'],$data['adreça'],$data['latitud'],$data['longitud'],$data['url'],$data['urlIn'],$data['codi'],$data['acreditacio'],$data['observacions'],$country->idPais);
             }
         }
         $universitymodel->disconnect();
