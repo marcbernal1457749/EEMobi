@@ -5,6 +5,7 @@
      include('templates/Header.php');
  }?>
     <section id="features" class="features sections">
+        <h3 class="titulo">Troba la teva destinació:</h3> <br />
 
         <!-- TODO: COPIAR Modal aquí -->
 

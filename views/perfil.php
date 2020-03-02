@@ -30,7 +30,7 @@
           require_once 'views/PerfilProfessor.php';  
         }else if($stayed){
           require_once 'views/PerfilUsuari.php';
-        }else{ require_once 'views/PerfilUsuari.php';?>
+        }else{?>
                                 <div class="col-sm-12 text-center">
                                    <h4><?php echo $contentStay; ?></h4>
                                </div>
