@@ -14,7 +14,7 @@ a,a span,button{-webkit-transition:.2s ease-in-out;-o-transition:.2s ease-in-out
 .clear{clear:both}ul{list-style:none;padding:0}
 .uneditable-input,input[type=color],input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],textarea{outline:0}
 .form-control{font-size:16px}
-.form-control:focus{border-color:#82ca9c}
+.form-control:focus{border-color:orange}
 h2,h3,h6{margin-bottom:.9rem}
 h4,h5{line-height:2rem}
 h2{font-size:2.5rem;line-height:3rem}
