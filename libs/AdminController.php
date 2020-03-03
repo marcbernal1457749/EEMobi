@@ -336,7 +336,7 @@ class AdminController{
 
           case 'updatePhoto':
             if(isset($_FILES['file'])) {
-                $target_dir = "./EEmobi/resources/img/universities/";
+                $target_dir = "./resources/img/universities/";
                 $data['target_dir']=$target_dir;
                 $data['target_file'] = $target_dir . basename($_FILES['file']['name']);
                 $data['imageFileType'] = pathinfo($data['target_file'],PATHINFO_EXTENSION);

@@ -128,7 +128,7 @@
                                                 <label for="file">Foto:</label>
                                                 <input type="file" name="file" id="photoFile">
                                                 <br>
-                                                <input type="reset" class="btn btn-default btn-edit" value="Cancelar">
+                                                <input type="reset" class="btn btn-default btn-danger" value="Cancelar">
                                                 <input type="submit" id="uploadphoto" class="btn btn-success" value="Pujar">
                                             </form>
                                         </div>
@@ -161,7 +161,6 @@
                                     <th>Període</th>
                                     <th>Actiu</th>
                                     <th>Coordinador</th>
-                                    <th>Eliminar</th>
                                 </tr>
                                 </thead>
                                 <tbody id="convenisBodyTable">
@@ -199,9 +198,6 @@
                                                     </option>
                                                 <?php endforeach;?>
                                             </select>
-                                        </td>
-                                        <td>
-                                            <a href=# ><img class="center-block" src="./resources/images/delete.png" height="25" width="25"></a> <!-- TODO: Falta implementar -->
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -297,7 +293,6 @@
                             <th>Semestre</th>
                             <th>Professor</th>
                             <th>Assignatures</th>
-                            <th>Eliminar</th>
                         </tr>
                         </thead>
                         <tbody id="staysBody">
@@ -330,9 +325,6 @@
                                 </td>
                                 <td>
                                     <a href="" id="<?php echo $estada->codiEstada;?>" ><img class="center-block" id="<?php echo $estada->codiEstada;?>" src="./resources/images/list.png" height="25" width="25"></a>
-                                </td>
-                                <td>
-                                    <a href="" id="<?php echo $estada->codiEstada;?>" ><img class="center-block" id="<?php echo $estada->codiEstada;?>"src="./resources/images/delete.png" height="25" width="25"></a> <!-- TODO: Falta implementar -->
                                 </td>
                             </tr>
                         <?php endforeach;?>
@@ -413,11 +405,5 @@
             </form>
             <hr />
         </div>
-    <div class="col-lg-9">
-        <button type="button" id="deleteUniversity" class="btn btn-danger" data-toggle="modal"  data-target="#deleteUniversity">
-            Eliminar Universitat
-        </button>
-        <hr />
-    </div>
 
 </div>

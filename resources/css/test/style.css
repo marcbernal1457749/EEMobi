@@ -49,10 +49,12 @@ section .subtitle-half h5{font-weight:100;font-size:12px}
 .separator{height:2px;width:80px;margin:auto;background:#ededed}
 .btn-default,.margin-top-20{margin-top:20px}
 .btn-primary.active.focus,.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary.disabled,.btn-primary.focus,.btn-primary:active.focus,.btn-primary:active:focus,.btn-primary:active:hover,.btn-primary:focus,.open>.dropdown-toggle.btn-primary.focus,.open>.dropdown-toggle.btn-primary:focus,.open>.dropdown-toggle.btn-primary:hover{color:white;background-color:#d75a00;border-color:sandybrown}
-.btn-primary:hover{background-color:#64c583}
+.btn-primary:hover{background-color: rgba(215, 90, 0, 0.65);
+}
 .btn{display:inline-block;margin-bottom:0;font-size:14px;line-height:1.728571;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:3px;width:200px;height:50px;padding:1em}
-btn-default{border-radius:0;background:#82ca9c;color:#ededed;border:0;padding:12px 15px;max-width:160px}
-.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:#fff;background-color:rgba(0,173,62,.75);border-color:transparent}
+btn-default{border-radius:0;background-color:#d75a00;color:white;border:0;padding:12px 15px;max-width:160px}
+btn-default:hover{background-color: rgba(215, 90, 0, 0.65);}
+.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:white;background-color:#d75a00;border-color:transparent}
 .form-group-lg .form-control,.input-lg{height:46px;width:100%;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:0}
 .btn-group-lg>.btn,.btn-lg{font-size:18px;line-height:26px;border-radius:0;background:#82ca9c;border:0;padding:10px 25px}
 .input-group button a i{color:#fff}
@@ -332,7 +334,11 @@ h1{color:#111;font-family:Montserrat,sans-serif;font-size:35px;line-height:64px;
 .btn-custom{width:66%;margin-bottom:10%;border-radius:4px}
 .input-group[class*=col-]{margin-bottom:1%}
 .btn-edit,.btn-search,.panel-university h5{margin-bottom:0;text-align:center;font-weight:400}
-.btn-edit{width:49%;cursor:pointer;border-radius:4px;margin-left:1%}
+.btn-edit{
+    background: #d75a00;color:white;width:49%;cursor:pointer;border-radius:4px;margin-left:1%}
+.btn-edit:hover{
+    background: rgba(215, 90, 0, 0.69);color:white;
+}
 .btn-search{background-color:#a9a9a9;width:66%;cursor:pointer;border:1px solid transparent;border-radius:4px}
 tr th,tr.info th{background:#000}
 .img-profile{height:337px}

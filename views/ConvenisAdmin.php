@@ -73,7 +73,7 @@
                       <label for="sel1">Codi Conveni:</label>
                       <input type="text" class="form-control" name="conveni" id="conveni" placeholder="Conveni">
                     </div>
-                    <input type="reset" class="btn btn-default btn-edit" value="Cancelar">
+                    <input type="reset" class="btn btn-default btn-danger" value="Cancelar">
                     <input type="submit" name="submit" id="optionbutton" class="btn btn-info" value="">
                     
                 </form>

@@ -261,7 +261,7 @@ class PerfilUsuariController
                  $error['succes']=false;
             }
             // Check file size
-            if ($_FILES['file']['size'] > 500000) {
+            if ($_FILES['file']['size'] > 50000000) {
                 //echo "Sorry, your file is too large.";
                  $error['msg'] = "La imatge es massa gran.";
                  $error['succes']=false;
@@ -269,7 +269,7 @@ class PerfilUsuariController
             // Allow certain file formats
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType !="JPG"  && $imageFileType != "PNG" && $imageFileType != "JPEG") {
                 //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-               $error['msg'] = "Nomes estan permesos les extensions png,jpeg,jpg.";
+               $error['msg'] = "Nomes estan permeses les extensions png,jpeg,jpg.";
             }
             if (empty($error['msg'])) {
 
@@ -375,7 +375,7 @@ class PerfilUsuariController
                      $error['succes']=false;
                 }
                 // Check file size
-                if ($_FILES['file']['size'] > 5000000) {
+                if ($_FILES['file']['size'] > 50000000) {
                     //echo "Sorry, your file is too large.";
                      $error['msg'] = "La imatge es massa gran.";
                      $error['succes']=false;

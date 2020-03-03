@@ -63,7 +63,7 @@
                       <option value="<?php echo $degree->codiEstudis; ?>"><?php echo $degree->nomGrau; ?></option>
                       <?php endforeach; ?>
                     </select>
-                    <input type="reset" class="btn btn-default btn-edit" value="Cancelar">
+                    <input type="reset" class="btn btn-default btn-danger" value="Cancelar">
                     <input type="submit" name="submit" id="photobutton" class="btn btn-info" value="">                
                 </form>
             </div>
