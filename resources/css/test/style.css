@@ -86,11 +86,11 @@ textarea::-moz-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .heading-content h1{font-size:48px;margin-bottom:40px}.social{background:#000;padding:10px 0}
 .social-wrapper .social-icon a{float:left;font-size:13px;color:#fff}
-.social-wrapper .social-icon a:hover{color:#82ca9c}
+.social-wrapper .social-icon a:hover{color:#d75a00}
 .social-wrapper .social-icon a i{padding-right:10px}
 .social-wrapper .social-contact{float:right;font-size:13px}
 .social-wrapper .social-contact a{color:#fff;margin-right:20px}
-.social-wrapper .social-contact a:hover{color:#82ca9c}
+.social-wrapper .social-contact a:hover{color:#d75a00}
 .social-wrapper .social-contact a i{padding-right:5px}
 .navbar-default{background-color:#d75a00;border-color:transparent;border-radius:0;padding-top:15px;padding-bottom:15px}
 .navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:focus,.navbar-default .navbar-nav>.active>a:hover{color:wheat;background-color:transparent}
@@ -106,9 +106,9 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .home-content .home-contact{margin-top:90px}
 .home-contact .input-group{display:block}
 .home-content .input-group .form-control{position:relative;z-index:2;float:left;width:65%;margin-bottom:0;height:60px}
-.home-content .home-contact input[type=text]{color:#82ca9c}
-.home-content .home-contact input[type=submit]{display:inline-block;width:35%;background:#82ca9c;color:#fff;border:0}
-.home-content .home-contact input[type=submit]:hover{background-color:rgba(0,173,62,.75)}
+.home-content .home-contact input[type=text]{color:#d75a00}
+.home-content .home-contact input[type=submit]{display:inline-block;width:35%;background:#d75a00;color:#fff;border:0}
+.home-content .home-contact input[type=submit]:hover{ rgba(215, 90, 0, 0.7);}
 .home-contact p{margin-top:20px;color:#000;font-size:15px}
 .form-control{border:1px solid #DEDEDE;height:45px;border-radius:0;margin-right:-3px}
 .head_title{margin-bottom:40px}
@@ -273,7 +273,6 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
     100%{-webkit-transform:perspective(2000px) rotateY(0);-moz-transform:perspective(2000px) rotateY(0);-ms-transform:perspective(2000px) rotateY(0);-o-transform:perspective(2000px) rotateY(0);transform:perspective(2000px) rotateY(0)}}
 .fa-check-circle{color:#82ca9c}
 .fa-remove{color:red}
-.portfolio{background:url(../images/bg.png) top center no-repeat fixed;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover;-ms-background-size:cover;width:100%}
 .community-edition{background:#fff;padding:40px 15px;border:1px solid #ececec;box-shadow:2px 2px 5px 0 rgba(55,50,40,.2);-webkit-box-shadow:2px 2px 5px 0 rgba(55,50,40,.2);-moz-box-shadow:2px 2px 5px 0 rgba(55,50,40,.2);-o-box-shadow:2px 2px 5px 0 rgba(55,50,40,.2);-ms-box-shadow:2px 2px 5px 0 rgba(55,50,40,.2);transition:.3s ease-in-out;-moz-transition:.3s ease-in-out;-webkit-transition:.3s ease-in-out}
 .community-edition:hover{background:#82ca9c;color:#fff}
 .community-edition:hover h4,.community-edition:hover i,.community-edition:hover p{color:#fff}
@@ -296,7 +295,7 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .menu-item p{font-size:12px}
 .menu-item ul li{font-size:13px;margin-bottom:10px;font-weight:300}
 .menu-item .form-control{position:relative;z-index:2;float:left;width:65%;margin-bottom:0}
-.menu-item input[type=text]{color:#82ca9c}
+.menu-item input[type=text]{color:#d75a00}
 .menu-item input[type=submit]{display:inline-block;width:35%;background:#d75a00;color:#fff;border:0}
 .menu-item input[type=submit]:hover{background-color: rgba(215, 90, 0, 0.8)
 }
