@@ -388,7 +388,7 @@ textarea::-webkit-input-placeholder {
 textarea::-moz-input-placeholder {
     color: #CACACA;
     font-size: 12px;
-    padding-top: 2px
+    padding-top: 2px;
 }
 
 textarea::-ms-input-placeholder {
@@ -1450,7 +1450,7 @@ textarea::-ms-input-placeholder {
 }
 
 .single_left_contact p {
-    font-family: ''titillium_weblight;
+    font-family: 'titillium_weblight';
     font-size: 18px
 }
 
@@ -1673,13 +1673,14 @@ h1 {
     color: #82ca9c;
     background-color: #000
 }
+
 #myInput {
-    background-image: url('/EEmobi/resources/img/searchicon.png'); 
-    background-position: 10px 12px; 
-    background-repeat: no-repeat; 
-    width: 100%; 
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 12px; 
+    background-image: url('/EEmobi/resources/img/searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }

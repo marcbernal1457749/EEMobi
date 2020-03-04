@@ -95,12 +95,11 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .navbar-default{background-color:#d75a00;border-color:transparent;border-radius:0;padding-top:15px;padding-bottom:15px}
 .navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:focus,.navbar-default .navbar-nav>.active>a:hover{color:wheat;background-color:transparent}
 .navbar-default .navbar-nav>li>a{color:#fff9f9;font-size:14px;font-weight:600;text-transform:uppercase}
-.navbar-default .navbar-nav li a :hover{color:#}
+.navbar-default .navbar-nav li a :hover{opacity:0.9;}
 .navbar-default .collapse .login a{color:wheat;border:1px solid wheat;border-radius:20px;padding:4px 30px;font-size:12px;margin-top:10px;margin-left:30px;display:inline-block;overflow:hidden}
 .navbar-default .collapse .login:hover a{background-color:white;color:darkorange}
 .navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>li>a:hover{color:wheat;background-color:transparent}
 .navbar-brand{margin-top:-5px}
-.home{background:url(../images/homebg.jpg) center center no-repeat;color:#000;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;-ms-background-size:cover}
 .home-content h1,.home-content p{margin-bottom:30px;color:#fff}
 .home-wrapper{padding:180px 0;overflow:hidden}
 .home-content h1{font-size:48px;font-weight:700}
