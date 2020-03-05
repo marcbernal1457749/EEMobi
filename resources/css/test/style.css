@@ -314,7 +314,7 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 li.UAB,li.UAB:hover{background:url('./resources/img/uab.png') no-repeat;margin-left:20px;}
 li.UAB a{text-indent:-1000em}
 .logo img{
-    height: 1.2rem;
+    max-height: none;
 }
 #map{height:700px}
 .panel-custom{border-color:white;}
