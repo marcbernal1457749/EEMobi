@@ -27,10 +27,11 @@
     </head>
     <body>
         <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="logo"><a href="/EEmobi"><img src="/EEmobi/resources/img/logo_opt.png"/></a></li>
+            </ul>
             <div class="container">
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="logo"><a href="/EEmobi"><img src="/EEmobi/resources/img/logo_opt.png"/></a></li>
-                </ul>
+
                 <div class="navbar-header">
 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

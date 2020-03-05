@@ -6,7 +6,9 @@ h1,h2,h3,h4,h5{margin:0}
 .btn,.clickable,.scrollup{cursor:pointer}
 body,html{font-size:15px;color:#565656;width:100%;padding:0;margin-left:0;margin-right:0;background-color:white;font-family:Roboto,sans-serif}
 img{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none;user-drag:none;max-width:100%}
-a,a:active,a:focus,a:hover{text-decoration:none;outline:0}
+a,a:active,a:focus,{
+    color: #d75a00;text-decoration:none;outline:0;}
+a:hover{color: rgba(215, 90, 0, 0.71);outline:0;text-decoration:none;}
 a,a span,button{-webkit-transition:.2s ease-in-out;-o-transition:.2s ease-in-out;transition:.2s ease-in-out}
 .btn.extra-width{padding:13px 40px}
 .btn:active,.btn:focus{outline:inherit}
@@ -309,7 +311,7 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .scrollup{width:30px;height:30px;border-radius:15px;opacity:.3;position:fixed;bottom:20px;right:25px;color:#fff;background-color:#000;z-index:10;transition:opacity .5s,background-color .5s;-moz-transition:opacity .5s,background-color .5s;-webkit-transition:opacity .5s,background-color .5s}
 .scrollup:hover{background:#82ca9c;opacity:1}
 .scrollup i{font-size:13px;position:absolute;opacity:1;color:#fff;left:50%;top:50%;margin-top:-7px;margin-left:-6px;text-decoration:none}
-li.UAB,li.UAB:hover{background:url(/EEmobi/resources/img/uab.png) no-repeat;margin-left:20px;}
+li.UAB,li.UAB:hover{background:url('./resources/img/uab.png') no-repeat;margin-left:20px;}
 li.UAB a{text-indent:-1000em}
 .logo img{
     height: 1.2rem;
