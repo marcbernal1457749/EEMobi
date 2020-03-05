@@ -19,6 +19,7 @@
         </button>
     </div>
 
+
     <div class="row">
         <form class="col-sm-12">
             <form>
@@ -127,7 +128,7 @@
                                                 <label for="file">Foto:</label>
                                                 <input type="file" name="file" id="photoFile">
                                                 <br>
-                                                <input type="reset" class="btn btn-default btn-edit" value="Cancelar">
+                                                <input type="reset" class="btn btn-default btn-danger" value="Cancelar">
                                                 <input type="submit" id="uploadphoto" class="btn btn-success" value="Pujar">
                                             </form>
                                         </div>
@@ -138,7 +139,7 @@
 
                         <div class="row padding-bottom-40">
                             <div class="col-sm-12 padding-top-20">
-                                <button id="updateUniversity" type="submit" class="btn btn-primary m-2">Desa Universitat</button>
+                                <button id="updateUniversity" type="submit" class="btn btn-info m-2">Desa Universitat</button>
                             </div>
                         </div>
                     </div>
@@ -323,7 +324,7 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <a href="" id="<?php echo $estada->codiEstada;?>"><img class="center-block" id="<?php echo $estada->codiEstada;?>" src="./resources/images/list.png" height="25" width="25"></a>
+                                    <a href="" id="<?php echo $estada->codiEstada;?>" ><img class="center-block" id="<?php echo $estada->codiEstada;?>" src="./resources/images/list.png" height="25" width="25"></a>
                                 </td>
                             </tr>
                         <?php endforeach;?>
@@ -345,7 +346,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Afegeix Estancia</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Afegeix Estada</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -397,8 +398,12 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- Modal -->
                 <div id="dinamicModal"></div>
             </form>
+            <hr />
         </div>
+
 </div>

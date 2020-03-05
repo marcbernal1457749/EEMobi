@@ -76,7 +76,7 @@
                 <input type="text" class="form-control" id="newRowNomAssExt" placeholder="Assignatura Externa">
             </td>
             <td>
-                <input type="text" class="form-control" id="newRowCredits" placeholder="Codi Assignatura Externa">
+                <input type="text" class="form-control" id="newRowCredits" placeholder="Crèdits Assignatura Externa">
             </td>
             <td>
                 <input type="text" class="form-control" id="newRowCodiAssExt" placeholder="Codi Assignatura Externa">
