@@ -81,7 +81,7 @@ class StayModel{
                 AND ce.codiUniEstudis = ue.codiUniEstudis
                 AND un.idUniversitat = ue.idUniversitat
                 AND es.niuEstudiant = ?
-                GROUP BY un.nomUniversitat,es.semestre, es.curs, un.idUniversitat');
+                GROUP BY un.nomUniversitat,es.semestre, es.curs, un.idUniversitat';
             $consulta->execute(array($niu));
             $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
             return $obj;
@@ -106,9 +106,7 @@ class StayModel{
         }catch (Exception $e) {
             die($e->getMessage());
         }
-    }
-
-    public function addStay($niuEstudiant,$codiConveni,$curs,$semestre, $niuProfessor){
+    }    public function addStay($niuEstudiant,$codiConveni,$curs,$semestre, $niuProfessor){
         //realizamos la consulta de todos los items
         try {
             $consulta = $this->db->prepare('INSERT INTO estada(niuEstudiant,codiConveni,curs,semestre,niuProfessor) VALUES (?,?,?,?,?)');

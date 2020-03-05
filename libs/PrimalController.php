@@ -1,5 +1,4 @@
 <?php
-/*Controlador pàgina principal*/
 class PrimalController{
     static function main(){
 
@@ -12,7 +11,6 @@ class PrimalController{
         $url = "$_SERVER[REQUEST_URI]";
         //echo $url;
         $url_parameters= explode("/", $url);
-
         if(isset($url_parameters[3])){
           $controller = $url_parameters[3];
         }else{

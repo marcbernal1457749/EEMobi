@@ -8,8 +8,6 @@
         <h3 class="titulo">Troba la teva destinació:</h3> <br />
 
         <!-- TODO: COPIAR Modal aquí -->
-        
-
 
         <div class="col-sm-12">
             <div class="panel panel-info panel-custom">

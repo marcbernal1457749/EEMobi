@@ -61,9 +61,9 @@ class InformationUniversityController
             $publications = $publicationsModel -> getPublicationOfUniversity($idUniversity);
             
             if($university->fotoPath=="" or $university->fotoPath==null ){
-                $path = "./resources/img/universities/notimage.jpg";
+                $path = "/EEmobi/resources/img/universities/notimage.jpg";
             }else{
-                $path = "./resources/img/universities/".$university->fotoPath;
+                $path = "/EEmobi/resources/img/universities/".$university->fotoPath;
             }
             
             if(empty($info)){
