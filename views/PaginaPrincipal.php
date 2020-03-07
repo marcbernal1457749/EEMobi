@@ -80,18 +80,6 @@
                      </div>
                      <?php endforeach; ?>
              </div>
-
-             <div class="col-md-4 col-sm-12 col-xs-12">
-                 <div class="col-md-12 col-sm-6 col-xs-12">
-                     <div class="menu-item">
-                         <h5>Rep noticies</h5>
-                         <div class="input-group">
-                             <input type="text" class="form-control" placeholder="Entra el correu electrònic">
-                             <input type="submit" class="form-control" value="Enviar">
-                         </div>
-                     </div>
-                 </div>
-             </div>
          </div>
      </div>
  </section>
