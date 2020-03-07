@@ -1,5 +1,8 @@
 <!doctype html>
-<html class="no-js" lang="">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -11,9 +14,11 @@
 
         <!--Google fonts links-->
         <script src="/EEmobi/resources/js/jquery-google.min.js"></script>
-        <link rel="stylesheet" href="/EEmobi/resources/css/test/bootstrap.min.css">   
+        <link rel="stylesheet" href="/EEmobi/resources/css/test/bootstrap.min.css">
         <script src="/EEmobi/resources/js/bootstrap.min.js"></script>
         <script src="/EEmobi/resources/js/starsPlugin.js"></script>
+        <script src="/EEmobi/resources/js/eventListener.js"></script>
+        <script src="/EEmobi/resources/js/functions.js"></script>
         <!--For Plugins external css-->
     
         <!--Theme custom css -->
@@ -56,7 +61,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
+                        <li><a href="./searchSubject.php">Cercar per assignatures</a></li> <!-- TODO: CAMBIAR POR PATH ENTERO http://deic-projectes.uab.cat/EEmobi/searchSubject.php -->
                    </ul>
                    <ul class="nav navbar-nav navbar-right ">
                        <li><a  class="welcome" href="/EEmobi/Perfil"><?php echo $_SESSION['nom']; ?></a></li>

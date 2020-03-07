@@ -10,6 +10,7 @@
         <link rel="icon" href="resources/img/icona.png">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="resources/js/jquery-google.min.js"></script>
         <link rel="stylesheet" href="/EEmobi/resources/css/test/bootstrap.min.css">
         <script type="text/javascript">

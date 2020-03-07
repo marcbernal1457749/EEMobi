@@ -1,5 +1,5 @@
 
-<?php include('templates/HeaderUser.php') ?>
+<?php include('templates/HeaderInfo.php') ?>
 <div class="container">
     <input type="hidden" id="idUni" value="<?php echo $university->idUniversitat; ?>">
     <div class="row">

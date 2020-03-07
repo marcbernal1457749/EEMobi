@@ -10,10 +10,12 @@
         <meta name="description" content="">
         <link rel="icon" href="resources/img/icona.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="resources/js/jquery-google.min.js"></script>
         <link rel="stylesheet" href="resources/css/test/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/test/starsStyle.css">
         <script src="resources/js/starsPlugin.js"></script>
+
         <!--local fonts-->
                 <script type="text/javascript">
             var isLogged = true;
