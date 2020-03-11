@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Cerca | EEMobi - UAB Barcelona</title>
+        <title>Informació | EEMobi - UAB Barcelona</title>
         <link rel="icon" href="resources/img/icona.png">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">

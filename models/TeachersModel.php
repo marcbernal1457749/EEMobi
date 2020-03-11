@@ -62,7 +62,7 @@ class TeachersModel{
         try{
             $consulta = $this->db->prepare('SELECT pr.nom, pr.cognoms, es.nomGrau, pr.correuProfessor,pr.niuProfessor
                                             FROM professors pr, estudisuab es
-                                            WHERE pr.codiEstudis = es.codiEstudis');
+                                            WHERE pr.codiEstudis = es.codiEstudis ORDER BY pr.nom ASC');
             $consulta->execute();
             $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
             return $obj;
