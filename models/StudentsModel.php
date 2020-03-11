@@ -12,7 +12,7 @@ class StudentsModel{
  
     public function getAllStudents(){
         //realizamos la consulta de todos los items
-        $consulta = $this->db->prepare('SELECT * FROM estudiant');
+        $consulta = $this->db->prepare('SELECT * FROM estudiant ORDER BY nom ASC');
         $consulta->execute();
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.
