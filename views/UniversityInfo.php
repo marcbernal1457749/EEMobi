@@ -84,6 +84,7 @@
                                                         <th>Places</th>
                                                         <th>Mesos</th>
                                                         <th>Període</th>
+                                                        <th>Actiu</th>
 
                                                     </tr>
                                                     </thead>
@@ -93,6 +94,7 @@
                                                             <td><?php echo $centre->plaçes;  ?></td>
                                                             <td><?php echo $centre->mesos;  ?></td>
                                                             <td><?php echo $centre->període; ?></td>
+                                                            <td><?php echo $centre->actiu == true ? 'Sí':'No'; ?></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                     </tbody>

@@ -68,6 +68,7 @@ class StateModel
         return $obj;
 
     }
+
     public function disconnect(){
         $this->db =null;
     }
