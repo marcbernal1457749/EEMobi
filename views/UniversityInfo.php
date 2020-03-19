@@ -108,7 +108,7 @@
                                                 <tr>
                                                     <th>Coordinador/a</th>
                                                     <th>Grau</th>
-                                                    <th><img alt="info" id="info" src="./resources/images/info.png"/></th>
+                                                    <th><img alt="info" id="info" src="/EEmobi/resources/images/info.png"/></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -123,8 +123,9 @@
 
                                                         <?php $grau = $te->nomGrau;
                                                         $grau = str_replace(" ", "-", $grau);?>
+                                                        <!-- degree=/EEmobi/-->
 
-                                                        <td><a href="degree=<?php echo $grau?>"><img alt="info" id="click" src="./resources/images/click.png"/></a></td>
+                                                        <td><a href="./<?php echo $grau?>"><img alt="info" id="click" src="/EEmobi/resources/images/click.png"/></a></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                                 </tbody>
