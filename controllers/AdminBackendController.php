@@ -419,44 +419,31 @@ class AdminBackendController{
 
         //Modificamos el time limit para que no pete
         set_time_limit(20000);
-       /* $arrayDeUrls = array('http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/', 'http://www.dtu.dk/dazzzz/',  'https://ddd.uab.cat/pub/procur/2017-18/g1027473a2017-18iCAT.pdf','http://www.uab.cat/guiesdocents/2017-18/g102689a2017-18iCAT.pdf');
 
         $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
-
-
-        foreach ($arrayDeUrls as $url){
-            $handler = curl_init($url);
-            curl_setopt_array($handler,$options);
-            $response = curl_exec($handler);
-            $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
-
-            if ($urlHeader == 404 || $urlHeader == 0){
-                array_push($failedURLS, array('modul' => "Test", 'redirect' => "Narnia", 'url' => $url));
-            }
-
-            curl_close($handler);
-        }*/
 
 
         //URLS Unis
         foreach ($urlsUniversitat as $urlUni){
             $urlPrincipal = $urlUni['urlUniversitat'];
             $handleURLPrincipal = curl_init($urlPrincipal);
+            curl_setopt($handleURLPrincipal,CURLOPT_TIMEOUT_MS,300);
             curl_setopt_array($handleURLPrincipal, $options);
             $responsePrincipal = curl_exec($handleURLPrincipal);
             $urlHeaderPrincipal = curl_getinfo($handleURLPrincipal, CURLINFO_HTTP_CODE);
 
             $urlIntercanvi = $urlUni['urlIntercanvis'];
             $handleURLIntercanvi = curl_init($urlIntercanvi);
+            curl_setopt($handleURLIntercanvi,CURLOPT_TIMEOUT_MS,300);
             curl_setopt_array($handleURLIntercanvi, $options);
             $responseIntercanvi = curl_exec($handleURLIntercanvi);
             $urlHeaderIntercanvi = curl_getinfo($handleURLIntercanvi, CURLINFO_HTTP_CODE);
 
-            if ($urlHeaderPrincipal == 404 || $urlHeaderPrincipal == 0){
+            if ($urlHeaderPrincipal == 404){
                 array_push($failedURLS, array('modul' => "URL Universitat",'redirect' => $urlUni['idUniversitat'], 'url' => $urlPrincipal));
             }
 
-            if ($urlHeaderIntercanvi == 404 || $urlHeaderIntercanvi == 0){
+            if ($urlHeaderIntercanvi == 404){
                 array_push($failedURLS, array('modul' => "URL Intercanvi", 'redirect' => $urlUni['idUniversitat'], 'url' => $urlIntercanvi));
             }
 
@@ -464,31 +451,16 @@ class AdminBackendController{
             curl_close($handleURLIntercanvi);
         }
 
-        //URLS Footer
-        foreach ($urlsFooter as $url){
-
-            $urlPrincipal = $url['urlApartat'];
-            $handler = curl_init($urlPrincipal);
-            curl_setopt_array($handler, $options);
-            $response = curl_exec($handler);
-            $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
-
-            if ($urlHeader == 404 || $urlHeader == 0){
-                array_push($failedURLS, array('modul' => "Footer", 'redirect' => $url['titolApartat'], 'url' => $urlPrincipal));
-            }
-
-            curl_close($handler);
-        }
-
         //URLS Assignatures Externes
         foreach ($urlsAssignaturesExternes as $url){
             $urlPrincipal = $url->linkAssignaturaDesti;
             $handler = curl_init($urlPrincipal);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,300);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
-            if ($urlHeader == 404 || $urlHeader == 0){
+            if ($urlHeader == 404){
                 array_push($failedURLS, array('modul' => "Assignatura Externa", 'redirect' => $url->idUniversitat, 'url' => $urlPrincipal));
             }
 
@@ -499,11 +471,12 @@ class AdminBackendController{
         foreach ($urlAssignaturesUAB as $url){
             $urlPrincipal = $url->url;
             $handler = curl_init($urlPrincipal);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,300);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
-            if ($urlHeader == 404 || $urlHeader == 0){
+            if ($urlHeader == 404){
                 array_push($failedURLS, array('modul' => "Assignatura UAB", 'redirect' => $url->codiAssignaturaUAB, 'url' => $urlPrincipal));
             }
 

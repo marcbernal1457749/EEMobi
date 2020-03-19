@@ -84,6 +84,7 @@
                                                         <th>Places</th>
                                                         <th>Mesos</th>
                                                         <th>Període</th>
+                                                        <th>Actiu</th>
 
                                                     </tr>
                                                     </thead>
@@ -93,6 +94,7 @@
                                                             <td><?php echo $centre->plaçes;  ?></td>
                                                             <td><?php echo $centre->mesos;  ?></td>
                                                             <td><?php echo $centre->període; ?></td>
+                                                            <td><?php echo $centre->actiu == true ? 'Sí':'No'; ?></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                     </tbody>
@@ -106,6 +108,7 @@
                                                 <tr>
                                                     <th>Coordinador/a</th>
                                                     <th>Grau</th>
+                                                    <th><img alt="info" id="info" src="/EEmobi/resources/images/info.png"/></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -117,6 +120,12 @@
                                                             <td><?php echo $te->nom.' '.$te->cognoms ;  ?></td>
                                                         <?php } ?>
                                                         <td><?php echo $te->nomGrau;  ?></td>
+
+                                                        <?php $grau = $te->nomGrau;
+                                                        $grau = str_replace(" ", "-", $grau);?>
+                                                        <!-- degree=/EEmobi/-->
+
+                                                        <td><a href="./<?php echo $grau?>"><img alt="info" id="click" src="/EEmobi/resources/images/click.png"/></a></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                                 </tbody>

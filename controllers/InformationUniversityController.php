@@ -42,9 +42,9 @@ class InformationUniversityController
 
             if(!empty($degree)){
                 $degreeSelected = true;
-                $info = $stateInfo -> getAllInfoByDegree($idUniversity,$degree->codiEstudis);
-                $infoCenter = $stateInfo->getInfoCentreEstudis($idUniversity,$degree->codiEstudis);
-                $teacher =  $teachersModel -> getTeacherByDegree($degree->codiEstudis,$idUniversity);
+                $info = $stateInfo -> getAllInfoByDegree($idUniversity,$degree);
+                $infoCenter = $stateInfo->getInfoCentreEstudis($idUniversity,$degree);
+                $teacher =  $teachersModel -> getTeacherByDegree($degree,$idUniversity);
             }else{
                 $info = $stateInfo -> getAllInfo($idUniversity);
                 $teacher = $teachersModel -> getTeachers();

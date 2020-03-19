@@ -1,6 +1,6 @@
-	<?php include('templates/logged.php'); ?>
-	<?php include('templates/HeaderAdmin.php'); ?>
-
+<!-- VISTA PANELL ADMINISTRADOR -->
+<?php include('templates/logged.php'); ?>
+<?php include('templates/HeaderAdmin.php'); ?>
 
 	<div class="container">
 		<div class="row">
@@ -14,19 +14,12 @@
 							  <a href="javascript:void(0)" class="list-group-item UV"></span>Universitats</a>
 							  <a href="javascript:void(0)" class="list-group-item ES" ></span>Estudiants</a>
 							  <a href="javascript:void(0)" class="list-group-item MO"></span>Programes de mobilitat</a>
-                                <!--
-							  <a href="javascript:void(0)" class="list-group-item UE"></span>Universitats - Estudis</a>
-							  <a href="javascript:void(0)" class="list-group-item UP"></span>Universitats - Places</a>
-							  <a href="javascript:void(0)" class="list-group-item CO"></span>Convenis</a>
-							  <a href="javascript:void(0)" class="list-group-item ST"></span>Estades</a>
-  							  <a href="javascript:void(0)" class="list-group-item AE"></span>Acord - Estudis</a>
-  							  !-->
                               <a href="javascript:void(0)" class="list-group-item AA"></span>Altres Accions</a>
 							</div>
 
 					</div>
 				</div>
-				<!-- PANELL DE PERFIL FOTO -->
+
 			</div>		
 			<div class="col-sm-9">
 			    <div class="text-center" id="debug"> </div>
