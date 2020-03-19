@@ -6,8 +6,8 @@ h1,h2,h3,h4,h5{margin:0}
 .btn,.clickable,.scrollup{cursor:pointer}
 body,html{font-size:15px;color:#565656;width:100%;padding:0;margin-left:0;margin-right:0;background-color:white;font-family:Roboto,sans-serif}
 img{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-drag:none;user-drag:none;max-width:100%}
-a,a:active,a:focus,{
-    color: #d75a00;text-decoration:none;outline:0;}
+a,a:active,a:focus{
+    color: black;text-decoration:none;outline:0;}
 a:hover{color: rgba(215, 90, 0, 0.71);outline:0;text-decoration:none;}
 a,a span,button{-webkit-transition:.2s ease-in-out;-o-transition:.2s ease-in-out;transition:.2s ease-in-out}
 .btn.extra-width{padding:13px 40px}
@@ -349,4 +349,16 @@ tr th,tr.info th{background:#000}
 tr th{color:#fff}ul.nav{border-bottom:0}
 .titulo{
     text-align: center;
+}
+#info{
+    width: 25px;
+    heigh: 25px;
+}
+#click{
+    width: 25px;
+    heigh: 25px;
+    cursor: pointer;
+}
+#click:hover{
+    .opacity=0.3;
 }
