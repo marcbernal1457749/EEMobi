@@ -14,11 +14,11 @@ if($logged){
         <div class="col-sm-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <h1>Buscador d'assignatures</h1>
+                    <h3 class="titulo">Troba la teva destinació:</h3>
                 </div>
 
                 <div class="panel-body">
-                    <h4>Cerca:</h4>
+                    <h4>Cerca per assignatures:</h4>
                     <div class="col-sm-7">
                         <div class="row bg-info padding-bottom-20 ">
                             <div class="col-lg-6">

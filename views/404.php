@@ -1,8 +1,7 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Oops 404 for Website Template for free | Home :: w3layouts</title>
+<title>EEMobi - UAB Barcelona</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link href='//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/EEmobi/resources/css/test/404.css" />

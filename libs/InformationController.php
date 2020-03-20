@@ -36,7 +36,7 @@ class InformationController{
           $controller->$actionName($parameters);
 
         }else{
-            include './views/404.php';
+            include '/EEmobi/views/404.php';
 
         }
 
