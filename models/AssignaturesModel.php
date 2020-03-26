@@ -58,7 +58,7 @@ class AssignaturesModel{
 
     public function getURLAssignatures(){
         try {
-            $consulta = $this->db->prepare('SELECT url, codiAssignaturaUAB FROM assignaturesuab');
+            $consulta = $this->db->prepare('SELECT url, codiAssignaturaUAB, nomAssignatura FROM assignaturesuab');
             $consulta->execute();
             $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
 

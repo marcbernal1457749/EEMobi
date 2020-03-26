@@ -404,16 +404,19 @@ class AdminBackendController{
         require 'models/AdminManagmentModel.php';
         require 'models/AcordEstudisModel.php';
         require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
 
         $universitiesModel = new UniversitiesModel();
         $adminManagmentModel = new AdminManagmentModel();
         $acordsModel = new AcordEstudisModel();
         $assignaturesModel = new AssignaturesModel();
+        $failURLModel = new FailURLModel();
 
         $urlsUniversitat = $universitiesModel->getURLUniversities();
         $urlsFooter = $adminManagmentModel->getURLSubsection();
         $urlsAssignaturesExternes = $acordsModel->getURLsAcords();
         $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
+
 
         $failedURLS = array();
 
@@ -427,24 +430,26 @@ class AdminBackendController{
         foreach ($urlsUniversitat as $urlUni){
             $urlPrincipal = $urlUni['urlUniversitat'];
             $handleURLPrincipal = curl_init($urlPrincipal);
-            curl_setopt($handleURLPrincipal,CURLOPT_TIMEOUT_MS,300);
+            curl_setopt($handleURLPrincipal,CURLOPT_TIMEOUT_MS,500);
             curl_setopt_array($handleURLPrincipal, $options);
             $responsePrincipal = curl_exec($handleURLPrincipal);
             $urlHeaderPrincipal = curl_getinfo($handleURLPrincipal, CURLINFO_HTTP_CODE);
 
             $urlIntercanvi = $urlUni['urlIntercanvis'];
             $handleURLIntercanvi = curl_init($urlIntercanvi);
-            curl_setopt($handleURLIntercanvi,CURLOPT_TIMEOUT_MS,300);
+            curl_setopt($handleURLIntercanvi,CURLOPT_TIMEOUT_MS,500);
             curl_setopt_array($handleURLIntercanvi, $options);
             $responseIntercanvi = curl_exec($handleURLIntercanvi);
             $urlHeaderIntercanvi = curl_getinfo($handleURLIntercanvi, CURLINFO_HTTP_CODE);
 
-            if ($urlHeaderPrincipal == 404){
-                array_push($failedURLS, array('modul' => "URL Universitat",'redirect' => $urlUni['idUniversitat'], 'url' => $urlPrincipal));
+            if ($urlHeaderPrincipal >=400){
+                array_push($failedURLS, array('modul' => "URL Universitat",'redirect' => $urlUni['nomUniversitat'], 'url' => $urlPrincipal));
+                $failURLModel -> addFailURL("URL Universitat", $urlPrincipal, $urlUni['nomUniversitat']);
             }
 
-            if ($urlHeaderIntercanvi == 404){
-                array_push($failedURLS, array('modul' => "URL Intercanvi", 'redirect' => $urlUni['idUniversitat'], 'url' => $urlIntercanvi));
+            if ($urlHeaderIntercanvi >=400){
+                array_push($failedURLS, array('modul' => "URL Intercanvi", 'redirect' => $urlUni['nomUniversitat'], 'url' => $urlIntercanvi));
+                $failURLModel -> addFailURL("URL Intercanvi", $urlIntercanvi, $urlUni['nomUniversitat']);
             }
 
             curl_close($handleURLPrincipal);
@@ -460,8 +465,9 @@ class AdminBackendController{
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
-            if ($urlHeader == 404){
-                array_push($failedURLS, array('modul' => "Assignatura Externa", 'redirect' => $url->idUniversitat, 'url' => $urlPrincipal));
+            if ($urlHeader >=400){
+                array_push($failedURLS, array('modul' => "Assignatura Externa", 'redirect' => $url->nomAsignaturaDesti, 'url' => $urlPrincipal));
+                $failURLModel -> addFailURL("Assignatura Externa", $urlPrincipal, $url->nomAsignaturaDesti);
             }
 
             curl_close($handler);
@@ -476,8 +482,9 @@ class AdminBackendController{
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
-            if ($urlHeader == 404){
-                array_push($failedURLS, array('modul' => "Assignatura UAB", 'redirect' => $url->codiAssignaturaUAB, 'url' => $urlPrincipal));
+            if ($urlHeader >=400){
+                array_push($failedURLS, array('modul' => "Assignatura UAB", 'redirect' => $url->nomAssignatura, 'url' => $urlPrincipal));
+                $failURLModel -> addFailURL("Assignatura UAB", $urlPrincipal, $url->nomAssignatura);
             }
 
             curl_close($handler);

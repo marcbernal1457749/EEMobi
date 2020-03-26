@@ -341,7 +341,7 @@ class UniversitiesModel{
     }
 
     public function getURLUniversities(){
-        $consulta = $this->db->prepare('SELECT idUniversitat, urlUniversitat, urlIntercanvis FROM universitats');
+        $consulta = $this->db->prepare('SELECT idUniversitat, nomUniversitat, urlUniversitat, urlIntercanvis FROM universitats');
         $consulta->execute();
         $rows = $consulta->fetchAll();
 
