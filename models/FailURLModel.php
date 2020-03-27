@@ -18,5 +18,25 @@ class FailURLModel{
         }
 
     }
+    public function getFailURL($modul){
+        try {
+            //realizamos la consulta de todos los items
+            $consulta = $this->db->prepare('SELECT * FROM urlfallides WHERE modul=?');
+            $consulta->execute(array($modul));
+            $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+
+        } catch (Exception $e) {
+
+        }
+
+        //devolvemos la colección para que la vista la presente.
+        return $obj;
+    }
+
+    public function disconnect(){
+        $this->db =null;
+    }
+
+
 
 }

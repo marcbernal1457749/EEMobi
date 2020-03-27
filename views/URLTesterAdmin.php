@@ -19,17 +19,44 @@
     </div>
     <hr/>
 
-    <div id="result">
-        <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
-
-        <div class="row padding-top-20"></div>
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                <button class="btn btn-success btn-lg center-block" id="testUrls" onclick="testUrls()">Testeja les URLs!</button>
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab-uni">Universitats</a></li>
+            <li><a data-toggle="tab" href="#tab-assigUAB">Assignatures UAB</a></li>
+            <li><a data-toggle="tab" href="#tab-assigEXT">Assignatures Externes</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div id="tab-uni" class="tab-pane fade in active">
+            <br>
+            <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
+            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsUniversitat()">Testeja les URLs</button>
+            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsUnis()">Visualitza resultats anteriors</button>
+            <hr/>
+            <h5>Resultats Mòdul URL Universitats</h5>
+            <div id="result">
             </div>
-            <div class="col-lg-4"></div>
         </div>
-        <div class="row padding-bottom-20"></div>
+
+        <div id="tab-assigUAB" class="tab-pane fade">
+            <br>
+            <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
+            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigUAB()">Testeja les URLs</button>
+            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigUAB()">Visualitza resultats anteriors</button>
+            <hr/>
+            <h5>Resultats Mòdul Assignatures UAB</h5>
+            <div id="result1">
+            </div>
+        </div>
+        <div id="tab-assigEXT" class="tab-pane fade">
+            <br>
+            <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
+            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigEXT()">Testeja les URLs</button>
+            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigEXT()">Visualitza resultats anteriors</button>
+            <hr/>
+            <h5>Resultats Mòdul Assignatures Externes</h5>
+            <div id="result2">
+            </div>
+        </div>
     </div>
 </div>

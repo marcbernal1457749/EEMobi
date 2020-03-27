@@ -399,29 +399,20 @@ class AdminBackendController{
         include($route);
     }
 
-    public function testUrlsAdmin($parameters){
+    //TEST URL UNIVERSITAT
+    public function testUrlsUniversitat($parameters){
         require 'models/UniversitiesModel.php';
-        require 'models/AdminManagmentModel.php';
         require 'models/AcordEstudisModel.php';
         require 'models/AssignaturesModel.php';
         require 'models/FailURLModel.php';
 
         $universitiesModel = new UniversitiesModel();
-        $adminManagmentModel = new AdminManagmentModel();
-        $acordsModel = new AcordEstudisModel();
-        $assignaturesModel = new AssignaturesModel();
         $failURLModel = new FailURLModel();
 
         $urlsUniversitat = $universitiesModel->getURLUniversities();
-        $urlsFooter = $adminManagmentModel->getURLSubsection();
-        $urlsAssignaturesExternes = $acordsModel->getURLsAcords();
-        $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
-
-
-        $failedURLS = array();
 
         //Modificamos el time limit para que no pete
-        set_time_limit(20000);
+        set_time_limit(200000);
 
         $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
 
@@ -430,25 +421,25 @@ class AdminBackendController{
         foreach ($urlsUniversitat as $urlUni){
             $urlPrincipal = $urlUni['urlUniversitat'];
             $handleURLPrincipal = curl_init($urlPrincipal);
-            curl_setopt($handleURLPrincipal,CURLOPT_TIMEOUT_MS,500);
+            curl_setopt($handleURLPrincipal,CURLOPT_TIMEOUT_MS,100);
             curl_setopt_array($handleURLPrincipal, $options);
             $responsePrincipal = curl_exec($handleURLPrincipal);
             $urlHeaderPrincipal = curl_getinfo($handleURLPrincipal, CURLINFO_HTTP_CODE);
 
             $urlIntercanvi = $urlUni['urlIntercanvis'];
             $handleURLIntercanvi = curl_init($urlIntercanvi);
-            curl_setopt($handleURLIntercanvi,CURLOPT_TIMEOUT_MS,500);
+            curl_setopt($handleURLIntercanvi,CURLOPT_TIMEOUT_MS,100);
             curl_setopt_array($handleURLIntercanvi, $options);
             $responseIntercanvi = curl_exec($handleURLIntercanvi);
             $urlHeaderIntercanvi = curl_getinfo($handleURLIntercanvi, CURLINFO_HTTP_CODE);
 
             if ($urlHeaderPrincipal >=400){
-                array_push($failedURLS, array('modul' => "URL Universitat",'redirect' => $urlUni['nomUniversitat'], 'url' => $urlPrincipal));
+                //array_push($failedURLS, array('modul' => "URL Universitat",'redirect' => $urlUni['nomUniversitat'], 'url' => $urlPrincipal));
                 $failURLModel -> addFailURL("URL Universitat", $urlPrincipal, $urlUni['nomUniversitat']);
             }
 
             if ($urlHeaderIntercanvi >=400){
-                array_push($failedURLS, array('modul' => "URL Intercanvi", 'redirect' => $urlUni['nomUniversitat'], 'url' => $urlIntercanvi));
+               // array_push($failedURLS, array('modul' => "URL Intercanvi", 'redirect' => $urlUni['nomUniversitat'], 'url' => $urlIntercanvi));
                 $failURLModel -> addFailURL("URL Intercanvi", $urlIntercanvi, $urlUni['nomUniversitat']);
             }
 
@@ -456,48 +447,175 @@ class AdminBackendController{
             curl_close($handleURLIntercanvi);
         }
 
+        #Obtenemos los datos de la BBDD por cada módulo para presentarlos en las vistas:
+        $urlfallidesUni = $failURLModel->getFailURL("URL Universitat");
+        $urlfallidesInt = $failURLModel->getFailURL("URL Intercanvi");
+
+        $universitiesModel->disconnect();
+        $failURLModel->disconnect();
+
+        //Devolvemos el time limit al default
+        set_time_limit(30);
+
+        $route = $this->view->show("URLtestedTable.php");
+        include($route);
+    }
+
+    //TEST URL ASSIGNATURES EXTERNES
+    public function testUrlsAssigEXT($parameters){
+        require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $acordsModel = new AcordEstudisModel();
+        $assignaturesModel = new AssignaturesModel();
+        $failURLModel = new FailURLModel();
+
+        $urlsAssignaturesExternes = $acordsModel->getURLsAcords();
+
+        //Modificamos el time limit para que no pete
+        set_time_limit(200000);
+
+        $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
+
+
+
         //URLS Assignatures Externes
         foreach ($urlsAssignaturesExternes as $url){
             $urlPrincipal = $url->linkAssignaturaDesti;
             $handler = curl_init($urlPrincipal);
-            curl_setopt($handler,CURLOPT_TIMEOUT_MS,300);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,100);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
             if ($urlHeader >=400){
-                array_push($failedURLS, array('modul' => "Assignatura Externa", 'redirect' => $url->nomAsignaturaDesti, 'url' => $urlPrincipal));
+                //array_push($failedURLS, array('modul' => "Assignatura Externa", 'redirect' => $url->nomAsignaturaDesti, 'url' => $urlPrincipal));
                 $failURLModel -> addFailURL("Assignatura Externa", $urlPrincipal, $url->nomAsignaturaDesti);
             }
 
             curl_close($handler);
         }
 
+        #Obtenemos los datos de la BBDD por cada módulo para presentarlos en las vistas:
+
+        $urlfallidesAssignaturesEXT = $failURLModel->getFailURL("Assignatura Externa");
+
+        $acordsModel->disconnect();
+        $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
+
+        //Devolvemos el time limit al default
+        set_time_limit(30);
+
+        $route = $this->view->show("URLtestedTable.php");
+        include($route);
+    }
+
+    //TEST URL ASSIGNATURES UAB
+    public function testUrlsAssigUAB($parameters){
+        require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $acordsModel = new AcordEstudisModel();
+        $assignaturesModel = new AssignaturesModel();
+        $failURLModel = new FailURLModel();
+
+        $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
+
+        //Modificamos el time limit para que no pete
+        set_time_limit(200000);
+
+        $options = array(CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_FOLLOWLOCATION => true);
+
         //URLS Assignatures UAB
         foreach ($urlAssignaturesUAB as $url){
             $urlPrincipal = $url->url;
             $handler = curl_init($urlPrincipal);
-            curl_setopt($handler,CURLOPT_TIMEOUT_MS,300);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,100);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
 
             if ($urlHeader >=400){
-                array_push($failedURLS, array('modul' => "Assignatura UAB", 'redirect' => $url->nomAssignatura, 'url' => $urlPrincipal));
+                //array_push($failedURLS, array('modul' => "Assignatura UAB", 'redirect' => $url->nomAssignatura, 'url' => $urlPrincipal));
                 $failURLModel -> addFailURL("Assignatura UAB", $urlPrincipal, $url->nomAssignatura);
             }
 
             curl_close($handler);
         }
 
+        #Obtenemos los datos de la BBDD por cada módulo para presentarlos en las vistas:
+        $urlfallidesAssignaturesUAB = $failURLModel->getFailURL("Assignatura UAB");
 
-        $universitiesModel->disconnect();
-        $adminManagmentModel->disconnect();
         $acordsModel->disconnect();
         $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
 
         //Devolvemos el time limit al default
         set_time_limit(30);
+
+        $route = $this->view->show("URLtestedTable.php");
+        include($route);
+    }
+
+    public function getfailedURLUnis($parameters){
+        require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $universitiesModel = new UniversitiesModel();
+        $failURLModel = new FailURLModel();
+
+        $urlfallidesUni = $failURLModel->getFailURL("URL Universitat");
+        $urlfallidesInt = $failURLModel->getFailURL("URL Intercanvi");
+
+        $universitiesModel->disconnect();
+        $failURLModel->disconnect();
+
+        $route = $this->view->show("URLtestedTable.php");
+        include($route);
+    }
+
+    public function getfailedURLAssigEXT($parameters){
+
+        require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $acordsModel = new AcordEstudisModel();
+        $assignaturesModel = new AssignaturesModel();
+        $failURLModel = new FailURLModel();
+
+        $urlfallidesAssignaturesEXT = $failURLModel->getFailURL("Assignatura Externa");
+
+        $acordsModel->disconnect();
+        $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
+
+        $route = $this->view->show("URLtestedTable.php");
+        include($route);
+    }
+
+    public function getfailedURLAssigUAB($parameters){
+
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+
+        $assignaturesModel = new AssignaturesModel();
+        $failURLModel = new FailURLModel();
+
+        $urlfallidesAssignaturesUAB = $failURLModel->getFailURL("Assignatura UAB");
+
+
+        $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
 
         $route = $this->view->show("URLtestedTable.php");
         include($route);

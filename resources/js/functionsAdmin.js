@@ -259,16 +259,92 @@ function getUrlTesterBackend() {
     })
 }
 
-function testUrls(){
-
-    $("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>")
+function testUrlsUniversitat(){
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
     $.ajax({
         type: "GET",
         url: "admin.php",
-        data: "/testUrlsAdmin",
+        data: "/testUrlsUniversitat",
         timeout: 0,
         success: function(t, e, c) {
+            window.alert("Totes les URL testejades correctament!");
+            $("#result").html(t);
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar testejar les URL!");
+        }
+    })
+}
+
+function testUrlsAssigUAB(){
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/testUrlsAssigUAB",
+        timeout: 0,
+        success: function(t, e, c) {
+            window.alert("Totes les URL testejades correctament!");
+            $("#result1").html(t);
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar testejar les URL!");
+        }
+    })
+}
+
+
+function testUrlsAssigEXT(){
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/testUrlsAssigEXT",
+        timeout: 0,
+        success: function(t, e, c) {
+            window.alert("Totes les URL testejades correctament!");
+            $("#result2").html(t);
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar testejar les URL!");
+        }
+    })
+}
+
+function viewUrlsUnis(){
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/getfailedURLUnis",
+        success: function(t, e, c) {
             $("#result").html(t)
+        },
+        error: function(t, e) {}
+    })
+}
+
+function viewUrlsAssigUAB(){
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/getfailedURLAssigUAB",
+        success: function(t, e, c) {
+            $("#result1").html(t)
+        },
+        error: function(t, e) {}
+    })
+}
+
+function viewUrlsAssigEXT(){
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/getfailedURLAssigEXT",
+        success: function(t, e, c) {
+            $("#result2").html(t)
         },
         error: function(t, e) {}
     })

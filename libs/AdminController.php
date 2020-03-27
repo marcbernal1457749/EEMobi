@@ -127,7 +127,23 @@ class AdminController{
                 $actionName = $controller;
                 break;
 
-            case 'testUrlsAdmin':
+            case 'testUrlsUniversitat':
+                $actionName = $controller;
+                break;
+
+            case 'testUrlsAssigEXT':
+                $actionName = $controller;
+                break;
+            case 'testUrlsAssigUAB':
+                $actionName = $controller;
+                break;
+            case 'getfailedURLUnis':
+                $actionName = $controller;
+                break;
+            case 'getfailedURLAssigUAB':
+                $actionName = $controller;
+                break;
+            case 'getfailedURLAssigEXT':
                 $actionName = $controller;
                 break;
 
