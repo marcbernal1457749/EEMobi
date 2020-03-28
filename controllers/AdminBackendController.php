@@ -454,10 +454,11 @@ class AdminBackendController{
         $universitiesModel->disconnect();
         $failURLModel->disconnect();
 
+
+        $route = $this->view->show("URLtestedTable.php");
         //Devolvemos el time limit al default
         set_time_limit(30);
 
-        $route = $this->view->show("URLtestedTable.php");
         include($route);
     }
 
@@ -506,11 +507,13 @@ class AdminBackendController{
         $assignaturesModel->disconnect();
         $failURLModel->disconnect();
 
-        //Devolvemos el time limit al default
-        set_time_limit(30);
+
 
         $route = $this->view->show("URLtestedTable.php");
+        //Devolvemos el time limit al default
+        set_time_limit(30);
         include($route);
+
     }
 
     //TEST URL ASSIGNATURES UAB
@@ -535,7 +538,7 @@ class AdminBackendController{
         foreach ($urlAssignaturesUAB as $url){
             $urlPrincipal = $url->url;
             $handler = curl_init($urlPrincipal);
-            curl_setopt($handler,CURLOPT_TIMEOUT_MS,100);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,200);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
@@ -555,10 +558,10 @@ class AdminBackendController{
         $assignaturesModel->disconnect();
         $failURLModel->disconnect();
 
-        //Devolvemos el time limit al default
-        set_time_limit(30);
 
         $route = $this->view->show("URLtestedTable.php");
+        //Devolvemos el time limit al default
+        set_time_limit(30);
         include($route);
     }
 
@@ -580,6 +583,8 @@ class AdminBackendController{
         $route = $this->view->show("URLtestedTable.php");
         include($route);
     }
+
+
 
     public function getfailedURLAssigEXT($parameters){
 
@@ -620,6 +625,20 @@ class AdminBackendController{
         $route = $this->view->show("URLtestedTable.php");
         include($route);
     }
+
+    /*public function deletefailedURL($parameters){
+
+        $idFailURL = json_decode($parameters[0], true);
+
+        require 'models/FailURLModel.php';
+
+        $failURLModel = new FailURLModel();
+
+        $failURLModel->deleteFailURL($idFailURL[0]['idurl']);
+
+        $failURLModel->disconnect();
+
+    }*/
 
     public function getAuxTablesAdmin($parameters){
         require 'models/CountriesModel.php';

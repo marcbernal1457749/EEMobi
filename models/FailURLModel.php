@@ -33,6 +33,17 @@ class FailURLModel{
         return $obj;
     }
 
+    public function deleteFailURL($id){
+        try {
+            $consulta = $this->db->prepare('DELETE FROM urlfallides WHERE idPublicació=?');
+            $consulta->execute(array($id));
+
+        } catch (Exception $e) {
+
+        }
+
+    }
+
     public function disconnect(){
         $this->db =null;
     }

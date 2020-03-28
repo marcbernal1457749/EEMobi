@@ -260,16 +260,15 @@ function getUrlTesterBackend() {
 }
 
 function testUrlsUniversitat(){
-    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
     //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
     $.ajax({
         type: "GET",
         url: "admin.php",
         data: "/testUrlsUniversitat",
-        timeout: 0,
         success: function(t, e, c) {
-            window.alert("Totes les URL testejades correctament!");
             $("#result").html(t);
+            window.alert("Totes les URL testejades correctament!");
         },
         error: function(t, e) {
             window.alert("Error al intentar testejar les URL!");
@@ -278,16 +277,15 @@ function testUrlsUniversitat(){
 }
 
 function testUrlsAssigUAB(){
-    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
     //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
     $.ajax({
         type: "GET",
         url: "admin.php",
         data: "/testUrlsAssigUAB",
-        timeout: 0,
         success: function(t, e, c) {
-            window.alert("Totes les URL testejades correctament!");
             $("#result1").html(t);
+            window.alert("Totes les URL testejades correctament!");
         },
         error: function(t, e) {
             window.alert("Error al intentar testejar les URL!");
@@ -297,16 +295,15 @@ function testUrlsAssigUAB(){
 
 
 function testUrlsAssigEXT(){
-    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Gràcies");
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
     //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
     $.ajax({
         type: "GET",
         url: "admin.php",
         data: "/testUrlsAssigEXT",
-        timeout: 0,
         success: function(t, e, c) {
-            window.alert("Totes les URL testejades correctament!");
             $("#result2").html(t);
+            window.alert("Totes les URL testejades correctament!");
         },
         error: function(t, e) {
             window.alert("Error al intentar testejar les URL!");

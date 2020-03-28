@@ -6,6 +6,7 @@
         <th scope="col" align="center">Mòdul</th>
         <th scope="col" align="center">URL Fallida</th>
         <th scope="col" align="center">Ubicació de la URL</th>
+        <th></th>
     </tr>
     </thead>
     <tbody id="urlTestedTable">
@@ -23,6 +24,11 @@
                 <td>
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
+                <td>
+                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
             </tr>
         <?php endforeach; ?>
         <?php foreach ($urlfallidesInt as $urlInt): ?>
@@ -39,6 +45,11 @@
                 <td>
                     <p><?php echo $urlInt->ubicacio; ?></p>
                 </td>
+                <td>
+                    <button type="button" class="close" aria-label="Close" at="<?php echo $urlInt->idurl; ?>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -50,6 +61,7 @@
             <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
+            <th></th>
         </tr>
         </thead>
         <tbody id="urlTestedTable">
@@ -64,6 +76,11 @@
                 <td>
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
+                <td>
+                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -75,6 +92,7 @@
             <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
+            <th></th>
         </tr>
         </thead>
         <tbody id="urlTestedTable">
@@ -88,6 +106,11 @@
                 </td>
                 <td>
                     <p><?php echo $url->ubicacio; ?></p>
+                </td>
+                <td>
+                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </td>
             </tr>
         <?php endforeach; ?>
