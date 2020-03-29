@@ -25,7 +25,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -46,7 +46,7 @@
                     <p><?php echo $urlInt->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" at="<?php echo $urlInt->idurl; ?>">
+                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $urlInt->idurl; ?>)">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -77,7 +77,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -108,7 +108,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" at="<?php echo $url->idurl; ?>">
+                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>

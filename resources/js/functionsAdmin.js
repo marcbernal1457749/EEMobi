@@ -293,6 +293,21 @@ function testUrlsAssigUAB(){
     })
 }
 
+function removefailURL(data){
+
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "deletefailedURL",
+        data: {"dataSed":data},
+        success: function(t, e, c) {
+            window.alert("URL eliminada correctament! És necessari fer click a: Tornar a visualitzar resultats anteriors, per veure les modificacions");
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar la URL");
+        }
+    })
+}
+
 
 function testUrlsAssigEXT(){
     window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");

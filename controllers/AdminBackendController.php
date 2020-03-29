@@ -538,7 +538,7 @@ class AdminBackendController{
         foreach ($urlAssignaturesUAB as $url){
             $urlPrincipal = $url->url;
             $handler = curl_init($urlPrincipal);
-            curl_setopt($handler,CURLOPT_TIMEOUT_MS,200);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,100);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
@@ -626,19 +626,17 @@ class AdminBackendController{
         include($route);
     }
 
-    /*public function deletefailedURL($parameters){
-
-        $idFailURL = json_decode($parameters[0], true);
+    public function deletefailedURL($parameters){
 
         require 'models/FailURLModel.php';
 
         $failURLModel = new FailURLModel();
+        $id = $_POST['dataSed'];
 
-        $failURLModel->deleteFailURL($idFailURL[0]['idurl']);
+        $failURLModel->deleteFailURL($id);
 
         $failURLModel->disconnect();
-
-    }*/
+    }
 
     public function getAuxTablesAdmin($parameters){
         require 'models/CountriesModel.php';

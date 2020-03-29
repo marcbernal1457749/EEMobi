@@ -146,6 +146,11 @@ class AdminController{
             case 'getfailedURLAssigEXT':
                 $actionName = $controller;
                 break;
+            case 'deletefailedURL':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
 
             case 'getAuxTablesAdmin':
                 $actionName = $controller;
