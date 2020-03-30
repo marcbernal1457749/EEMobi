@@ -411,6 +411,24 @@ class AdminBackendController{
 
         $urlsUniversitat = $universitiesModel->getURLUniversities();
 
+        //Eliminamos resultados de tests anteriores:
+        $failURLModel -> deleteAllFailURL("URL Universitat");
+        $failURLModel -> deleteAllFailURL("URL Intercanvi");
+
+        //Obtenemos las URL que tienen un campo vacío
+        $nullUniversitat = $universitiesModel->getNullURLUniversitat();
+        $nullIntercanvi = $universitiesModel->getNullURLIntercanvi();
+
+        //Guardamos las URL vacias en la nueva tabla de la BBDD:
+        foreach ($nullUniversitat as $nullUni) {
+            $urlPrincipal = $nullUni['urlUniversitat'];
+            $failURLModel->addFailURL("URL Universitat", $urlPrincipal, $nullUni['nomUniversitat']);
+        }
+        foreach ($nullIntercanvi as $nullInt) {
+            $urlPrincipal = $nullInt['urlIntercanvis'];
+            $failURLModel->addFailURL("URL Intercanvi", $urlPrincipal, $nullInt['nomUniversitat']);
+        }
+
         //Modificamos el time limit para que no pete
         set_time_limit(200000);
 
@@ -447,6 +465,7 @@ class AdminBackendController{
             curl_close($handleURLIntercanvi);
         }
 
+
         #Obtenemos los datos de la BBDD por cada módulo para presentarlos en las vistas:
         $urlfallidesUni = $failURLModel->getFailURL("URL Universitat");
         $urlfallidesInt = $failURLModel->getFailURL("URL Intercanvi");
@@ -454,10 +473,9 @@ class AdminBackendController{
         $universitiesModel->disconnect();
         $failURLModel->disconnect();
 
-
-        $route = $this->view->show("URLtestedTable.php");
         //Devolvemos el time limit al default
         set_time_limit(30);
+        $route = $this->view->show("URLtestedTable.php");
 
         include($route);
     }
@@ -474,6 +492,7 @@ class AdminBackendController{
         $failURLModel = new FailURLModel();
 
         $urlsAssignaturesExternes = $acordsModel->getURLsAcords();
+        $failURLModel -> deleteAllFailURL("Assignatura Externa");
 
         //Modificamos el time limit para que no pete
         set_time_limit(200000);
@@ -509,11 +528,11 @@ class AdminBackendController{
 
 
 
-        $route = $this->view->show("URLtestedTable.php");
         //Devolvemos el time limit al default
         set_time_limit(30);
-        include($route);
+        $route = $this->view->show("URLtestedTable.php");
 
+        include($route);
     }
 
     //TEST URL ASSIGNATURES UAB
@@ -528,6 +547,7 @@ class AdminBackendController{
         $failURLModel = new FailURLModel();
 
         $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
+        $failURLModel -> deleteAllFailURL("Assignatura UAB");
 
         //Modificamos el time limit para que no pete
         set_time_limit(200000);
@@ -538,7 +558,7 @@ class AdminBackendController{
         foreach ($urlAssignaturesUAB as $url){
             $urlPrincipal = $url->url;
             $handler = curl_init($urlPrincipal);
-            curl_setopt($handler,CURLOPT_TIMEOUT_MS,100);
+            curl_setopt($handler,CURLOPT_TIMEOUT_MS,200);
             curl_setopt_array($handler, $options);
             $response = curl_exec($handler);
             $urlHeader = curl_getinfo($handler, CURLINFO_HTTP_CODE);
@@ -559,9 +579,10 @@ class AdminBackendController{
         $failURLModel->disconnect();
 
 
-        $route = $this->view->show("URLtestedTable.php");
         //Devolvemos el time limit al default
         set_time_limit(30);
+        $route = $this->view->show("URLtestedTable.php");
+
         include($route);
     }
 

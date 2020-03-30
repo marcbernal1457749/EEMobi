@@ -1,4 +1,5 @@
 <?php if (!empty($urlfallidesUni) || !empty($urlfallidesInt)){ ?>
+<h5>Resultats:</h5>
 <table class="table">
     <thead class="thead-dark">
     <tr>

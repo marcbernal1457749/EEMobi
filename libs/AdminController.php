@@ -147,8 +147,6 @@ class AdminController{
                 $actionName = $controller;
                 break;
             case 'deletefailedURL':
-                $data = $_POST['data'];
-                array_push($parameters, $data);
                 $actionName = $controller;
                 break;
 

@@ -21,7 +21,7 @@ class FailURLModel{
     public function getFailURL($modul){
         try {
             //realizamos la consulta de todos los items
-            $consulta = $this->db->prepare('SELECT * FROM urlfallides WHERE modul=? ORDER BY data');
+            $consulta = $this->db->prepare('SELECT * FROM urlfallides WHERE modul=? ORDER BY modul');
             $consulta->execute(array($modul));
             $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
 
@@ -44,6 +44,19 @@ class FailURLModel{
         }
 
     }
+
+    public function deleteAllFailURL($modul){
+        try {
+            $consulta = $this->db->prepare('DELETE FROM urlfallides WHERE modul=?');
+
+            $consulta->execute(array($modul));
+
+        } catch (Exception $e) {
+
+        }
+
+    }
+
 
     public function disconnect(){
         $this->db =null;

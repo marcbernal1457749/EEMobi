@@ -33,7 +33,7 @@
             <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsUniversitat()">Testeja les URLs</button>
             <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsUnis()">Visualitza resultats anteriors</button>
             <hr/>
-            <h5>Resultats Mòdul URL Universitats</h5>
+            <div id="loader"></div><br>
             <div id="result">
             </div>
         </div>
@@ -44,7 +44,7 @@
             <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigUAB()">Testeja les URLs</button>
             <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigUAB()">Visualitza resultats anteriors</button>
             <hr/>
-            <h5>Resultats Mòdul Assignatures UAB</h5>
+            <div id="loader1"></div><br>
             <div id="result1">
             </div>
         </div>
@@ -54,7 +54,7 @@
             <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigEXT()">Testeja les URLs</button>
             <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigEXT()">Visualitza resultats anteriors</button>
             <hr/>
-            <h5>Resultats Mòdul Assignatures Externes</h5>
+            <div id="loader2"><br></div><br>
             <div id="result2">
             </div>
         </div>

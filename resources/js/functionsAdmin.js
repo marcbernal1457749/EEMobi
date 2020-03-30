@@ -260,16 +260,19 @@ function getUrlTesterBackend() {
 }
 
 function testUrlsUniversitat(){
-    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
-    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
+   window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
     $.ajax({
         type: "GET",
         url: "admin.php",
         data: "/testUrlsUniversitat",
+        beforeSend: function() {  $('#loader').css("display", "block"); },
         success: function(t, e, c) {
             $("#result").html(t);
             window.alert("Totes les URL testejades correctament!");
         },
+        complete: function(){
+            $('#loader').css("display", "none");
+            },
         error: function(t, e) {
             window.alert("Error al intentar testejar les URL!");
         }
@@ -278,14 +281,39 @@ function testUrlsUniversitat(){
 
 function testUrlsAssigUAB(){
     window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
-    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
     $.ajax({
         type: "GET",
         url: "admin.php",
         data: "/testUrlsAssigUAB",
+        beforeSend: function() {  $('#loader1').css("display", "block"); },
         success: function(t, e, c) {
             $("#result1").html(t);
             window.alert("Totes les URL testejades correctament!");
+        },
+        complete: function(){
+            $('#loader1').css("display", "none");
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar testejar les URL!");
+        }
+    })
+}
+
+
+function testUrlsAssigEXT(){
+    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
+
+    $.ajax({
+        type: "GET",
+        url: "admin.php",
+        data: "/testUrlsAssigEXT",
+        beforeSend: function() {  $('#loader2').css("display", "block"); },
+        success: function(t, e, c) {
+            $("#result2").html(t);
+            window.alert("Totes les URL testejades correctament!");
+        },
+        complete: function(){
+            $('#loader2').css("display", "none");
         },
         error: function(t, e) {
             window.alert("Error al intentar testejar les URL!");
@@ -304,24 +332,6 @@ function removefailURL(data){
         },
         error: function(t, e) {
             window.alert("Error al intentar eliminar la URL");
-        }
-    })
-}
-
-
-function testUrlsAssigEXT(){
-    window.alert("Atenció! Aquest és un procés lent, si us plau tingues paciència. Rebràs un altre missatge d'alerta quan el procés hagi acabat! Gràcies");
-    //$("#testUrls").html("<img class='center-block' src='./resources/images/load.gif'>");
-    $.ajax({
-        type: "GET",
-        url: "admin.php",
-        data: "/testUrlsAssigEXT",
-        success: function(t, e, c) {
-            $("#result2").html(t);
-            window.alert("Totes les URL testejades correctament!");
-        },
-        error: function(t, e) {
-            window.alert("Error al intentar testejar les URL!");
         }
     })
 }
