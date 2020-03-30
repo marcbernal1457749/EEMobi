@@ -49,7 +49,7 @@ if($logged){
 
                         <div class="col-sm-12">
                             <br />
-                            <input type="button" class="btn btn-info" value="Afegeix Assignatura" id="addSubject" />
+                            <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
                         </div>
 
                     </div>
@@ -70,7 +70,7 @@ if($logged){
                     <div class="col-sm-12 padding-bottom-20">
                         <hr>
                         <div class="col-lg-3 margin-top-20">
-                            <input type="button" class="btn btn-success" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
+                            <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                         </div>
 
                         <div class="col-lg-2">

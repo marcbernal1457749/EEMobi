@@ -19,17 +19,17 @@
                <td><?php echo $assignatura['nomUniversitat']; ?></td>
                <td id="nomPais"><?php echo $assignatura['nomPais']; ?></td>
                <td align="center" valign="middle">
-                   <a href="<?php echo $assignatura['urlUniversitat']; ?>"><img width="50" height="50" src="./resources/images/85ce86c19e.png"></a>
+                   <a href="<?php echo $assignatura['urlUniversitat']; ?>"><img id="click" src="./resources/images/click.png"></a>
                </td>
                <td align="center" valign="middle">
-                   <a href="<?php echo $assignatura['urlIntercanvis']; ?>"><img width="50" height="50" src="./resources/images/exange.png"></a></td>
+                   <a href="<?php echo $assignatura['urlIntercanvis']; ?>"><img id="click" src="./resources/images/click.png"></a></td>
                <td align="center" valign="middle">
                    <?php if($logged){?>
 
                         <form action="./information.php" method="get" target="_blank" id="formMesInfo">
                             <input type="hidden" name="id" value="<?php echo $assignatura['idUniversitat'];?>">
                             <input type="hidden" id="degreeselect" name="degree" value="Tots-els-graus" >
-                            <a href="javascript:;" onclick="$(this).closest('form').submit();"><img width="50" height="50" src="./resources/images/plus.png"></a>
+                            <a href="javascript:;" onclick="$(this).closest('form').submit();"><img id="info" src="./resources/images/info_orange.png"></a>
                         </form>
                </td>
 
