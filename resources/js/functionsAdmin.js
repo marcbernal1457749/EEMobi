@@ -268,7 +268,6 @@ function testUrlsUniversitat(){
         beforeSend: function() {  $('#loader').css("display", "block"); },
         success: function(t, e, c) {
             $("#result").html(t);
-            window.alert("Totes les URL testejades correctament!");
         },
         complete: function(){
             $('#loader').css("display", "none");
@@ -288,7 +287,6 @@ function testUrlsAssigUAB(){
         beforeSend: function() {  $('#loader1').css("display", "block"); },
         success: function(t, e, c) {
             $("#result1").html(t);
-            window.alert("Totes les URL testejades correctament!");
         },
         complete: function(){
             $('#loader1').css("display", "none");
@@ -310,7 +308,6 @@ function testUrlsAssigEXT(){
         beforeSend: function() {  $('#loader2').css("display", "block"); },
         success: function(t, e, c) {
             $("#result2").html(t);
-            window.alert("Totes les URL testejades correctament!");
         },
         complete: function(){
             $('#loader2').css("display", "none");

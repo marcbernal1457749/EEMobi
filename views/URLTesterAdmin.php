@@ -30,8 +30,8 @@
         <div id="tab-uni" class="tab-pane fade in active">
             <br>
             <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
-            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsUniversitat()">Testeja les URLs</button>
-            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsUnis()">Visualitza resultats anteriors</button>
+            <button class="btn btn-default btn-lg" id="testUrls" onclick="testUrlsUniversitat()">Testeja les URLs</button>
+            <button class="btn btn-light btn-lg" id="viewUrls" onclick="viewUrlsUnis()">Visualitza resultats anteriors</button>
             <hr/>
             <div id="loader"></div><br>
             <div id="result">
@@ -41,8 +41,8 @@
         <div id="tab-assigUAB" class="tab-pane fade">
             <br>
             <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
-            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigUAB()">Testeja les URLs</button>
-            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigUAB()">Visualitza resultats anteriors</button>
+            <button class="btn btn-default btn-lg" id="testUrls" onclick="testUrlsAssigUAB()">Testeja les URLs</button>
+            <button class="btn btn-light btn-lg" id="viewUrls" onclick="viewUrlsAssigUAB()">Visualitza resultats anteriors</button>
             <hr/>
             <div id="loader1"></div><br>
             <div id="result1">
@@ -51,8 +51,8 @@
         <div id="tab-assigEXT" class="tab-pane fade">
             <br>
             <p class="text-muted"><em>Fes click al botó per revisar totes les URLs de la Web</em></p>
-            <button class="btn btn-success btn-lg" id="testUrls" onclick="testUrlsAssigEXT()">Testeja les URLs</button>
-            <button class="btn btn-dark btn-lg" id="viewUrls" onclick="viewUrlsAssigEXT()">Visualitza resultats anteriors</button>
+            <button class="btn btn-default btn-lg" id="testUrls" onclick="testUrlsAssigEXT()">Testeja les URLs</button>
+            <button class="btn btn-light btn-lg" id="viewUrls" onclick="viewUrlsAssigEXT()">Visualitza resultats anteriors</button>
             <hr/>
             <div id="loader2"><br></div><br>
             <div id="result2">

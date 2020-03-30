@@ -1,5 +1,5 @@
 <?php if (!empty($urlfallidesUni) || !empty($urlfallidesInt)){ ?>
-<h5>Resultats:</h5>
+<h5>Data:</h5>
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -56,6 +56,7 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesEXT)){ ?>
+    <h5>Data:</h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -87,6 +88,7 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesUAB)){ ?>
+    <h5>Data:</h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
