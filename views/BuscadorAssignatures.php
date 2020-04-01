@@ -14,7 +14,7 @@ if($logged){
         <div class="col-sm-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="titulo">Troba la teva destinació:</h3>
+                    <h3 class="titulo">Troba la teva destinació!</h3>
                 </div>
 
                 <div class="panel-body">
@@ -47,8 +47,7 @@ if($logged){
                         </div>
 
 
-                        <div class="col-sm-12">
-                            <br />
+                        <div class="padding-bottom-20">
                             <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
                         </div>
 
@@ -69,9 +68,6 @@ if($logged){
 
                     <div class="col-sm-12 padding-bottom-20">
                         <hr>
-                        <div class="col-lg-3 margin-top-20">
-                            <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
-                        </div>
 
                         <div class="col-lg-2">
                             <label for="sel1">Tipus de Cerca:</label>
@@ -88,6 +84,9 @@ if($logged){
                                     <option value="<?php echo $program->codiPrograma; ?>"><?php echo $program->nom; ?></option>
                                 <?php endforeach; ?>
                             </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                         </div>
                     </div>
 

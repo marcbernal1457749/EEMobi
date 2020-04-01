@@ -307,9 +307,9 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .copyright{text-align:right}
 .copyright p{font-size:1.125rem;margin-bottom:1px;padding:20px 0}
 .copyright p i{color:red}
-.copyright p a{color:#32E10A}
+.copyright p a{color:#D75A00}
 .scrollup{width:30px;height:30px;border-radius:15px;opacity:.3;position:fixed;bottom:20px;right:25px;color:#fff;background-color:#000;z-index:10;transition:opacity .5s,background-color .5s;-moz-transition:opacity .5s,background-color .5s;-webkit-transition:opacity .5s,background-color .5s}
-.scrollup:hover{background:#82ca9c;opacity:1}
+.scrollup:hover{background: rgba(215, 90, 0, 0.8);opacity:1}
 .scrollup i{font-size:13px;position:absolute;opacity:1;color:#fff;left:50%;top:50%;margin-top:-7px;margin-left:-6px;text-decoration:none}
 li.UAB,li.UAB:hover{background:url('./resources/img/uab.png') no-repeat;margin-left:20px;}
 li.UAB a{text-indent:-1000em}
@@ -319,7 +319,7 @@ li.UAB a{text-indent:-1000em}
 #map{height:700px}
 .panel-custom{border-color:white;}
 .btn-custom,.btn-edit{border:1px solid transparent}
-.button-custom{background:#245cff}
+.button-custom{background:#D75A00}
 .personal-li li{margin-left:57px}
 h1{color:#111;font-family:Montserrat,sans-serif;font-size:35px;line-height:64px;text-align:center}
 .welcome{font-size:14px;font-weight:600;padding:15px;color:#FCE8D7;}
