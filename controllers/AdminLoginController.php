@@ -13,7 +13,7 @@ class AdminLoginController
             if(!isset($_SESSION['admin'])){
         	   $route = $this->view->show("loginAdmin.php");
             }else{
-               $route = $this->view->show("test.php");    
+               $route = $this->view->show("adminpanel.php");
             }
             
             include($route);  

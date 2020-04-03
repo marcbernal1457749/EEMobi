@@ -663,18 +663,22 @@ class AdminBackendController{
         require 'models/CountriesModel.php';
         require 'models/AssignaturesModel.php';
         require 'models/DegreesModel.php';
+        require 'models/TeachersModel.php';
 
         $countriesModel = new CountriesModel();
         $assignaturesModel = new AssignaturesModel();
         $degreesModel = new DegreesModel();
+        $teachersModel = new TeachersModel();
 
         $countries = $countriesModel->getCountry();
         $assignaturesUAB = $assignaturesModel->getAllSubjects();
         $degreesUAB = $degreesModel->getDegrees();
+        $teachers = $teachersModel->getTeachers();
 
         $countriesModel->disconnect();
         $assignaturesModel->disconnect();
         $degreesModel->disconnect();
+        $teachersModel->disconnect();
 
         $route = $this->view->show("AuxTablesAdmin.php");
         include($route);

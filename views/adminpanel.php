@@ -10,7 +10,7 @@
 				<div class="panel panel-default panel-transparent">
 					<div class="panel-body panel_withoutborder">
 							<div class="list-group">
-							  <a href="/EEmobi/admin" class="list-group-item titul_a"></span>Panell d'administració</a>
+							  <a href="/EEmobi/admin.php" class="list-group-item titul_a"></span>Panell d'administració</a>
 							  <a href="javascript:void(0)" class="list-group-item UV"></span>Universitats</a>
 							  <a href="javascript:void(0)" class="list-group-item ES" ></span>Estudiants</a>
 							  <a href="javascript:void(0)" class="list-group-item MO"></span>Programes de mobilitat</a>
