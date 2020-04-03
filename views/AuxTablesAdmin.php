@@ -48,6 +48,9 @@
                     </tbody>
                 </table>
 
+                <button type="button" id="submitCountriesTable" class="btn btn-default">Actualitzar Taula</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addPaisModal">Afegeix Entrada</button>
+
                 <div class="modal fade" id="addPaisModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -111,6 +114,7 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
+                <button type="button" id="submitSubjectsTable" class="btn btn-default">Actualitzar Taula</button>
             </div>
         </div>
     </div>
@@ -141,6 +145,9 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
+                <button type="button" id="submitDegreesTable" class="btn btn-default">Actualitzar Taula</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Entrada</button>
+
             </div>
         </div>
     </div>
@@ -171,6 +178,8 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
+                <button type="button" id="submitTeachersTable" class="btn btn-default">Actualitzar Taula</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Entrada</button>
             </div>
         </div>
     </div>
