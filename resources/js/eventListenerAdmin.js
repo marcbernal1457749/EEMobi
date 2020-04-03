@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     $(".CUV").click(function(e){
         e.preventDefault(), createUniversitiesBackend();
     }),

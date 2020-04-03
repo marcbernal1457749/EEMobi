@@ -106,7 +106,7 @@ class AcordEstudisModel{
 
     public function getURLsAcords(){
         try {
-            $consulta = $this->db->prepare('SELECT ac.linkAssignaturaDesti, uni.idUniversitat
+            $consulta = $this->db->prepare('SELECT ac.linkAssignaturaDesti, uni.idUniversitat, ac.nomAsignaturaDesti
                                                         FROM acordestudis ac, universitats uni, estada es, conveni co, centreestudis ce, universitat_estudisuab ues
                                                         WHERE ac.codiEstada = es.codiEstada
                                                         AND es.codiConveni = co.codiConveni

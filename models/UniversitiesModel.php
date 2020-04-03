@@ -341,7 +341,22 @@ class UniversitiesModel{
     }
 
     public function getURLUniversities(){
-        $consulta = $this->db->prepare('SELECT idUniversitat, urlUniversitat, urlIntercanvis FROM universitats');
+        $consulta = $this->db->prepare('SELECT idUniversitat, nomUniversitat, urlUniversitat, urlIntercanvis FROM universitats');
+        $consulta->execute();
+        $rows = $consulta->fetchAll();
+
+        return $rows;
+    }
+
+    public function getNullURLUniversitat(){
+        $consulta = $this->db->prepare('SELECT idUniversitat, nomUniversitat, urlUniversitat, urlIntercanvis FROM universitats WHERE urlUniversitat=" " ');
+        $consulta->execute();
+        $rows = $consulta->fetchAll();
+
+        return $rows;
+    }
+    public function getNullURLIntercanvi(){
+        $consulta = $this->db->prepare('SELECT idUniversitat, nomUniversitat, urlUniversitat, urlIntercanvis FROM universitats WHERE urlIntercanvis=" "');
         $consulta->execute();
         $rows = $consulta->fetchAll();
 
