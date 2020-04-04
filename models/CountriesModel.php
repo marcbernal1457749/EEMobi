@@ -44,6 +44,17 @@ class CountriesModel{
         return $obj;
 
     }
+
+    public function addCountry($codiPrograma,$nomPais){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO pais(codiPrograma,nomPais) VALUES (?,?)");
+            $consulta->execute(array($codiPrograma,$nomPais));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
     public function disconnect(){
         $this->db =null;
     }

@@ -84,6 +84,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -115,11 +116,57 @@
                     </tbody>
                 </table>
                 <button type="button" id="submitSubjectsTable" class="btn btn-default">Actualitzar Taula</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubjectModal">Afegeix Entrada</button>
+
+                <div class="modal fade" id="addSubjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Afegeix Grau</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="agreementCode">Codi</label>
+                                    <input type="text" class="form-control" id="codiSubject" placeholder="Codi Assignatura UAB">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Nom</label>
+                                    <input type="text" class="form-control" id="nomSubject" placeholder="Nom">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Crèdits</label>
+                                    <input type="text" class="form-control" id="creditsSubject" placeholder="Crèdits">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">URL</label>
+                                    <input type="text" class="form-control" id="urlSubject" placeholder="URL">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementStudies">Grau</label>
+                                    <select class="form-control" id="codiEstudisSubject">
+                                        <?php foreach ($degreesUAB as $degree): ?>
+                                            <option id="<?php echo $degree->codiEstudis?>" val="<?php echo $degree->nomGrau;?>">
+                                                <?php echo $degree->nomGrau;?>
+                                            </option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                                <button id="addCountry" type="button" class="btn btn-primary" data-dismiss="modal">Guarda</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ASSIGNATURES UAB: -->
+    <!-- GRAUS UAB: -->
     <div id="degreesAuxSelect" class="tab-pane fade">
         <div class="row bg-secondary padding-bottom-20">
             <div class="col-lg-12" id="degreesAuxSelect">
@@ -146,8 +193,38 @@
                     </tbody>
                 </table>
                 <button type="button" id="submitDegreesTable" class="btn btn-default">Actualitzar Taula</button>
-                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Entrada</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addDegreeModal">Afegeix Entrada</button>
 
+                <div class="modal fade" id="addDegreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Afegeix Grau</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="agreementCode">Nom</label>
+                                    <input type="text" class="form-control" id="nomGrau" placeholder="Nom grau">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Cicle</label>
+                                    <input type="text" class="form-control" id="cicleGrau" placeholder="Grau">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Descripció</label>
+                                    <input type="text" class="form-control" id="descripcioGrau" placeholder="Descripció">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                                <button id="addCountry" type="button" class="btn btn-primary" data-dismiss="modal">Guarda</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -179,7 +256,53 @@
                     </tbody>
                 </table>
                 <button type="button" id="submitTeachersTable" class="btn btn-default">Actualitzar Taula</button>
-                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Entrada</button>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addTeacherModal">Afegeix Entrada</button>
+
+                <div class="modal fade" id="addTeacherModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Afegeix Professor</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="agreementCode">Niu</label>
+                                    <input type="text" class="form-control" id="niu" placeholder="Niu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Nom</label>
+                                    <input type="text" class="form-control" id="nomProfessor" placeholder="Nom">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Cognoms</label>
+                                    <input type="text" class="form-control" id="cognomsProfessor" placeholder="Cognoms">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementCode">Correu</label>
+                                    <input type="text" class="form-control" id="correuProfessor" placeholder="Correu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="agreementStudies">Grau</label>
+                                    <select class="form-control" id="codiEstudisProfessor">
+                                        <?php foreach ($degreesUAB as $degree): ?>
+                                            <option id="<?php echo $degree->codiEstudis?>" val="<?php echo $degree->nomGrau;?>">
+                                                <?php echo $degree->nomGrau;?>
+                                            </option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                                <button id="addCountry" type="button" class="btn btn-primary" data-dismiss="modal">Guarda</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>

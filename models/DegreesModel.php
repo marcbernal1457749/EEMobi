@@ -39,6 +39,18 @@ class DegreesModel
         //devolvemos la colección para que la vista la presente.
         return $obj[0]['codiEstudis'];
     }
+
+    public function addDegree($nom,$cicle,$descripcio){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO estudisuab(codiFacultat,nomGrau,cicle,descripcio) VALUES (?,?,?,?)");
+            $consulta->execute(array(115,$nom,$cicle,$descripcio));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+
     public function disconnect(){
         $this->db =null;
     }

@@ -68,6 +68,17 @@ class AssignaturesModel{
         return $obj;
     }
 
+    public function addAssignaturesUAB($codi,$nom,$credits,$url,$codiEstudis){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO assignaturesuab(codiAssignaturaUAB,nomAssignatura,crèdits,url,codiEstudis) VALUES (?,?,?,?,?)");
+            $consulta->execute(array($codi,$nom,$credits,$url,$codiEstudis));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+
     public function disconnect(){
         $this->db =null;
     }

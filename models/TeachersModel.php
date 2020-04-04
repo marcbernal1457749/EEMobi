@@ -140,6 +140,17 @@ class TeachersModel{
             die($e->getMessage());
         }
     }
+    public function addTeacher($niu,$nom,$cognoms,$codiEstudis,$correu){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO professors(niuProfessor,nom,cognoms,codiEstudis,correuProfessor) VALUES (?,?,?,?,?)");
+            $consulta->execute(array($niu,$nom,$cognoms,$codiEstudis,$correu));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+
     public function disconnect(){
         $this->db =null;
     }
