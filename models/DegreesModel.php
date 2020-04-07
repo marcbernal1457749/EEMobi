@@ -51,6 +51,11 @@ class DegreesModel
 
     }
 
+    public function deleteDegree($idDegree){
+        $consulta = $this->db->prepare('DELETE FROM estudisuab WHERE codiEstudis =?');
+        $consulta->execute(array($idDegree));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

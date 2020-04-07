@@ -55,6 +55,12 @@ class CountriesModel{
         }
 
     }
+
+    public function deleteCountry($idCountry){
+        $consulta = $this->db->prepare('DELETE FROM pais WHERE idPais =?');
+        $consulta->execute(array($idCountry));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

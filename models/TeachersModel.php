@@ -150,6 +150,11 @@ class TeachersModel{
         }
 
     }
+    public function deleteTeachers($niu){
+        $consulta = $this->db->prepare('DELETE FROM professors WHERE niuProfessor =?');
+        $consulta->execute(array($niu));
+    }
+
 
     public function disconnect(){
         $this->db =null;

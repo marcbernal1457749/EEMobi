@@ -699,7 +699,20 @@ class AdminBackendController{
         $countriesModel->addCountry($codi,$nom);
 
         $countriesModel->disconnect();
+
     }
+
+    public function removeTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $countriesModel->deleteCountry($data[0]['id']);
+        $countriesModel->disconnect();
+    }
+
     public function addTableSubjects($parameters){
         require 'models/AssignaturesModel.php';
         $assignaturesModel = new AssignaturesModel();
@@ -715,6 +728,18 @@ class AdminBackendController{
 
         $assignaturesModel->disconnect();
     }
+
+    public function removeTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $assignaturesModel->deleteAssignaturesUAB($data[0]['id']);
+        $assignaturesModel->disconnect();
+    }
+
     public function addTableDegrees($parameters){
         require 'models/DegreesModel.php';
         $degreesModel = new DegreesModel();
@@ -728,6 +753,19 @@ class AdminBackendController{
 
         $degreesModel->disconnect();
     }
+
+    public function removeTableDegree($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $degreesModel->deleteDegree($data[0]['id']);
+
+        $degreesModel->disconnect();
+    }
+
     public function addTableTeachers($parameters){
         require 'models/TeachersModel.php';
         $teachersModel = new TeachersModel();
@@ -744,6 +782,19 @@ class AdminBackendController{
 
         $teachersModel->disconnect();
     }
+
+    public function removeTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $teachersModel->deleteTeachers($data[0]['id']);
+        $teachersModel->disconnect();
+
+    }
+
 
     public function getInformationUniversities($parameters){
         require 'models/UniversitiesModel.php';

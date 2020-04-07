@@ -161,6 +161,30 @@ class AdminController{
                 $actionName = $controller;
                 break;
 
+            case 'removeTableCountries':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableSubjects':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableDegree':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableTeachers':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
             case 'addTableSubjects':
                 $data['codiSubject'] = $_POST['codiSubject'];
                 $data['nom'] = $_POST['nom'];

@@ -162,7 +162,7 @@ function removeAcord(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar el·liminar l'acord");
+            window.alert("Error al intentar eliminar l'acord");
         }
     })
 }
@@ -242,7 +242,7 @@ function removeSubSection(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar el·liminar l'apartat");
+            window.alert("Error al intentar eliminar l'apartat");
         }
     })
 }
@@ -378,6 +378,59 @@ function getAuxTablesBackend(){
             $("#content").html(t)
         },
         error: function(t, e) {}
+    })
+}
+
+
+function removeTableCountries(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableCountries",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el pais");
+        }
+    })
+}
+
+function removeTableSubjects(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableSubjects",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el pais");
+        }
+    })
+}
+
+function removeTableDegree(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableDegree",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el pais");
+        }
+    })
+}
+
+function removeTableTeachers(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableTeachers",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el pais");
+        }
     })
 }
 

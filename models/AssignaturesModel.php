@@ -79,6 +79,11 @@ class AssignaturesModel{
 
     }
 
+    public function deleteAssignaturesUAB($idAssignatura){
+        $consulta = $this->db->prepare('DELETE FROM assignaturesuab WHERE codiAssignaturaUAB =?');
+        $consulta->execute(array($idAssignatura));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

@@ -56,7 +56,7 @@ $(document).ready(function() {
         $(document).on("click", "#remSubSection", function(e) {
             e.preventDefault();
 
-            if(confirm('Realment vols el·liminar aquest Apartat?')){
+            if(confirm('Realment vols eliminar aquest Apartat?')){
                 var data = [];
                 var id = $(this).closest('tr').attr("id");
 
@@ -304,7 +304,7 @@ $(document).ready(function() {
     $(document).on("click", "#remAcord", function(e) {
         e.preventDefault();
 
-        if(confirm('Realment vols el·liminar aquest acord?')){
+        if(confirm('Realment vols eliminar aquest acord?')){
             var data = [];
             var id = $(this).closest('tr').attr("id");
 
@@ -1012,6 +1012,62 @@ $(document).ready(function() {
             },
             error: function(e, a, t) {alert("Error al crear el/la professor/a!");}
         });
-    })
 
+    })
+        ,$(document).on("click", "#remCountry", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest pais?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableCountries(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remSubject", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquesta assignatura?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableSubjects(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remDegree", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest grau?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableDegree(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remTeacher", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest/a professor/a?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableTeachers(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
 });

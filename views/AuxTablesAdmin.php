@@ -29,12 +29,12 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>País</th>
-                        <th></th>
+                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($countries as $country): ?>
-                        <tr>
+                        <tr id="<?php echo $country->idPais; ?>">
                             <td>
                                 <input type="text" id="<?php echo $country->idPais; ?>" value="<?php echo $country->nomPais; ?>" />
                             </td>
@@ -102,17 +102,17 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Assignatura</th>
-                        <th></th>
+                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($assignaturesUAB as $assignatura): ?>
-                        <tr>
+                        <tr id="<?php echo $assignatura->codiAssignaturaUAB; ?>">
                             <td>
                                 <input type="text" id="<?php echo $assignatura->codiAssignaturaUAB; ?>" value="<?php echo $assignatura->nomAssignatura; ?>" />
                             </td>
                             <td>
-                                <button id='remAssignatura' type='button' class='close' aria-label='Close'>
+                                <button id='remSubject' type='button' class='close' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span>
                                 </button>
                             </td>
@@ -182,17 +182,17 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Grau</th>
-                        <th></th>
+                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($degreesUAB as $degree): ?>
-                        <tr>
+                        <tr id="<?php echo $degree->codiEstudis; ?>">
                             <td>
                                 <input type="text" id="<?php echo $degree->codiEstudis; ?>" value="<?php echo $degree->nomGrau; ?>" />
                             </td>
                             <td>
-                                <button id='remGrau' type='button' class='close' aria-label='Close'>
+                                <button id='remDegree' type='button' class='close' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span>
                                 </button>
                             </td>
@@ -247,17 +247,17 @@
                     <thead class="thead-dark">
                     <tr>
                         <th>Professor</th>
-                        <th></th>
+                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($teachers as $teacher): ?>
-                        <tr>
+                        <tr id="<?php echo $teacher->niuProfessor; ?>">
                             <td>
                                 <input type="text" id="<?php echo $teacher->niuProfessor; ?>" value="<?php echo $teacher->nom; ?>" />
                             </td>
                             <td>
-                                <button id='remGrau' type='button' class='close' aria-label='Close'>
+                                <button id='remTeacher' type='button' class='close' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span>
                                 </button>
                             </td>

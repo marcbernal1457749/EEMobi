@@ -1721,6 +1721,17 @@ h1 {
     margin-right:auto;
     margin-left:auto;
 }
+#cargar{
+    width: 20px;
+    height: auto;
+    opacity: 0.8;
+    float: right;
+    cursor: pointer;
+}
+#cargar:hover{
+    opacity: 1;
+}
+
 
 /* Safari */
 @-webkit-keyframes spin {
