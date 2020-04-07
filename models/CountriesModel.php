@@ -61,6 +61,11 @@ class CountriesModel{
         $consulta->execute(array($idCountry));
     }
 
+    public function editCountry($id, $nom){
+        $consulta = $this->db->prepare('UPDATE pais SET nomPais =? WHERE idPais =?');
+        $consulta->execute(array($nom,$id));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

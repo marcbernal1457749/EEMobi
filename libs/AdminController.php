@@ -214,6 +214,27 @@ class AdminController{
                 $actionName = $controller;
                 break;
 
+            case 'updateTableCountries':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableSubjects':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableDegrees':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableTeachers':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
           case 'getInformationUniversities':
             $actionName = $controller;
             break;

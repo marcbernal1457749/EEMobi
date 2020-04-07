@@ -84,6 +84,11 @@ class AssignaturesModel{
         $consulta->execute(array($idAssignatura));
     }
 
+    public function editAssignaturesUAB($id, $nom){
+        $consulta = $this->db->prepare('UPDATE assignaturesuab SET nomAssignatura =? WHERE codiAssignaturaUAB =?');
+        $consulta->execute(array($nom,$id));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

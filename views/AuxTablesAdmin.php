@@ -32,7 +32,7 @@
                         <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="countriesBodyTable">
                     <?php foreach ($countries as $country): ?>
                         <tr id="<?php echo $country->idPais; ?>">
                             <td>
@@ -105,7 +105,7 @@
                         <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="subjectsBodyTable">
                     <?php foreach ($assignaturesUAB as $assignatura): ?>
                         <tr id="<?php echo $assignatura->codiAssignaturaUAB; ?>">
                             <td>
@@ -185,7 +185,7 @@
                         <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="degreesBodyTable">
                     <?php foreach ($degreesUAB as $degree): ?>
                         <tr id="<?php echo $degree->codiEstudis; ?>">
                             <td>
@@ -250,7 +250,7 @@
                         <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="teachersBodyTable">
                     <?php foreach ($teachers as $teacher): ?>
                         <tr id="<?php echo $teacher->niuProfessor; ?>">
                             <td>

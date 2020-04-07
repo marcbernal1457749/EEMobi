@@ -713,6 +713,20 @@ class AdminBackendController{
         $countriesModel->disconnect();
     }
 
+    public function updateTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $countriesModel->editCountry($section['id'],$section['pais']);
+        }
+
+        $countriesModel->disconnect();
+    }
     public function addTableSubjects($parameters){
         require 'models/AssignaturesModel.php';
         $assignaturesModel = new AssignaturesModel();
@@ -740,6 +754,21 @@ class AdminBackendController{
         $assignaturesModel->disconnect();
     }
 
+    public function updateTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $assignaturesModel->editAssignaturesUAB($section['id'],$section['assignatura']);
+        }
+
+        $assignaturesModel->disconnect();
+    }
+
+
     public function addTableDegrees($parameters){
         require 'models/DegreesModel.php';
         $degreesModel = new DegreesModel();
@@ -762,6 +791,20 @@ class AdminBackendController{
         $data = json_decode($data, true);
 
         $degreesModel->deleteDegree($data[0]['id']);
+
+        $degreesModel->disconnect();
+    }
+
+    public function updateTableDegrees($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $degreesModel->editDegree($section['id'],$section['grau']);
+        }
 
         $degreesModel->disconnect();
     }
@@ -793,6 +836,20 @@ class AdminBackendController{
         $teachersModel->deleteTeachers($data[0]['id']);
         $teachersModel->disconnect();
 
+    }
+
+    public function updateTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $teachersModel->editTeachers($section['id'],$section['professor']);
+        }
+
+        $teachersModel->disconnect();
     }
 
 

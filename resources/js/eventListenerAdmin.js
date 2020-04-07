@@ -1070,4 +1070,40 @@ $(document).ready(function() {
 
         return false;
     })
+        , $(document).on("click", "#submitCountriesTable", (function(e){
+            e.preventDefault();
+            var data = [];
+            $('#countriesBodyTable > tr > td > input').each(function(e){
+                data.push({"id":parseInt($(this).attr("id")),"pais":$(this).val()});
+            });
+
+            updateTableCountries(data);
+        }))
+        , $(document).on("click", "#submitSubjectsTable", (function(e){
+        e.preventDefault();
+        var data = [];
+        $('#subjectsBodyTable > tr > td > input').each(function(e){
+            data.push({"id":parseInt($(this).attr("id")),"assignatura":$(this).val()});
+        });
+
+        updateTableSubjects(data);
+    }))
+        , $(document).on("click", "#submitDegreesTable", (function(e){
+        e.preventDefault();
+        var data = [];
+        $('#degreesBodyTable > tr > td > input').each(function(e){
+            data.push({"id":parseInt($(this).attr("id")),"grau":$(this).val()});
+        });
+
+        updateTableDegrees(data);
+    }))
+        , $(document).on("click", "#submitTeachersTable", (function(e){
+        e.preventDefault();
+        var data = [];
+        $('#teachersBodyTable > tr > td > input').each(function(e){
+            data.push({"id":parseInt($(this).attr("id")),"professor":$(this).val()});
+        });
+
+        updateTableTeachers(data);
+    }))
 });

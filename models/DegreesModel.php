@@ -56,6 +56,11 @@ class DegreesModel
         $consulta->execute(array($idDegree));
     }
 
+    public function editDegree($id, $nom){
+        $consulta = $this->db->prepare('UPDATE estudisuab SET nomGrau =? WHERE codiEstudis =?');
+        $consulta->execute(array($nom,$id));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

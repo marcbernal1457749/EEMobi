@@ -155,6 +155,11 @@ class TeachersModel{
         $consulta->execute(array($niu));
     }
 
+    public function editTeachers($id, $nom){
+        $consulta = $this->db->prepare('UPDATE professors SET nom =? WHERE niuProfessor =?');
+        $consulta->execute(array($nom,$id));
+    }
+
 
     public function disconnect(){
         $this->db =null;
