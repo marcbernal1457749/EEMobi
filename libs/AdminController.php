@@ -154,6 +154,42 @@ class AdminController{
                 $actionName = $controller;
                 break;
 
+            case 'addTableCountries':
+                $data['programaPais'] = $_POST['programaPais'];
+                $data['nomPais'] = $_POST['nomPais'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableSubjects':
+                $data['codiSubject'] = $_POST['codiSubject'];
+                $data['nom'] = $_POST['nom'];
+                $data['credits'] = $_POST['credits'];
+                $data['url'] = $_POST['url'];
+                $data['codiEstudis'] = $_POST['codiEstudis'];
+
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableDegrees':
+                $data['nom'] = $_POST['nom'];
+                $data['cicle'] = $_POST['cicle'];
+                $data['descripcio'] = $_POST['descripcio'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableTeachers':
+                $data['niu'] = $_POST['niu'];
+                $data['nom'] = $_POST['nom'];
+                $data['cognoms'] = $_POST['cognoms'];
+                $data['correu'] = $_POST['correu'];
+                $data['codiEstudis'] = $_POST['codiEstudis'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
           case 'getInformationUniversities':
             $actionName = $controller;
             break;

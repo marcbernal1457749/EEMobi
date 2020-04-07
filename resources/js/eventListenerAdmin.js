@@ -930,4 +930,88 @@ $(document).ready(function() {
         if (!this.asc){rows = rows.reverse()}
         for (var i = 0; i < rows.length; i++){table.append(rows[i])}
     })
+    , $(document).on("submit", "#formCountry", function(e) {
+       e.preventDefault();
+        var formData = new FormData;
+        formData.append("programaPais", $("#programaPais").val());
+        formData.append("nomPais", $("#nomPais").val());
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableCountries",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Pais creat correctament!");
+                $("#addPaisModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el pais!");}
+        });
+    }), $(document).on("submit", "#formSubjects", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("codiSubject", parseInt($("#codiSubject").val()));
+        formData.append("nom", $("#nomSubject").val());
+        formData.append("credits", parseInt($("#creditsSubject").val()));
+        formData.append("url", $("#urlSubject").val());
+        formData.append("codiEstudis", parseInt($("#codiEstudisSubject").children(":selected").attr("id")));
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableSubjects",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Assignatura creada correctament!");
+                $("#addSubjectModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear l'assignatura!");}
+        });
+    }), $(document).on("submit", "#formDegrees", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("nom", $("#nomGrau").val());
+        formData.append("cicle", $("#cicleGrau").val());
+        formData.append("descripcio", $("#descripcioGrau").val());
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableDegrees",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Grau creat correctament!");
+                $("#addDegreeModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el grau!");}
+        });
+    }), $(document).on("submit", "#formTeachers", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("niu", parseInt($("#niu").val()));
+        formData.append("nom", $("#nomProfessor").val());
+        formData.append("cognoms", $("#cognomsProfessor").val());
+        formData.append("correu", $("#correuProfessor").val());
+        formData.append("codiEstudis", parseInt($("#codiEstudisProfessor").children(":selected").attr("id")));
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableTeachers",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Professor/a creat/da correctament!");
+                $("#addTeacherModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el/la professor/a!");}
+        });
+    })
+
 });

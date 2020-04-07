@@ -688,6 +688,63 @@ class AdminBackendController{
         include($route);
     }
 
+    public function addTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+        $data = $parameters[0];
+        $codi = $data['programaPais'];
+        $nom = $data['nomPais'];
+
+        $countriesModel->addCountry($codi,$nom);
+
+        $countriesModel->disconnect();
+    }
+    public function addTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $codiSubject = $data['codiSubject'];
+        $nom = $data['nom'];
+        $credits = $data['credits'];
+        $url=$data['url'];
+        $codiEstudis=$data['codiEstudis'];
+
+        $assignaturesModel->addAssignaturesUAB($codiSubject,$nom,$credits,$url,$codiEstudis);
+
+        $assignaturesModel->disconnect();
+    }
+    public function addTableDegrees($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $nom = $data['nom'];
+        $cicle = $data['cicle'];
+        $descripcio = $data['descripcio'];
+
+        $degreesModel->addDegree($nom,$cicle,$descripcio);
+
+        $degreesModel->disconnect();
+    }
+    public function addTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+
+        $niu = $data['niu'];
+        $nom = $data['nom'];
+        $cognoms = $data['cognoms'];
+        $codiEstudis = $data['codiEstudis'];
+        $correu = $data['correu'];
+
+        $teachersModel->addTeacher($niu,$nom,$cognoms,$codiEstudis,$correu);
+
+        $teachersModel->disconnect();
+    }
+
     public function getInformationUniversities($parameters){
         require 'models/UniversitiesModel.php';
         $universitymodel = new UniversitiesModel();
