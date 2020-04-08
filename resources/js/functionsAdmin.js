@@ -403,7 +403,7 @@ function removeTableSubjects(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar eliminar el pais");
+            window.alert("Error al intentar eliminar la assignatura");
         }
     })
 }
@@ -416,7 +416,7 @@ function removeTableDegree(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar eliminar el pais");
+            window.alert("Error al intentar eliminar el grau");
         }
     })
 }
@@ -429,7 +429,20 @@ function removeTableTeachers(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar eliminar el pais");
+            window.alert("Error al intentar eliminar el professor");
+        }
+    })
+}
+
+function removeTableAdmins(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableAdmins",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar l'admin");
         }
     })
 }

@@ -17,6 +17,7 @@
             <li><a data-toggle="tab" href="#subjectsAuxSelect">Asignatures UAB</a></li>
             <li><a data-toggle="tab" href="#degreesAuxSelect">Graus UAB</a></li>
             <li><a data-toggle="tab" href="#professorsAuxSelect">Professors</a></li>
+            <li><a data-toggle="tab" href="#adminsAuxSelect">Administradors</a></li>
         </ul>
     </div>
 
@@ -242,7 +243,7 @@
                                                                                     <!-- PROFESSORS: -->
     <div id="professorsAuxSelect" class="tab-pane fade">
         <div class="row bg-secondary padding-bottom-20">
-            <div class="col-lg-12" id="degreesAuxSelect">
+            <div class="col-lg-12" id="teachersAuxSelect">
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
@@ -317,6 +318,67 @@
                 </div>
             </div>
         </div>
+                                                                            <!-- ADMINS: -->
+    <div id="adminsAuxSelect" class="tab-pane fade">
+        <div class="row bg-secondary padding-bottom-20">
+            <div class="col-lg-12" id="adminsAuxSelect">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Administrador</th>
+                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
+                    </tr>
+                    </thead>
+                    <tbody id="adminsBodyTable">
+                    <?php foreach ($admins as $admin): ?>
+                        <tr id="<?php echo $admin->idAdmin; ?>">
+                            <td>
+                                <p id="<?php echo $admin->nomAdmin; ?>"> <?php echo $admin->nomAdmin; ?> </p>
+                            </td>
+                            <td>
+                                <button id='remAdmin' type='button' class='close' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addAdminModal">Afegeix Entrada</button>
+
+                <form id="formAdmins">
+                    <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Afegeix Administrador</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="agreementStudies">Professor</label>
+                                        <select class="form-control" name="teacherAdmin" id="teacherAdmin">
+                                            <?php foreach ($teachers as $teacher): ?>
+                                                <option id="<?php echo $teacher->niuProfessor?>" val="<?php echo $teacher->nom;?>">
+                                                    <?php echo $teacher->nom;?>
+                                                </option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                                    <button type="submit" name="submit" value="Submit" id="addAdmin" class="btn btn-primary">Guarda</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </div>
 
 

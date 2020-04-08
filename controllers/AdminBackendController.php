@@ -394,6 +394,25 @@ class AdminBackendController{
     }
 
     public function getUrlTesterAdmin($parameters){
+        /*require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $universitiesModel = new UniversitiesModel();
+        $failURLModel = new FailURLModel();
+        $acordsModel = new AcordEstudisModel();
+        $assignaturesModel = new AssignaturesModel();
+
+        $urlfallidesUni = $failURLModel->getFailURL("URL Universitat");
+        $urlfallidesInt = $failURLModel->getFailURL("URL Intercanvi");
+        $urlfallidesAssignaturesEXT = $failURLModel->getFailURL("Assignatura Externa");
+        $urlfallidesAssignaturesUAB = $failURLModel->getFailURL("Assignatura UAB");
+
+        $acordsModel->disconnect();
+        $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
+        $universitiesModel->disconnect();*/
 
         $route = $this->view->show("URLTesterAdmin.php");
         include($route);
@@ -665,24 +684,28 @@ class AdminBackendController{
         require 'models/DegreesModel.php';
         require 'models/TeachersModel.php';
         require 'models/ProgramsModel.php';
+        require 'models/AdminModel.php';
 
         $countriesModel = new CountriesModel();
         $assignaturesModel = new AssignaturesModel();
         $degreesModel = new DegreesModel();
         $teachersModel = new TeachersModel();
         $programsModel = new ProgramsModel();
+        $adminModel = new AdminModel();
 
         $countries = $countriesModel->getCountry();
         $assignaturesUAB = $assignaturesModel->getAllSubjects();
         $degreesUAB = $degreesModel->getDegrees();
         $teachers = $teachersModel->getTeachers();
         $programs = $programsModel->getPrograms();
+        $admins = $adminModel->getAdmins();
 
         $countriesModel->disconnect();
         $assignaturesModel->disconnect();
         $degreesModel->disconnect();
         $teachersModel->disconnect();
         $programsModel->disconnect();
+        $adminModel->disconnect();
 
         $route = $this->view->show("AuxTablesAdmin.php");
         include($route);
@@ -850,6 +873,33 @@ class AdminBackendController{
         }
 
         $teachersModel->disconnect();
+    }
+
+    public function addTableAdmins($parameters){
+        require 'models/AdminModel.php';
+        $adminModel = new AdminModel();
+
+        $data = $parameters[0];
+
+        $niu = $data['niu'];
+        $nom = $data['nom'];
+
+        $adminModel->addAdmin($niu,$nom);
+
+        $adminModel->disconnect();
+    }
+
+    public function removeTableAdmins($parameters){
+        require 'models/AdminModel.php';
+        $adminModel = new AdminModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $adminModel->deleteAdmin($data[0]['id']);
+
+        $adminModel->disconnect();
+
     }
 
 

@@ -1013,6 +1013,24 @@ $(document).ready(function() {
             error: function(e, a, t) {alert("Error al crear el/la professor/a!");}
         });
 
+    }), $(document).on("submit", "#formAdmins", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("niuAdmin", parseInt($("#teacherAdmin").children(":selected").attr("id")));
+        formData.append("nomAdmin", $("#teacherAdmin").children(":selected").val());
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableAdmins",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Admin creat correctament!");
+                $("#addAdminModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear l'admin!");}
+        });
     })
         ,$(document).on("click", "#remCountry", function(e) {
         e.preventDefault();
@@ -1070,6 +1088,20 @@ $(document).ready(function() {
 
         return false;
     })
+        ,$(document).on("click", "#remAdmin", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest admin?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableAdmins(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
         , $(document).on("click", "#submitCountriesTable", (function(e){
             e.preventDefault();
             var data = [];
@@ -1105,5 +1137,9 @@ $(document).ready(function() {
         });
 
         updateTableTeachers(data);
+    }))
+        , $(document).on("click", "#cargar", (function(e){
+        e.preventDefault();
+        getAuxTablesBackend();
     }))
 });

@@ -185,6 +185,12 @@ class AdminController{
                 $actionName = $controller;
                 break;
 
+            case 'removeTableAdmins':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
             case 'addTableSubjects':
                 $data['codiSubject'] = $_POST['codiSubject'];
                 $data['nom'] = $_POST['nom'];
@@ -210,6 +216,13 @@ class AdminController{
                 $data['cognoms'] = $_POST['cognoms'];
                 $data['correu'] = $_POST['correu'];
                 $data['codiEstudis'] = $_POST['codiEstudis'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableAdmins':
+                $data['niu'] = $_POST['niuAdmin'];
+                $data['nom'] = $_POST['nomAdmin'];
                 array_push($parameters, $data);
                 $actionName = $controller;
                 break;
