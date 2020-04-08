@@ -669,13 +669,15 @@ class AdminBackendController{
     public function deletefailedURL($parameters){
 
         require 'models/FailURLModel.php';
-
         $failURLModel = new FailURLModel();
-        $id = $_POST['dataSed'];
 
-        $failURLModel->deleteFailURL($id);
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $failURLModel->deleteFailURL($data[0]['id']);
 
         $failURLModel->disconnect();
+
     }
 
     public function getAuxTablesAdmin($parameters){

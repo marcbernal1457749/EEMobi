@@ -1142,4 +1142,18 @@ $(document).ready(function() {
         e.preventDefault();
         getAuxTablesBackend();
     }))
+        ,$(document).on("click", "#remURL", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest camp?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removefailURL(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
 });

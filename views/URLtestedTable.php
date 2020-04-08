@@ -12,7 +12,7 @@
     </thead>
     <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesUni as $url): ?>
-            <tr>
+            <tr id="<?php echo $url->idurl; ?>">
                 <td>
                     <p><?php echo $url->data; ?></p>
 
@@ -26,14 +26,14 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
             </tr>
         <?php endforeach; ?>
         <?php foreach ($urlfallidesInt as $urlInt): ?>
-            <tr>
+            <tr id="<?php echo $urlInt->idurl; ?>">
                 <td>
                     <p><?php echo $urlInt->data; ?></p>
                 </td>
@@ -47,7 +47,7 @@
                     <p><?php echo $urlInt->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $urlInt->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -68,7 +68,7 @@
         </thead>
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesEXT as $url): ?>
-            <tr>
+            <tr id="<?php echo $url->idurl; ?>">
                 <td>
                     <p><?php echo $url->data; ?></p>
                 </td>
@@ -79,7 +79,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -100,7 +100,7 @@
         </thead>
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesUAB as $url): ?>
-            <tr>
+            <tr id="<?php echo $url->idurl; ?>">
                 <td>
                     <p><?php echo $url->data; ?></p>
                 </td>
@@ -111,7 +111,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>

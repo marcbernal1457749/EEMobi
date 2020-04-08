@@ -319,13 +319,11 @@ function testUrlsAssigEXT(){
 }
 
 function removefailURL(data){
-
     $.ajax({
         type: "POST",
         url: "admin.php/" + "deletefailedURL",
-        data: {"dataSed":data},
+        data: {"data":JSON.stringify(data)},
         success: function(t, e, c) {
-            window.alert("URL eliminada correctament! És necessari fer click a: Tornar a visualitzar resultats anteriors, per veure les modificacions");
         },
         error: function(t, e) {
             window.alert("Error al intentar eliminar la URL");
