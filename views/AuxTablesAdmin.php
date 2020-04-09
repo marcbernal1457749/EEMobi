@@ -102,7 +102,8 @@
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th>Assignatura</th>
+                        <th>Assignatura
+                        <th>URL</th>
                         <th><img id="cargar" src="./resources/images/charge.png" /></th>
                     </tr>
                     </thead>
@@ -110,7 +111,10 @@
                     <?php foreach ($assignaturesUAB as $assignatura): ?>
                         <tr id="<?php echo $assignatura->codiAssignaturaUAB; ?>">
                             <td>
-                                <input type="text" id="<?php echo $assignatura->codiAssignaturaUAB; ?>" value="<?php echo $assignatura->nomAssignatura; ?>" />
+                                <input type="text" name="nomSubject" id="<?php echo $assignatura->codiAssignaturaUAB; ?>" value="<?php echo $assignatura->nomAssignatura; ?>" />
+                            </td>
+                            <td>
+                                <input type="text" size="40" name="urlSubject" id="<?php echo $assignatura->codiAssignaturaUAB; ?>" value="<?php echo $assignatura->url; ?>" />
                             </td>
                             <td>
                                 <button id='remSubject' type='button' class='close' aria-label='Close'>
@@ -319,66 +323,66 @@
             </div>
         </div>
                                                                             <!-- ADMINS: -->
-    <div id="adminsAuxSelect" class="tab-pane fade">
-        <div class="row bg-secondary padding-bottom-20">
-            <div class="col-lg-12" id="adminsAuxSelect">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>Administrador</th>
-                        <th><img id="cargar" src="./resources/images/charge.png" /></th>
-                    </tr>
-                    </thead>
-                    <tbody id="adminsBodyTable">
-                    <?php foreach ($admins as $admin): ?>
-                        <tr id="<?php echo $admin->idAdmin; ?>">
-                            <td>
-                                <p id="<?php echo $admin->nomAdmin; ?>"> <?php echo $admin->nomAdmin; ?> </p>
-                            </td>
-                            <td>
-                                <button id='remAdmin' type='button' class='close' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span>
-                                </button>
-                            </td>
+        <div id="adminsAuxSelect" class="tab-pane fade">
+            <div class="row bg-secondary padding-bottom-20">
+                <div class="col-lg-12" id="adminsAuxSelect">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>Administrador</th>
+                            <th><img id="cargar" src="./resources/images/charge.png" /></th>
                         </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-                <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addAdminModal">Afegeix Entrada</button>
-
-                <form id="formAdmins">
-                    <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Afegeix Administrador</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                        </thead>
+                        <tbody id="adminsBodyTable">
+                        <?php foreach ($admins as $admin): ?>
+                            <tr id="<?php echo $admin->idAdmin; ?>">
+                                <td>
+                                    <p id="<?php echo $admin->nomAdmin; ?>"> <?php echo $admin->nomAdmin; ?> </p>
+                                </td>
+                                <td>
+                                    <button id='remAdmin' type='button' class='close' aria-label='Close'>
+                                        <span aria-hidden='true'>&times;</span>
                                     </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="agreementStudies">Professor</label>
-                                        <select class="form-control" name="teacherAdmin" id="teacherAdmin">
-                                            <?php foreach ($teachers as $teacher): ?>
-                                                <option id="<?php echo $teacher->niuProfessor?>" val="<?php echo $teacher->nom;?>">
-                                                    <?php echo $teacher->nom;?>
-                                                </option>
-                                            <?php endforeach;?>
-                                        </select>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addAdminModal">Afegeix Entrada</button>
+
+                    <form id="formAdmins">
+                        <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Afegeix Administrador</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
-                                    <button type="submit" name="submit" value="Submit" id="addAdmin" class="btn btn-primary">Guarda</button>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="agreementStudies">Professor</label>
+                                            <select class="form-control" name="teacherAdmin" id="teacherAdmin">
+                                                <?php foreach ($teachers as $teacher): ?>
+                                                    <option id="<?php echo $teacher->niuProfessor?>" val="<?php echo $teacher->nom;?>">
+                                                        <?php echo $teacher->nom;?>
+                                                    </option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
+                                        <button type="submit" name="submit" value="Submit" id="addAdmin" class="btn btn-primary">Guarda</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 

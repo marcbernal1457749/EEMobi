@@ -566,8 +566,18 @@ class AdminBackendController{
         $failURLModel = new FailURLModel();
 
         $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
+
+
         $failURLModel -> deleteAllFailURL("Assignatura UAB");
 
+        //Obtenemos las URL que tienen un campo vacío
+        $nullURL = $assignaturesModel->getNullURLAssignatures();
+
+        //Guardamos las URL vacias en la nueva tabla de la BBDD:
+        foreach ($nullURL as $url) {
+            $urlPrincipal = $url->url;
+            $failURLModel -> addFailURL("Assignatura UAB", $urlPrincipal, $url->nomAssignatura);
+        }
         //Modificamos el time limit para que no pete
         set_time_limit(200000);
 
@@ -787,7 +797,7 @@ class AdminBackendController{
         $data = json_decode($data, true);
 
         foreach ($data as $section){
-            $assignaturesModel->editAssignaturesUAB($section['id'],$section['assignatura']);
+            $assignaturesModel->editAssignaturesUAB($section['id'],$section['nom'],$section['url']);
         }
 
         $assignaturesModel->disconnect();

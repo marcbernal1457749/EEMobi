@@ -465,7 +465,7 @@ function updateTableSubjects(data){
         url: "admin.php/" + "updateTableSubjects",
         data: {"data":JSON.stringify(data)},
         success: function(t, e, c) {
-            window.alert("Noms actualitzats correctament");
+            window.alert("Dades actualitzades correctament");
         },
         error: function(t, e) {
             window.alert("Error al realitzar l'actualització");

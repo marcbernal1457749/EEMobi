@@ -1112,10 +1112,27 @@ $(document).ready(function() {
             updateTableCountries(data);
         }))
         , $(document).on("click", "#submitSubjectsTable", (function(e){
+
         e.preventDefault();
         var data = [];
-        $('#subjectsBodyTable > tr > td > input').each(function(e){
-            data.push({"id":parseInt($(this).attr("id")),"assignatura":$(this).val()});
+        var id = -1;
+        var title = "";
+        var url = "";
+        var i = 0;
+
+        $('#subjectsBodyTable> tr').each(function(e){
+            i = 0;
+            id = $(this).attr("id");
+            $(this).find('td > input').each(function (e) {
+                if (i == 0){
+                    title = $(this).val();
+                    i = 1;
+                }else{
+                    url = $(this).val();
+                }
+
+            });
+            data.push({"id":id,"nom":title,"url":url});
         });
 
         updateTableSubjects(data);
