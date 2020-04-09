@@ -1,9 +1,12 @@
 <?php if (!empty($urlfallidesUni) || !empty($urlfallidesInt)){ ?>
-<h5>Data:</h5>
+    <?php if (!empty($urlfallidesUni)){ ?>
+    <h5>Data: <?php echo $urlfallidesUni[0]->data;?></h5>
+    <?php }else{ ?>
+    <h5>Data: <?php echo $urlfallidesInt[0]->data;?></h5>
+    <?php }?>
 <table class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col" align="center">Data</th>
         <th scope="col" align="center">Mòdul</th>
         <th scope="col" align="center">URL Fallida</th>
         <th scope="col" align="center">Ubicació de la URL</th>
@@ -13,10 +16,6 @@
     <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesUni as $url): ?>
             <tr id="<?php echo $url->idurl; ?>">
-                <td>
-                    <p><?php echo $url->data; ?></p>
-
-                <td>
                     <p><?php echo $url->modul; ?></p>
                 </td>
                 <td>
@@ -34,9 +33,6 @@
         <?php endforeach; ?>
         <?php foreach ($urlfallidesInt as $urlInt): ?>
             <tr id="<?php echo $urlInt->idurl; ?>">
-                <td>
-                    <p><?php echo $urlInt->data; ?></p>
-                </td>
                 <td>
                     <p><?php echo $urlInt->modul; ?></p>
                 </td>
@@ -56,11 +52,10 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesEXT)){ ?>
-    <h5>Data:</h5>
+    <h5>Data: <?php echo $urlfallidesAssignaturesEXT[0]->data;?></h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
             <th></th>
@@ -69,9 +64,6 @@
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesEXT as $url): ?>
             <tr id="<?php echo $url->idurl; ?>">
-                <td>
-                    <p><?php echo $url->data; ?></p>
-                </td>
                 <td>
                     <p><?php echo $url->url; ?></p>
                 </td>
@@ -88,11 +80,10 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesUAB)){ ?>
-    <h5>Data:</h5>
+    <h5>Data: <?php echo $urlfallidesAssignaturesUAB[0]->data;?></h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
             <th></th>
@@ -101,9 +92,6 @@
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesUAB as $url): ?>
             <tr id="<?php echo $url->idurl; ?>">
-                <td>
-                    <p><?php echo $url->data; ?></p>
-                </td>
                 <td>
                     <p><?php echo $url->url; ?></p>
                 </td>

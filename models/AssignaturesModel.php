@@ -79,7 +79,7 @@ class AssignaturesModel{
         }
         return $obj;
     }
-    
+
 
     public function addAssignaturesUAB($codi,$nom,$credits,$url,$codiEstudis){
         try {
