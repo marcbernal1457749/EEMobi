@@ -140,6 +140,27 @@ class TeachersModel{
             die($e->getMessage());
         }
     }
+    public function addTeacher($niu,$nom,$cognoms,$codiEstudis,$correu){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO professors(niuProfessor,nom,cognoms,codiEstudis,correuProfessor) VALUES (?,?,?,?,?)");
+            $consulta->execute(array($niu,$nom,$cognoms,$codiEstudis,$correu));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+    public function deleteTeachers($niu){
+        $consulta = $this->db->prepare('DELETE FROM professors WHERE niuProfessor =?');
+        $consulta->execute(array($niu));
+    }
+
+    public function editTeachers($id, $nom){
+        $consulta = $this->db->prepare('UPDATE professors SET nom =? WHERE niuProfessor =?');
+        $consulta->execute(array($nom,$id));
+    }
+
+
     public function disconnect(){
         $this->db =null;
     }

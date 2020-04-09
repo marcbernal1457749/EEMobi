@@ -39,7 +39,7 @@ class AdminVerifyController
                     $_SESSION['admin'] = 'admin';
                     $_SESSION['stay'] = 'si';
      				//$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
-    				$route = $this->view->show("test.php");
+    				$route = $this->view->show("adminpanel.php");
     			}else{
     				$route = $this->view->show("loginAdmin.php");
     				$fail = true;

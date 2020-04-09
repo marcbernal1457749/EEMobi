@@ -147,10 +147,106 @@ class AdminController{
                 $actionName = $controller;
                 break;
             case 'deletefailedURL':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
                 $actionName = $controller;
                 break;
 
             case 'getAuxTablesAdmin':
+                $actionName = $controller;
+                break;
+
+            case 'addTableCountries':
+                $data['programaPais'] = $_POST['programaPais'];
+                $data['nomPais'] = $_POST['nomPais'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableCountries':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableSubjects':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableDegree':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableTeachers':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'removeTableAdmins':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableSubjects':
+                $data['codiSubject'] = $_POST['codiSubject'];
+                $data['nom'] = $_POST['nom'];
+                $data['credits'] = $_POST['credits'];
+                $data['url'] = $_POST['url'];
+                $data['codiEstudis'] = $_POST['codiEstudis'];
+
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableDegrees':
+                $data['nom'] = $_POST['nom'];
+                $data['cicle'] = $_POST['cicle'];
+                $data['descripcio'] = $_POST['descripcio'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableTeachers':
+                $data['niu'] = $_POST['niu'];
+                $data['nom'] = $_POST['nom'];
+                $data['cognoms'] = $_POST['cognoms'];
+                $data['correu'] = $_POST['correu'];
+                $data['codiEstudis'] = $_POST['codiEstudis'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'addTableAdmins':
+                $data['niu'] = $_POST['niuAdmin'];
+                $data['nom'] = $_POST['nomAdmin'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+
+            case 'updateTableCountries':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableSubjects':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableDegrees':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
+                $actionName = $controller;
+                break;
+            case 'updateTableTeachers':
+                $data = $_POST['data'];
+                array_push($parameters, $data);
                 $actionName = $controller;
                 break;
 

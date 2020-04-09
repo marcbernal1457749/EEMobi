@@ -162,7 +162,7 @@ function removeAcord(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar el·liminar l'acord");
+            window.alert("Error al intentar eliminar l'acord");
         }
     })
 }
@@ -242,7 +242,7 @@ function removeSubSection(data){
         success: function(t, e, c) {
         },
         error: function(t, e) {
-            window.alert("Error al intentar el·liminar l'apartat");
+            window.alert("Error al intentar eliminar l'apartat");
         }
     })
 }
@@ -319,13 +319,11 @@ function testUrlsAssigEXT(){
 }
 
 function removefailURL(data){
-
     $.ajax({
         type: "POST",
         url: "admin.php/" + "deletefailedURL",
-        data: {"dataSed":data},
+        data: {"data":JSON.stringify(data)},
         success: function(t, e, c) {
-            window.alert("URL eliminada correctament! És necessari fer click a: Tornar a visualitzar resultats anteriors, per veure les modificacions");
         },
         error: function(t, e) {
             window.alert("Error al intentar eliminar la URL");
@@ -381,6 +379,128 @@ function getAuxTablesBackend(){
     })
 }
 
+
+function removeTableCountries(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableCountries",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el pais");
+        }
+    })
+}
+
+function removeTableSubjects(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableSubjects",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar la assignatura");
+        }
+    })
+}
+
+function removeTableDegree(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableDegree",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el grau");
+        }
+    })
+}
+
+function removeTableTeachers(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableTeachers",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar el professor");
+        }
+    })
+}
+
+function removeTableAdmins(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "removeTableAdmins",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar eliminar l'admin");
+        }
+    })
+}
+
+function updateTableCountries(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "updateTableCountries",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+            window.alert("Noms actualitzats correctament");
+        },
+        error: function(t, e) {
+            window.alert("Error al realitzar l'actualització");
+        }
+    })
+}
+
+function updateTableSubjects(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "updateTableSubjects",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+            window.alert("Dades actualitzades correctament");
+        },
+        error: function(t, e) {
+            window.alert("Error al realitzar l'actualització");
+        }
+    })
+}
+
+function updateTableDegrees(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "updateTableDegrees",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+            window.alert("Noms actualitzats correctament");
+        },
+        error: function(t, e) {
+            window.alert("Error al realitzar l'actualització");
+        }
+    })
+}
+
+function updateTableTeachers(data){
+    $.ajax({
+        type: "POST",
+        url: "admin.php/" + "updateTableTeachers",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+            window.alert("Noms actualitzats correctament");
+        },
+        error: function(t, e) {
+            window.alert("Error al realitzar l'actualització");
+        }
+    })
+}
+
 function getUniversitiesBackend(n) {
     $.ajax({
         type: "GET",
@@ -391,7 +511,6 @@ function getUniversitiesBackend(n) {
         },
     })
 }
-
 
 
 function getStudentsBackend(n) {

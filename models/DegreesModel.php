@@ -39,6 +39,28 @@ class DegreesModel
         //devolvemos la colección para que la vista la presente.
         return $obj[0]['codiEstudis'];
     }
+
+    public function addDegree($nom,$cicle,$descripcio){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO estudisuab(codiFacultat,nomGrau,cicle,descripcio) VALUES (?,?,?,?)");
+            $consulta->execute(array(115,$nom,$cicle,$descripcio));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+
+    public function deleteDegree($idDegree){
+        $consulta = $this->db->prepare('DELETE FROM estudisuab WHERE codiEstudis =?');
+        $consulta->execute(array($idDegree));
+    }
+
+    public function editDegree($id, $nom){
+        $consulta = $this->db->prepare('UPDATE estudisuab SET nomGrau =? WHERE codiEstudis =?');
+        $consulta->execute(array($nom,$id));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

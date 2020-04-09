@@ -394,6 +394,25 @@ class AdminBackendController{
     }
 
     public function getUrlTesterAdmin($parameters){
+        /*require 'models/UniversitiesModel.php';
+        require 'models/AcordEstudisModel.php';
+        require 'models/AssignaturesModel.php';
+        require 'models/FailURLModel.php';
+
+        $universitiesModel = new UniversitiesModel();
+        $failURLModel = new FailURLModel();
+        $acordsModel = new AcordEstudisModel();
+        $assignaturesModel = new AssignaturesModel();
+
+        $urlfallidesUni = $failURLModel->getFailURL("URL Universitat");
+        $urlfallidesInt = $failURLModel->getFailURL("URL Intercanvi");
+        $urlfallidesAssignaturesEXT = $failURLModel->getFailURL("Assignatura Externa");
+        $urlfallidesAssignaturesUAB = $failURLModel->getFailURL("Assignatura UAB");
+
+        $acordsModel->disconnect();
+        $assignaturesModel->disconnect();
+        $failURLModel->disconnect();
+        $universitiesModel->disconnect();*/
 
         $route = $this->view->show("URLTesterAdmin.php");
         include($route);
@@ -547,8 +566,18 @@ class AdminBackendController{
         $failURLModel = new FailURLModel();
 
         $urlAssignaturesUAB = $assignaturesModel->getURLAssignatures();
+
+
         $failURLModel -> deleteAllFailURL("Assignatura UAB");
 
+        //Obtenemos las URL que tienen un campo vacío
+        $nullURL = $assignaturesModel->getNullURLAssignatures();
+
+        //Guardamos las URL vacias en la nueva tabla de la BBDD:
+        foreach ($nullURL as $url) {
+            $urlPrincipal = $url->url;
+            $failURLModel -> addFailURL("Assignatura UAB", $urlPrincipal, $url->nomAssignatura);
+        }
         //Modificamos el time limit para que no pete
         set_time_limit(200000);
 
@@ -650,35 +679,241 @@ class AdminBackendController{
     public function deletefailedURL($parameters){
 
         require 'models/FailURLModel.php';
-
         $failURLModel = new FailURLModel();
-        $id = $_POST['dataSed'];
 
-        $failURLModel->deleteFailURL($id);
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $failURLModel->deleteFailURL($data[0]['id']);
 
         $failURLModel->disconnect();
+
     }
 
     public function getAuxTablesAdmin($parameters){
         require 'models/CountriesModel.php';
         require 'models/AssignaturesModel.php';
         require 'models/DegreesModel.php';
+        require 'models/TeachersModel.php';
+        require 'models/ProgramsModel.php';
+        require 'models/AdminModel.php';
 
         $countriesModel = new CountriesModel();
         $assignaturesModel = new AssignaturesModel();
         $degreesModel = new DegreesModel();
+        $teachersModel = new TeachersModel();
+        $programsModel = new ProgramsModel();
+        $adminModel = new AdminModel();
 
         $countries = $countriesModel->getCountry();
         $assignaturesUAB = $assignaturesModel->getAllSubjects();
         $degreesUAB = $degreesModel->getDegrees();
+        $teachers = $teachersModel->getTeachers();
+        $programs = $programsModel->getPrograms();
+        $admins = $adminModel->getAdmins();
 
         $countriesModel->disconnect();
         $assignaturesModel->disconnect();
         $degreesModel->disconnect();
+        $teachersModel->disconnect();
+        $programsModel->disconnect();
+        $adminModel->disconnect();
 
         $route = $this->view->show("AuxTablesAdmin.php");
         include($route);
     }
+
+    public function addTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+        $data = $parameters[0];
+        $codi = $data['programaPais'];
+        $nom = $data['nomPais'];
+
+        $countriesModel->addCountry($codi,$nom);
+
+        $countriesModel->disconnect();
+
+    }
+
+    public function removeTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $countriesModel->deleteCountry($data[0]['id']);
+        $countriesModel->disconnect();
+    }
+
+    public function updateTableCountries($parameters){
+        require 'models/CountriesModel.php';
+        $countriesModel = new CountriesModel();
+
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $countriesModel->editCountry($section['id'],$section['pais']);
+        }
+
+        $countriesModel->disconnect();
+    }
+    public function addTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $codiSubject = $data['codiSubject'];
+        $nom = $data['nom'];
+        $credits = $data['credits'];
+        $url=$data['url'];
+        $codiEstudis=$data['codiEstudis'];
+
+        $assignaturesModel->addAssignaturesUAB($codiSubject,$nom,$credits,$url,$codiEstudis);
+
+        $assignaturesModel->disconnect();
+    }
+
+    public function removeTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $assignaturesModel->deleteAssignaturesUAB($data[0]['id']);
+        $assignaturesModel->disconnect();
+    }
+
+    public function updateTableSubjects($parameters){
+        require 'models/AssignaturesModel.php';
+        $assignaturesModel = new AssignaturesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $assignaturesModel->editAssignaturesUAB($section['id'],$section['nom'],$section['url']);
+        }
+
+        $assignaturesModel->disconnect();
+    }
+
+
+    public function addTableDegrees($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $nom = $data['nom'];
+        $cicle = $data['cicle'];
+        $descripcio = $data['descripcio'];
+
+        $degreesModel->addDegree($nom,$cicle,$descripcio);
+
+        $degreesModel->disconnect();
+    }
+
+    public function removeTableDegree($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $degreesModel->deleteDegree($data[0]['id']);
+
+        $degreesModel->disconnect();
+    }
+
+    public function updateTableDegrees($parameters){
+        require 'models/DegreesModel.php';
+        $degreesModel = new DegreesModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $degreesModel->editDegree($section['id'],$section['grau']);
+        }
+
+        $degreesModel->disconnect();
+    }
+
+    public function addTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+
+        $niu = $data['niu'];
+        $nom = $data['nom'];
+        $cognoms = $data['cognoms'];
+        $codiEstudis = $data['codiEstudis'];
+        $correu = $data['correu'];
+
+        $teachersModel->addTeacher($niu,$nom,$cognoms,$codiEstudis,$correu);
+
+        $teachersModel->disconnect();
+    }
+
+    public function removeTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $teachersModel->deleteTeachers($data[0]['id']);
+        $teachersModel->disconnect();
+
+    }
+
+    public function updateTableTeachers($parameters){
+        require 'models/TeachersModel.php';
+        $teachersModel = new TeachersModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        foreach ($data as $section){
+            $teachersModel->editTeachers($section['id'],$section['professor']);
+        }
+
+        $teachersModel->disconnect();
+    }
+
+    public function addTableAdmins($parameters){
+        require 'models/AdminModel.php';
+        $adminModel = new AdminModel();
+
+        $data = $parameters[0];
+
+        $niu = $data['niu'];
+        $nom = $data['nom'];
+
+        $adminModel->addAdmin($niu,$nom);
+
+        $adminModel->disconnect();
+    }
+
+    public function removeTableAdmins($parameters){
+        require 'models/AdminModel.php';
+        $adminModel = new AdminModel();
+
+        $data = $parameters[0];
+        $data = json_decode($data, true);
+
+        $adminModel->deleteAdmin($data[0]['id']);
+
+        $adminModel->disconnect();
+
+    }
+
 
     public function getInformationUniversities($parameters){
         require 'models/UniversitiesModel.php';

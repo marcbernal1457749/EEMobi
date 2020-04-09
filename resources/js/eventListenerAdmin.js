@@ -56,7 +56,7 @@ $(document).ready(function() {
         $(document).on("click", "#remSubSection", function(e) {
             e.preventDefault();
 
-            if(confirm('Realment vols el·liminar aquest Apartat?')){
+            if(confirm('Realment vols eliminar aquest Apartat?')){
                 var data = [];
                 var id = $(this).closest('tr').attr("id");
 
@@ -304,7 +304,7 @@ $(document).ready(function() {
     $(document).on("click", "#remAcord", function(e) {
         e.preventDefault();
 
-        if(confirm('Realment vols el·liminar aquest acord?')){
+        if(confirm('Realment vols eliminar aquest acord?')){
             var data = [];
             var id = $(this).closest('tr').attr("id");
 
@@ -929,5 +929,248 @@ $(document).ready(function() {
         this.asc = !this.asc;
         if (!this.asc){rows = rows.reverse()}
         for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+    })
+    , $(document).on("submit", "#formCountry", function(e) {
+       e.preventDefault();
+        var formData = new FormData;
+        formData.append("programaPais", $("#programaPais").val());
+        formData.append("nomPais", $("#nomPais").val());
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableCountries",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Pais creat correctament!");
+                $("#addPaisModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el pais!");}
+        });
+    }), $(document).on("submit", "#formSubjects", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("codiSubject", parseInt($("#codiSubject").val()));
+        formData.append("nom", $("#nomSubject").val());
+        formData.append("credits", parseInt($("#creditsSubject").val()));
+        formData.append("url", $("#urlSubject").val());
+        formData.append("codiEstudis", parseInt($("#codiEstudisSubject").children(":selected").attr("id")));
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableSubjects",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Assignatura creada correctament!");
+                $("#addSubjectModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear l'assignatura!");}
+        });
+    }), $(document).on("submit", "#formDegrees", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("nom", $("#nomGrau").val());
+        formData.append("cicle", $("#cicleGrau").val());
+        formData.append("descripcio", $("#descripcioGrau").val());
+
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableDegrees",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Grau creat correctament!");
+                $("#addDegreeModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el grau!");}
+        });
+    }), $(document).on("submit", "#formTeachers", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("niu", parseInt($("#niu").val()));
+        formData.append("nom", $("#nomProfessor").val());
+        formData.append("cognoms", $("#cognomsProfessor").val());
+        formData.append("correu", $("#correuProfessor").val());
+        formData.append("codiEstudis", parseInt($("#codiEstudisProfessor").children(":selected").attr("id")));
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableTeachers",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Professor/a creat/da correctament!");
+                $("#addTeacherModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear el/la professor/a!");}
+        });
+
+    }), $(document).on("submit", "#formAdmins", function(e) {
+        e.preventDefault();
+        var formData = new FormData;
+        formData.append("niuAdmin", parseInt($("#teacherAdmin").children(":selected").attr("id")));
+        formData.append("nomAdmin", $("#teacherAdmin").children(":selected").val());
+        $.ajax({
+            type: "POST",
+            url: "admin.php/addTableAdmins",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success:function(t,e,c){
+                alert("Admin creat correctament!");
+                $("#addAdminModal").modal('hide');
+
+            },
+            error: function(e, a, t) {alert("Error al crear l'admin!");}
+        });
+    })
+        ,$(document).on("click", "#remCountry", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest pais?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableCountries(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remSubject", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquesta assignatura?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableSubjects(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remDegree", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest grau?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableDegree(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remTeacher", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest/a professor/a?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableTeachers(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        ,$(document).on("click", "#remAdmin", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest admin?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removeTableAdmins(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
+    })
+        , $(document).on("click", "#submitCountriesTable", (function(e){
+            e.preventDefault();
+            var data = [];
+            $('#countriesBodyTable > tr > td > input').each(function(e){
+                data.push({"id":parseInt($(this).attr("id")),"pais":$(this).val()});
+            });
+
+            updateTableCountries(data);
+        }))
+        , $(document).on("click", "#submitSubjectsTable", (function(e){
+
+        e.preventDefault();
+        var data = [];
+        var id = -1;
+        var title = "";
+        var url = "";
+        var i = 0;
+
+        $('#subjectsBodyTable> tr').each(function(e){
+            i = 0;
+            id = $(this).attr("id");
+            $(this).find('td > input').each(function (e) {
+                if (i == 0){
+                    title = $(this).val();
+                    i = 1;
+                }else{
+                    url = $(this).val();
+                }
+
+            });
+            data.push({"id":id,"nom":title,"url":url});
+        });
+
+        updateTableSubjects(data);
+    }))
+        , $(document).on("click", "#submitDegreesTable", (function(e){
+        e.preventDefault();
+        var data = [];
+        $('#degreesBodyTable > tr > td > input').each(function(e){
+            data.push({"id":parseInt($(this).attr("id")),"grau":$(this).val()});
+        });
+
+        updateTableDegrees(data);
+    }))
+        , $(document).on("click", "#submitTeachersTable", (function(e){
+        e.preventDefault();
+        var data = [];
+        $('#teachersBodyTable > tr > td > input').each(function(e){
+            data.push({"id":parseInt($(this).attr("id")),"professor":$(this).val()});
+        });
+
+        updateTableTeachers(data);
+    }))
+        , $(document).on("click", "#cargar", (function(e){
+        e.preventDefault();
+        getAuxTablesBackend();
+    }))
+        ,$(document).on("click", "#remURL", function(e) {
+        e.preventDefault();
+
+        if(confirm('Realment vols eliminar aquest camp?')){
+            var data = [];
+            var id = $(this).closest('tr').attr("id");
+
+            data.push({"id":id});
+            removefailURL(data);
+            $(this).closest('tr').remove();
+        }else{}
+
+        return false;
     })
 });

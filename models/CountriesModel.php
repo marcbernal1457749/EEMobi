@@ -44,6 +44,28 @@ class CountriesModel{
         return $obj;
 
     }
+
+    public function addCountry($codiPrograma,$nomPais){
+        try {
+            $consulta = $this->db->prepare("INSERT INTO pais(codiPrograma,nomPais) VALUES (?,?)");
+            $consulta->execute(array($codiPrograma,$nomPais));
+
+        } catch (Exception $e) {
+            $obj = $e;
+        }
+
+    }
+
+    public function deleteCountry($idCountry){
+        $consulta = $this->db->prepare('DELETE FROM pais WHERE idPais =?');
+        $consulta->execute(array($idCountry));
+    }
+
+    public function editCountry($id, $nom){
+        $consulta = $this->db->prepare('UPDATE pais SET nomPais =? WHERE idPais =?');
+        $consulta->execute(array($nom,$id));
+    }
+
     public function disconnect(){
         $this->db =null;
     }

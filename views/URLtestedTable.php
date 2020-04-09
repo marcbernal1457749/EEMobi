@@ -1,9 +1,12 @@
 <?php if (!empty($urlfallidesUni) || !empty($urlfallidesInt)){ ?>
-<h5>Data:</h5>
+    <?php if (!empty($urlfallidesUni)){ ?>
+    <h5>Data: <?php echo $urlfallidesUni[0]->data;?></h5>
+    <?php }else{ ?>
+    <h5>Data: <?php echo $urlfallidesInt[0]->data;?></h5>
+    <?php }?>
 <table class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col" align="center">Data</th>
         <th scope="col" align="center">Mòdul</th>
         <th scope="col" align="center">URL Fallida</th>
         <th scope="col" align="center">Ubicació de la URL</th>
@@ -12,11 +15,7 @@
     </thead>
     <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesUni as $url): ?>
-            <tr>
-                <td>
-                    <p><?php echo $url->data; ?></p>
-
-                <td>
+            <tr id="<?php echo $url->idurl; ?>">
                     <p><?php echo $url->modul; ?></p>
                 </td>
                 <td>
@@ -26,17 +25,14 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
             </tr>
         <?php endforeach; ?>
         <?php foreach ($urlfallidesInt as $urlInt): ?>
-            <tr>
-                <td>
-                    <p><?php echo $urlInt->data; ?></p>
-                </td>
+            <tr id="<?php echo $urlInt->idurl; ?>">
                 <td>
                     <p><?php echo $urlInt->modul; ?></p>
                 </td>
@@ -47,7 +43,7 @@
                     <p><?php echo $urlInt->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $urlInt->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -56,11 +52,10 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesEXT)){ ?>
-    <h5>Data:</h5>
+    <h5>Data: <?php echo $urlfallidesAssignaturesEXT[0]->data;?></h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
             <th></th>
@@ -68,10 +63,7 @@
         </thead>
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesEXT as $url): ?>
-            <tr>
-                <td>
-                    <p><?php echo $url->data; ?></p>
-                </td>
+            <tr id="<?php echo $url->idurl; ?>">
                 <td>
                     <p><?php echo $url->url; ?></p>
                 </td>
@@ -79,7 +71,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
@@ -88,11 +80,10 @@
         </tbody>
     </table>
 <?php }else if (!empty($urlfallidesAssignaturesUAB)){ ?>
-    <h5>Data:</h5>
+    <h5>Data: <?php echo $urlfallidesAssignaturesUAB[0]->data;?></h5>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col" align="center">Data</th>
             <th scope="col" align="center">URL Fallida</th>
             <th scope="col" align="center">Ubicació de la URL</th>
             <th></th>
@@ -100,10 +91,7 @@
         </thead>
         <tbody id="urlTestedTable">
         <?php foreach ($urlfallidesAssignaturesUAB as $url): ?>
-            <tr>
-                <td>
-                    <p><?php echo $url->data; ?></p>
-                </td>
+            <tr id="<?php echo $url->idurl; ?>">
                 <td>
                     <p><?php echo $url->url; ?></p>
                 </td>
@@ -111,7 +99,7 @@
                     <p><?php echo $url->ubicacio; ?></p>
                 </td>
                 <td>
-                    <button type="button" class="close" aria-label="Close" onclick="removefailURL(<?php echo $url->idurl; ?>)">
+                    <button type="button" class="close" aria-label="Close" id="remURL">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>

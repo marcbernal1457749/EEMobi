@@ -31,7 +31,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <button id="submitSections" class="btn btn-info">Actualitzar Seccions</button>
+            <button id="submitSections" class="btn btn-default">Actualitzar Seccions</button>
         </div>
     </div>
 
@@ -78,10 +78,10 @@
 
     <div class="row padding-bottom-20">
         <div class="col-sm-3">
-            <button type="button" id="submitSubSections" class="btn btn-info">Actualitzar Apartats</button>
+            <button type="button" id="submitSubSections" class="btn btn-default">Actualitzar Apartats</button>
         </div>
         <div class="col-sm-2">
-            <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Apartat</button>
+            <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#addSubSectionModal">Afegeix Apartat</button>
         </div>
 
         <div class="modal fade" id="addSubSectionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
