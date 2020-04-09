@@ -137,7 +137,7 @@
 
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#addAgreementModal">
+                <button type="button" class="btn btn-default m-2" data-toggle="modal" data-target="#addAgreementModal">
                     Afegeix conveni
                 </button>
 
@@ -210,7 +210,7 @@
                 <div class="row">
                     <div class="col-sm-12 padding-top-20 padding-bottom-20">
                         <hr />
-                        <button id="desaUniversitatConvenis" type="submit" class="btn btn-primary m-2">Desa Universitat</button>
+                        <button id="desaUniversitatConvenis" type="submit" class="btn btn-secundary m-2">Desa Universitat</button>
                     </div>
                 </div>
             </form>

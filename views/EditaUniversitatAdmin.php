@@ -14,7 +14,7 @@
         <h3>General</h3>
     </div>
     <div class="col-lg-3">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#infoUni" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-secundary" type="button" data-toggle="collapse" data-target="#infoUni" aria-expanded="false" aria-controls="collapseExample">
             Mostra
         </button>
     </div>
@@ -115,7 +115,7 @@
 
                         <div class="row float-right">
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-success" id="nouphoto">Pujar fotos</button>
+                                <button type="button" class="btn btn-default" id="nouphoto">Pujar fotos</button>
                             </div>
                         </div>
 
@@ -139,7 +139,7 @@
 
                         <div class="row padding-bottom-40">
                             <div class="col-sm-12 padding-top-20">
-                                <button id="updateUniversity" type="submit" class="btn btn-info m-2">Desa Universitat</button>
+                                <button id="updateUniversity" type="submit" class="btn btn-secundary m-2">Desa Universitat</button>
                             </div>
                         </div>
                     </div>
@@ -207,10 +207,10 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#addAgreementModal">
+                    <button type="button" class="btn btn-default m-2" data-toggle="modal" data-target="#addAgreementModal">
                         Afegeix conveni
                     </button>
-                    <button type="button" id="updateConvenis" class="btn btn-info m-2">
+                    <button type="button" id="updateConvenis" class="btn btn-secundary m-2">
                         Desa Convenis
                     </button>
 
@@ -332,10 +332,10 @@
                     </table>
                 </div>
                 <div class="col-sm-12 padding-bottom-40">
-                    <button type="button" class="btn btn-success m-2" data-toggle="modal"  data-target="#addStayModal">
+                    <button type="button" class="btn btn-default m-2" data-toggle="modal"  data-target="#addStayModal">
                         Afegeix Estada
                     </button>
-                    <button type="button" class="btn btn-info m-2" id="updateEstades">
+                    <button type="button" class="btn btn-secundary m-2" id="updateEstades">
                         Desa Estades
                     </button>
                 </div>

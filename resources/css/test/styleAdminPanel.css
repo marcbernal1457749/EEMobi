@@ -456,18 +456,18 @@ textarea::-ms-input-placeholder {
 
 .navbar-default .navbar-nav>li>a {
     color: #fff9f9;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     text-transform: uppercase
 }
 
 .navbar-default .navbar-nav li a:hover {
-    color: #82ca9c
+    color: black;
 }
 
 .navbar-default .collapse .login a {
-    color: #82ca9c;
-    border: 1px solid #82ca9c;
+    color: white;
+    border: 1px solid white;
     border-radius: 20px;
     padding: 4px 30px;
     font-size: 12px;
@@ -478,14 +478,15 @@ textarea::-ms-input-placeholder {
 }
 
 .navbar-default .collapse .login:hover a {
-    background-color: rgba(0, 173, 62, .75);
-    color: #fff
+    background-color: white;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-    color: #82ca9c;
-    background-color: transparent
+    color: white;
+    background-color: transparent;
+    opacity: 0.7;
 }
 
 .navbar-brand {
@@ -1670,7 +1671,7 @@ h1 {
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:focus,
 .navbar-default .navbar-nav>.open>a:hover {
-    color: #82ca9c;
+    color: white;
     background-color: #000
 }
 
