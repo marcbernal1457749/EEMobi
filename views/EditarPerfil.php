@@ -11,7 +11,6 @@
                     Buscar foto<input type="file" name="file" id="file" style="display: none;">
 
               </label>
-               <input type="submit" name="filebuton" class="btn btn-primary btn-custom btn-danger" value="Eliminar "> <!-- TODO: Implementar -->
               <input type="submit" name="filebuton" class="btn btn-primary btn-custom" value="Desar" disabled="true">
             </form>
         </div>
