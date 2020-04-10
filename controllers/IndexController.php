@@ -39,13 +39,14 @@ class IndexController
         $adminManagmentModel->disconnect();
 
         if(isset($_SESSION['loggedin'])){
-            $logged = true;          
+            $logged = true;
+            //$route = $this->view->show("paginaPrincipal.php");
             
         }else{
             $logged = false;
-            
+            //$route = $this->view->show("portada.php");
         }
-        $route = $this->view->show("PaginaPrincipal.php");
+        $route = $this->view->show("paginaPrincipal.php");
         include($route);
     }
 
