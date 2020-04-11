@@ -56,7 +56,9 @@
 
                     <ul class="nav navbar-nav navbar-left nav-scroll">
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
+                        <li><a href="">Cercar per universitat</a></li>
                    </ul>
+
                    <ul class="nav navbar-nav navbar-right nav-scroll">
                        <li><a class="welcome" href="/EEmobi/Perfil"><?php echo $_SESSION['nom']; ?></a></li>
                      <li class="dropdown">
@@ -73,7 +75,8 @@
                              
                             </ul>
                     </li>
-                    </ul>   
+                    </ul>
+
 
                 </div><!-- /.navbar-collapse -->
 

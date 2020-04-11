@@ -63,6 +63,7 @@
 
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
+                        <li><a href="">Cercar per universitat</a></li>
                    </ul>
                    <ul class="nav navbar-nav navbar-right ">
                          <li class="welcome"><?php echo $_SESSION['nom']; ?></li> 
