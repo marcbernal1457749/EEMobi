@@ -11,26 +11,11 @@ class SearchUniversityController
         require 'libs/View.php'; //Mini motor de plantillas
         require 'configDB.php'; //Archivo con configuraciones.
 
-        $url = "$_SERVER[REQUEST_URI]";
-        $url_parameters= explode("/", $url);
-        if(isset($url_parameters[3])){
-            $controller = $url_parameters[3];
-        }else{
-            $controller = $url_parameters[2];
-        }
 
-        $parameters=array();
+        $parameters = array();
         $controllerName = "UniversitySearcherController";
-        switch ($controller) {
-            case 'SearchUniversity':
-                $actionName = "loadUniversitySearcherView";
-                break;
+        $actionName = "loadUniversitySearcherView";
 
-            default:
-                $controllerName = "IndexController";
-                $actionName = "index";
-                break;
-        }
         $controllerPath = $config->get('controllersFolder') . $controllerName . '.php';
 
         //Incluimos el fichero que contiene nuestra clase controladora solicitada

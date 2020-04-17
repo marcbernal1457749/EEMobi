@@ -42,17 +42,18 @@ $(document).ready(function() {
 
         , $(document).on("click", "#addSubject", function(e) {
 
-        var id = $("#subjectSelector").val();
-        var opt = $("#subjectSelector option:selected").text();
-        var bodyTable = $("#subjectBodyTable");
+            $("#defaultrow").remove();
+            var id = $("#subjectSelector").val();
+            var opt = $("#subjectSelector option:selected").text();
+            var bodyTable = $("#subjectBodyTable");
 
-        if(id != -1) {
-            bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
-                "<span aria-hidden='true'>&times;</span>" +
-                "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
-        }
+            if(id != -1) {
+                bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
+                    "<span aria-hidden='true'>&times;</span>" +
+                    "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
+            }
 
-        return false;
+            return false;
     })
 
         , $(document).on("click", "#remSubject", function(e){

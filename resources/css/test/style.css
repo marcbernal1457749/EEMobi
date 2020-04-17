@@ -366,3 +366,6 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 #click:hover{
     .opacity=0.3;
 }
+.searcherbackground{
+    background-image: url('/EEmobi/resources/img/searcherbackground.jpg');
+}

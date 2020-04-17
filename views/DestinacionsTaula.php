@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="FullTable">
+    <table class="table table-hover cell-border display compact" id="FullTable">
         <thead class="thead-dark">
         <tr>
             <th scope="col" align="center" class="sortTables">Nom Universitat<a href="#"><img width="20" height="20" src="./resources/images/sort_both.png"></a></th>
