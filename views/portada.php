@@ -2,12 +2,12 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">Benvingut/da a EEMobi!</h1>
+        <h1 class="masthead-heading mb-0">Benvinguts a EEMobi!</h1>
         <h3 class="masthead-subheading mb-0">El nou portal de mobilitat de l'Escola d'Enginyeria de la UAB</h3>
-        <a href="login" class="btn btn-primary btn-xl rounded-pill mt-5">Accedeix</a>
-          <a href="./guest.php" class="btn btn-secundary btn-xl rounded-pill mt-5">Entra com a convidat</a>
+        <a href="login" class="btn btn-primary btn-xl rounded-pill mt-5">Iniciar sessió</a>
+          <a href="/EEmobi/guest.php" class="btn btn-secondary btn-xl rounded-pill mt-5">Entrar com a convidat</a>
           <br/>
-          <small>Pots accedir amb les credencials de la UAB o com a convidat!</small>
+          <small>*Pots accedir amb les credencials de la UAB o com a convidat</small>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -52,7 +52,7 @@
             <p>L’alumnat haurà de cercar, a través de la web de la universitat de destí, quines assignatures d’allà es corresponen amb les que s’hagi matriculat a la UAB (quant a crèdits, contingut, objectius, càrrega horària, etc.). És important que abans de triar on es vol anar, es tingui la seguretat que allà es podran cursar un mínim de crèdits per ser reconeguts a la UAB (mínim 15ECTS/semestre). </p>
             <p>A EEMobi podràs trobar assignatures que han cursat altres alumnes per poder corroborar-ho.</p>
 
-            <p>En aquest portal trobaràs tota la informació necessària sobre els següents programes de mobilitat: Erasmus+, Propi i SICUE.</p>
+            <p>En aquest portal trobaràs tota la informació necessària sobre els següents programes de mobilitat: Erasmus+, UAB Exchange (Propi) i SICUE.</p>
           </div>
         </div>
       </div>

@@ -61,8 +61,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
-                        <li><a href="./searchUniversity.php">Cercar per universitat</a></li>
+                        <li><a href="/EEmobi/searchSubject.php">Cercar per assignatures</a></li>
+                        <li><a href="">Cercar per universitat</a></li>
                    </ul>
                    <ul class="nav navbar-nav navbar-right ">
                        <li><a  class="welcome" href="/EEmobi/Perfil"><?php echo $_SESSION['nom']; ?></a></li>

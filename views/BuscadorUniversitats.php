@@ -14,7 +14,7 @@ if($logged){
         <div class="col-sm-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="titulo">EN CONSTRUCCIÓ!</h3>
+
                 </div>
 <!--
                 <div class="panel-body">
@@ -96,6 +96,5 @@ if($logged){
         </div>
     </div>
     <div class="row">
-
     </div>
 </div>

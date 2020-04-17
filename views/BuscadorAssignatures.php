@@ -2,8 +2,6 @@
 if($logged){
     include('templates/HeaderInfo.php');
     ?>
-    <script src="resources/js/eventListener.js"></script>
-    <script src="resources/js/functions.js"></script>
 <?php
 }else{
     include('templates/Header.php');

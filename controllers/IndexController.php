@@ -40,13 +40,13 @@ class IndexController
 
         if(isset($_SESSION['loggedin'])){
             $logged = true;
-            $route = $this->view->show("paginaPrincipal.php");
+            $route = $this->view->show("PaginaPrincipal.php");
             
         }else{
             $logged = false;
             $route = $this->view->show("portada.php");
         }
-        //$route = $this->view->show("paginaPrincipal.php");
+        ///$route = $this->view->show("PaginaPrincipal.php");
         include($route);
     }
 
