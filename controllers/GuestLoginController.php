@@ -1,13 +1,12 @@
 <?php
-class IndexController
-{
+class GuestLoginController{
+
     function __construct(){
-        
+
         $this->view = new View();
     }
- 
-    public function index($parameters){
 
+    public function guestLogin($parameters){
         require_once 'models/DegreesModel.php';
         require_once 'models/CountriesModel.php';
         require_once 'models/ProgramsModel.php';
@@ -38,17 +37,9 @@ class IndexController
         $assignaturesModel->disconnect();
         $adminManagmentModel->disconnect();
 
-        if(isset($_SESSION['loggedin'])){
-            $logged = true;
-            $route = $this->view->show("PaginaPrincipal.php");
-            
-        }else{
-            $logged = false;
-            $route = $this->view->show("portada.php");
-        }
-        ///$route = $this->view->show("PaginaPrincipal.php");
+        $logged = false;
+        $route = $this->view->show("PaginaPrincipal.php");
         include($route);
     }
 
 }
-?>

@@ -1,8 +1,5 @@
 $(document).ready(function() {
-    $(document).ready(function(){
-        $('#exampleModalCenter').modal('show')
-    })
-    , $(document).on("change", "#selectCountry", function(e) {
+    $(document).on("change", "#selectCountry", function(e) {
         e.preventDefault();
         var t = $(this).val();
         -1 != t && (getDegreesByCountry(t), getUniversitiesByIdCountry(t))
@@ -45,18 +42,17 @@ $(document).ready(function() {
 
         , $(document).on("click", "#addSubject", function(e) {
 
-            var id = $("#subjectSelector").val();
-            var opt = $("#subjectSelector option:selected").text();
-            var bodyTable = $("#subjectBodyTable");
+        var id = $("#subjectSelector").val();
+        var opt = $("#subjectSelector option:selected").text();
+        var bodyTable = $("#subjectBodyTable");
 
-            //Se pone como class del button "text", para que no lo pille el evento de la linea 173
-            if(id != -1) {
-                bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
-                    "<span aria-hidden='true'>&times;</span>" +
-                    "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
-            }
+        if(id != -1) {
+            bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
+                "<span aria-hidden='true'>&times;</span>" +
+                "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
+        }
 
-            return false;
+        return false;
     })
 
         , $(document).on("click", "#remSubject", function(e){
@@ -67,38 +63,38 @@ $(document).ready(function() {
     })
 
         , $(document).on("click", "#searchDestinationBySubjects", function(e){
-            e.preventDefault();
-            var subjectIDs = '{"search":';
-            subjectIDs = subjectIDs.concat('"'+ $("#logicOperator option:selected").text()+ '","program":"'+
-                $("#selectDegreesProgram option:selected").val()+ '","ids":[');
+        e.preventDefault();
+        var subjectIDs = '{"search":';
+        subjectIDs = subjectIDs.concat('"'+ $("#logicOperator option:selected").text()+ '","program":"'+
+            $("#selectDegreesProgram option:selected").val()+ '","ids":[');
 
-            $('#subjectBodyTable > tr > td > p').each( function(e){
-                subjectIDs = subjectIDs.concat('"'+ $(this).attr('id')+ '",');
-            });
+        $('#subjectBodyTable > tr > td > p').each( function(e){
+            subjectIDs = subjectIDs.concat('"'+ $(this).attr('id')+ '",');
+        });
 
-            if(subjectIDs.substring(subjectIDs.length - 1, subjectIDs.length)==","){
-                subjectIDs = subjectIDs.substring(0, subjectIDs.length - 1);
+        if(subjectIDs.substring(subjectIDs.length - 1, subjectIDs.length)==","){
+            subjectIDs = subjectIDs.substring(0, subjectIDs.length - 1);
+        }
+
+        subjectIDs = subjectIDs.concat(']}');
+
+        console.log(subjectIDs);
+        var dataToSend = JSON.parse(subjectIDs);
+        dataToSend = JSON.stringify(dataToSend);
+
+
+        $.ajax({
+            url: "controllers/DestinacionsTaulaController.php",
+            data: {'dataSent' : dataToSend},
+            type: 'POST',
+            success : function (data){
+                $('#destinationsTable').empty();
+                $('#destinationsTable').html((data));
+            },
+            complete: function (xhr, status) {
+                $('#destinationsTable').slideDown('slow');
             }
-
-            subjectIDs = subjectIDs.concat(']}');
-
-            console.log(subjectIDs);
-            var dataToSend = JSON.parse(subjectIDs);
-            dataToSend = JSON.stringify(dataToSend);
-
-
-            $.ajax({
-                url: "controllers/DestinacionsTaulaController.php",
-                data: {'dataSent' : dataToSend},
-                type: 'POST',
-                success : function (data){
-                    $('#destinationsTable').empty();
-                    $('#destinationsTable').html((data));
-                },
-                complete: function (xhr, status) {
-                    $('#destinationsTable').slideDown('slow');
-                }
-            });
+        });
     })
 
         , $(document).on("click",".sortTables", function(e){
@@ -112,14 +108,14 @@ $(document).ready(function() {
     })
 
         , $(".nav-scroll").find("a").click(function() {
-        var e = $(this).attr("href"),
+        var e = $(this).attr("href");
             t = $(e).offset();
         return window.scrollTo(t.left, t.top), !1
     })
 
         , $(document).on("mouseover", ".button-custom", function(e) {
         e.preventDefault();
-        var t = $("#selectDegree").val(),
+        var t = $("#selectDegree").val();
             a = $("option[value='" + t + "']").text();
         a = a.replace(/ /g, "-"), -1 == t ? $("#degreeselect").val("Tots-els-graus") : $("#degreeselect").val(a)
     })

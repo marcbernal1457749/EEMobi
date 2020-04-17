@@ -2,6 +2,8 @@
 if($logged){
     include('templates/HeaderInfo.php');
     ?>
+    <script src="resources/js/eventListener.js"></script>
+    <script src="resources/js/functions.js"></script>
 <?php
 }else{
     include('templates/Header.php');
@@ -12,11 +14,11 @@ if($logged){
         <div class="col-sm-12">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="titulo">Troba la teva destinació!</h3>
-                </div>
 
+                </div>
+<!--
                 <div class="panel-body">
-                    <h4>Cerca per assignatures:</h4>
+                    <h4>Cerca per universitat:</h4>
                     <div class="col-sm-7">
                         <div class="row bg-info padding-bottom-20 ">
                             <div class="col-lg-6">
@@ -89,11 +91,10 @@ if($logged){
                     </div>
 
                     <div class="col-sm-12 padding-top-20" id="destinationsTable"></div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
     <div class="row">
-
     </div>
 </div>
