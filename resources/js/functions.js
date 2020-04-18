@@ -93,8 +93,24 @@ function filtrarAcordsAdmin(data){
 //Funciones para ordenar una tabla
 function comparer(index) {
     return function(a, b) {
-        var valA = getCellValue(a, index), valB = getCellValue(b, index)
+        var valA = getCellValue(a, index), valB = getCellValue(b, index);
         return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
     }
 }
 function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+
+function onEnterSearhUni(data) {
+
+    $.ajax({
+        type: 'POST',
+        url:  "controllers/ResultatsCercadorUniController.php",
+        data: {"nameUni":data},
+        success: function(data){
+            $('#resultsTable').empty();
+            $('#resultsTable').html((data));
+        },
+        complete: function (xhr, status) {
+            $('#resultsTable').slideDown('slow');
+        }
+    });
+}

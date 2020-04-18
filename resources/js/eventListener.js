@@ -233,4 +233,44 @@ $(document).ready(function() {
             e.succes ? ($("#myModal").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
         });
     })
+        , $(document).on("click", "#advancedOptions", function(e){
+        e.preventDefault();
+        $("#advancedOptionsShow").css({ display: "block" });
+
+        return;
+    })
+
+        , $(document).on("click", "#searchDestinationAdvanced", function(e){
+        e.preventDefault();
+        var data = [];
+        var nom = $("#searcherUni").val();
+        var grau = $("#selectSubjectsDegree").children(":selected").val();
+        var pais = $("#selectSubjectsCountry").children(":selected").val();
+
+
+        data.push({"nom":nom,"grau":grau,"pais":pais});
+        console.log(data);
+        $.ajax({
+            url: "controllers/ResultatsCercadorUniController.php",
+            data: {'dataSent' : data},
+            type: 'POST',
+            success : function (data){
+                $('#resultsTable').empty();
+                $('#resultsTable').html((data));
+            },
+            complete: function (xhr, status) {
+                $('#resultsTable').slideDown('slow');
+            }
+        });
+    })
+        ,$("#searcherUni").keypress(function(e) {
+
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if(code==13){
+                var data = $("#searcherUni").val();
+                e.preventDefault();
+                onEnterSearhUni(data);
+            }
+        });
+
 });
