@@ -9,15 +9,28 @@
     $universitiesModel = new UniversitiesModel();
     $areThereIds = false;
 
-    if (isset($_POST['dataSent'])){
-        $dataReceived = $_POST['dataSent'];
-        $destinacions = $universitiesModel->getUniversitiesByAproxNameAndDegree($dataReceived[0]['nom'],$dataReceived[0]['grau'],$dataReceived[0]['pais']);
-
-    }
     if (isset($_POST['nameUni'])){
+        echo "Entro1";
         $nomUni = $_POST['nameUni'];
         $destinacions = $universitiesModel->getUniversitiesByAproxName($nomUni);
+        var_dump($destinacions);
     }
+    if (isset($_POST['dataSent'])){
+        echo "Entro2";
+
+        $dataReceived = $_POST['dataSent'];
+        if($dataReceived[0]['nom'] == ""){
+            echo "Entro21";
+            $destinacions = $universitiesModel->getUniversitiesByAproxNameAndDegreeSearchBlank($dataReceived[0]['grau'],$dataReceived[0]['pais']);
+            var_dump($destinacions);
+        }
+        else{
+            echo "Entro2";
+            $destinacions = $universitiesModel->getUniversitiesByAproxNameAndDegree($dataReceived[0]['nom'],$dataReceived[0]['grau'],$dataReceived[0]['pais']);
+            var_dump($destinacions);
+        }
+    }
+
 
 
     if(!empty($destinacions)){

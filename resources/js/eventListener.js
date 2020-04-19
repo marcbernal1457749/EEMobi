@@ -249,7 +249,7 @@ $(document).ready(function() {
 
 
         data.push({"nom":nom,"grau":grau,"pais":pais});
-        console.log(data);
+
         $.ajax({
             url: "controllers/ResultatsCercadorUniController.php",
             data: {'dataSent' : data},
@@ -271,6 +271,14 @@ $(document).ready(function() {
                 e.preventDefault();
                 onEnterSearhUni(data);
             }
-        });
+        })
+
+        ,$(document).on("submit", "#searchUniForm", function(e){
+
+        var data = $("#searcherUni").val();
+        e.preventDefault();
+        onEnterSearhUni(data);
+
+    })
 
 });
