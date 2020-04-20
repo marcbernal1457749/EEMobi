@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot');  src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
 body,h1,h2,h3,h4,h5,html{font-weight:300}
 .cd-duration,.cd-pricing-header h2,.community-edition h4,.menu-item ul li,.no-info p,.panel-university p,.single_service_right h2,.welcome,h1{text-transform:uppercase}
 h1,h2,h3,h4,h5{margin:0}
@@ -365,4 +369,28 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 }
 #click:hover{
     .opacity=0.3;
+}
+.searcherbackground{
+    /*background-image: url('/EEmobi/resources/img/searcherbackground.jpg');*/
+    background: rgb(215,90,0);
+    background: linear-gradient(0deg, rgba(215,90,0,0.26934523809523814) 0%, rgba(255,255,255,0.7287289915966386) 100%);
+}
+.has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+}
+
+.has-search .form-control {
+    padding-right: 12px;
+    padding-left: 34px;
+}
+#advancedOptions{
+    cursor:pointer;
+}
+#advancedOptions:hover{
+    font-weight: bold;
+}
+#advancedOptionsShow{
+    display: none;
 }

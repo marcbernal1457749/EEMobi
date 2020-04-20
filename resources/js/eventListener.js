@@ -42,17 +42,18 @@ $(document).ready(function() {
 
         , $(document).on("click", "#addSubject", function(e) {
 
-        var id = $("#subjectSelector").val();
-        var opt = $("#subjectSelector option:selected").text();
-        var bodyTable = $("#subjectBodyTable");
+            $("#defaultrow").remove();
+            var id = $("#subjectSelector").val();
+            var opt = $("#subjectSelector option:selected").text();
+            var bodyTable = $("#subjectBodyTable");
 
-        if(id != -1) {
-            bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
-                "<span aria-hidden='true'>&times;</span>" +
-                "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
-        }
+            if(id != -1) {
+                bodyTable.append("<tr><td><button id='remSubject' type='button' class='text close' aria-label='Close'>" +
+                    "<span aria-hidden='true'>&times;</span>" +
+                    "</button><p id='"+id+"'>"+opt+"</p></td></tr>");
+            }
 
-        return false;
+            return false;
     })
 
         , $(document).on("click", "#remSubject", function(e){
@@ -232,4 +233,52 @@ $(document).ready(function() {
             e.succes ? ($("#myModal").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
         });
     })
+        , $(document).on("click", "#advancedOptions", function(e){
+        e.preventDefault();
+        $("#advancedOptionsShow").css({ display: "block" });
+
+        return;
+    })
+
+        , $(document).on("click", "#searchDestinationAdvanced", function(e){
+        e.preventDefault();
+        var data = [];
+        var nom = $("#searcherUni").val();
+        var grau = $("#selectSubjectsDegree").children(":selected").val();
+        var pais = $("#selectSubjectsCountry").children(":selected").val();
+
+
+        data.push({"nom":nom,"grau":grau,"pais":pais});
+
+        $.ajax({
+            url: "controllers/ResultatsCercadorUniController.php",
+            data: {'dataSent' : data},
+            type: 'POST',
+            success : function (data){
+                $('#resultsTable').empty();
+                $('#resultsTable').html((data));
+            },
+            complete: function (xhr, status) {
+                $('#resultsTable').slideDown('slow');
+            }
+        });
+    })
+        ,$("#searcherUni").keypress(function(e) {
+
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if(code==13){
+                var data = $("#searcherUni").val();
+                e.preventDefault();
+                onEnterSearhUni(data);
+            }
+        })
+
+        ,$(document).on("submit", "#searchUniForm", function(e){
+
+        var data = $("#searcherUni").val();
+        e.preventDefault();
+        onEnterSearhUni(data);
+
+    })
+
 });

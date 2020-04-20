@@ -132,6 +132,171 @@ class UniversitiesModel{
         return $finalResults;
     }
 
+    public function getUniversitiesByAproxName($search){
+        if($search!=""){
+            try {
+
+            $consulta = $this->db->prepare("SELECT uni.nomUniversitat,uni.idUniversitat,uni.adreça,pais.nomPais,uni.urlUniversitat,uni.urlIntercanvis
+                                            FROM universitats uni
+                                            INNER JOIN pais ON pais.idPais = uni.idPais
+                                            WHERE uni.nomUniversitat LIKE '%$search%' OR pais.nomPais LIKE '%$search%' ORDER BY uni.nomUniversitat");
+            $consulta->execute();
+            $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+
+            } catch (Exception $e) {
+                $obj = $e;
+            }
+        }else{
+            $consulta = $this->db->prepare('SELECT un.idUniversitat,un.nomUniversitat,un.urlUniversitat,un.urlIntercanvis,un.codiUniversitat
+                                            FROM universitats un,pais pa
+                                            WHERE un.idPais = pa.idPais ORDER BY un.nomUniversitat');
+            $consulta->execute();
+            $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+        }
+
+        return $obj;
+
+    }
+    public function getUniversitiesByAproxNameAndDegree($search,$grau,$pais){
+        //SI NO SE HA SELECCIONADO NI PAIS NI GRADO:
+        if(($pais=="-1") && ($grau=="-1")) {
+
+                try {
+
+                    $consulta = $this->db->prepare("SELECT uni.nomUniversitat,uni.idUniversitat,uni.adreça,pais.nomPais,uni.urlUniversitat,uni.urlIntercanvis
+                                                        FROM universitats uni
+                                                        INNER JOIN pais ON pais.idPais = uni.idPais
+                                                        WHERE uni.nomUniversitat LIKE '%$search%' OR pais.nomPais LIKE '%$search%' ORDER BY uni.nomUniversitat");
+                    $consulta->execute();
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+
+            //SI SOLO SE HA SELECCIONADO GRADO:
+        }else if(($pais=="-1") && ($grau!="-1")){
+
+                try {
+                    $consulta = $this->db->prepare("SELECT uni.nomUniversitat,uni.idUniversitat,uni.adreça,pais.nomPais,uni.urlUniversitat,uni.urlIntercanvis
+                                                FROM universitats uni
+                                                INNER JOIN pais ON pais.idPais = uni.idPais
+                                                INNER JOIN universitat_estudisuab ON universitat_estudisuab.idUniversitat = uni.idUniversitat
+                                                WHERE uni.nomUniversitat LIKE '%$search%' OR pais.nomPais LIKE '%$search%' AND universitat_estudisuab.codiEstudis=? ORDER BY uni.nomUniversitat");
+                    $consulta->execute(array($grau));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+
+            //SI SOLO SE HA SELECCIONADO PAIS:
+        }else if(($pais!="-1") && ($grau=="-1")) {
+
+                try {
+                    $consulta = $this->db->prepare("SELECT universitats.nomUniversitat,universitats.idUniversitat,universitats.adreça,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis
+                                        FROM pais
+                                        INNER JOIN universitats ON universitats.idPais = pais.idPais
+                                        WHERE pais.idPais = ? AND universitats.nomUniversitat LIKE '%$search%' ORDER BY universitats.nomUniversitat");
+                    $consulta->execute(array($pais));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+
+        }
+        //SI SE HA SELECCIONADO TODO
+        else {
+            
+                try {
+                    $consulta = $this->db->prepare("SELECT universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis,universitat_estudisuab.codiEstudis
+                                        FROM pais,universitat_estudisuab,universitats,estudisuab
+                                        WHERE universitats.idPais = pais.idPais
+                                        AND universitats.idPais = ?
+                                        AND universitat_estudisuab.idUniversitat = universitats.idUniversitat
+                                        AND universitat_estudisuab.codiEstudis= ? AND universitats.nomUniversitat LIKE '%$search%' 
+                                        GROUP BY universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis,universitat_estudisuab.codiEstudis
+                                        ORDER BY universitats.nomUniversitat");
+                    $consulta->execute(array($pais, $grau));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+        }
+
+        return $obj;
+
+    }
+
+    public function getUniversitiesByAproxNameAndDegreeSearchBlank($grau,$pais){
+        //SI NO SE HA SELECCIONADO NI PAIS NI GRADO:
+        if(($pais=="-1") && ($grau=="-1")) {
+
+           try{
+
+                $consulta = $this->db->prepare('SELECT un.idUniversitat,un.nomUniversitat,un.urlUniversitat,un.urlIntercanvis,un.codiUniversitat, pa.nomPais
+                                                            FROM universitats un,pais pa
+                                                            WHERE un.idPais = pa.idPais ORDER BY un.nomUniversitat');
+                $consulta->execute();
+                $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+            }catch (Exception $e) {
+               $obj = $e;
+           }
+            return $obj;
+            //SI SOLO SE HA SELECCIONADO GRADO:
+        }else if(($pais=="-1") && ($grau!="-1")){
+
+                try {
+                    $consulta = $this->db->prepare('SELECT universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis
+                                        FROM pais,universitats,universitat_estudisuab
+                                        WHERE universitat_estudisuab.idUniversitat = universitats.idUniversitat
+                                        and universitats.idPais = pais.idPais
+                                        AND universitat_estudisuab.codiEstudis = ? ORDER BY universitats.nomUniversitat');
+                    $consulta->execute(array($grau));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+            return $obj;
+
+            //SI SOLO SE HA SELECCIONADO PAIS:
+        }else if(($pais!="-1") && ($grau=="-1")) {
+
+                try {
+                    $consulta = $this->db->prepare('SELECT universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis
+                                        FROM pais
+                                        INNER JOIN universitats ON universitats.idPais = pais.idPais
+                                        WHERE pais.idPais = ? ORDER BY universitats.nomUniversitat');
+                    $consulta->execute(array($pais));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+            return $obj;
+            }
+        //SI SE HA SELECCIONADO TODO
+        else {
+
+                try {
+                    $consulta = $this->db->prepare('SELECT universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis,universitat_estudisuab.codiEstudis
+                                        FROM pais,universitat_estudisuab,universitats,estudisuab
+                                        WHERE universitats.idPais = pais.idPais
+                                        AND universitats.idPais = ?
+                                        AND universitat_estudisuab.idUniversitat = universitats.idUniversitat
+                                        AND universitat_estudisuab.codiEstudis= ? 
+                                        GROUP BY universitats.nomUniversitat,universitats.idUniversitat,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis,universitat_estudisuab.codiEstudis
+                                        ORDER BY universitats.nomUniversitat ');
+                    $consulta->execute(array($pais, $grau));
+                    $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    $obj = $e;
+                }
+            return $obj;
+            }
+
+    }
+
+
+
     public function getUniversityByProgram($idProgram){
 
         $consulta = $this->db->prepare('SELECT universitats.nomUniversitat,universitats.idUniversitat,universitats.adreça,universitats.lat,universitats.lng,pais.nomPais,universitats.urlUniversitat,universitats.urlIntercanvis,pais.codiPrograma
@@ -222,6 +387,8 @@ class UniversitiesModel{
         return $obj;
 
     }
+
+
     public function addUniversityWithDegree($idUniversitat,$idGrau){
         try {
             $consulta = $this->db->prepare("INSERT INTO universitat_estudisuab(codiEstudis,idUniversitat) VALUES (?,?)");
