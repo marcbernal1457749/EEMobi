@@ -22,7 +22,7 @@ if($logged){
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             <input id="searcherUni" type="text" class="form-control" placeholder="Cercar per nom o país...">
                         </form>
-                        <small id="advancedOptions">Búsqueda avançada</small>
+                        <small id="advancedOptions">Cerca avançada</small>
 
                         <div class="col-sm-12"  id="advancedOptionsShow" >
                             <div id="degreesBuscador">
