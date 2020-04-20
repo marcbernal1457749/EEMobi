@@ -180,6 +180,8 @@ $(document).ready(function() {
         getUniversitiesByUser($("#uniEstanciaAlumne").val());
     }), $(document).on("click", "#publicarp", function() {
         getUniversitiesByUser($(this).attr("at")), $("#myModal").modal("toggle")
+    }), $(document).on("click", "#opinarsubject", function() {
+        getSubjectsByUser($(this).attr("at")), $("#myModal1").modal("toggle")
     }), $(document).on("click", "#acordp", function() {
         getAcordsById($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#crearAcord", function() {
@@ -231,6 +233,25 @@ $(document).ready(function() {
             processData: !1,
         }).done(function(e) {
             e.succes ? ($("#myModal").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
+        });
+
+    }), $(document).on("click", "#publicarOpSubject", function(e) {
+        $("#debugimg .alert").remove(), e.preventDefault();
+        var t = new FormData;
+
+        t.append("text", $("#text-publi").val());
+        t.append("codiAcord", $("#codiAcord").val());
+
+        $.ajax({
+            type: "POST",
+            url: "perfil.php/addPublicationSubject",
+            data: t,
+            contentType: !1,
+            cache: !1,
+            dataType: "json",
+            processData: !1,
+        }).done(function(e) {
+            e.succes ? ($("#myModal1").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
         });
     })
         , $(document).on("click", "#advancedOptions", function(e){

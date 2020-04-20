@@ -45,6 +45,9 @@ function editProfile(){
 function getUniversitiesByUser(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormPopup/"+e,success:function(e,n,t){$(".modal-dialog").html(e)},error:function(e,n,t){}})
 }
+function getSubjectsByUser(e){
+    $.ajax({type:"GET",url:"perfil.php",data:"/openFormSubject/"+e,success:function(e,n,t){$(".modal-dialog").html(e)},error:function(e,n,t){}})
+}
 
 function getAcordsById(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormAcord/"+e,success:function(e,n,t){$(".modal-dialog").html(e),$("#test").DataTable()},error:function(e,n,t){}})

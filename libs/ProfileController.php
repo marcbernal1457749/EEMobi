@@ -37,6 +37,13 @@ class ProfileController{
               array_push($parameters,$data);  
             }
             break;
+            case 'openFormSubject':
+                $actionName = "openFormSubject";
+                if(isset($url_parameters[4])){
+                    $data['codiAcord'] = $url_parameters[4];
+                    array_push($parameters,$data);
+                }
+                break;
 
             case 'firstRatings':
                 $actionName = "firstRatings";
@@ -95,6 +102,21 @@ class ProfileController{
             }
             array_push($parameters, $data);
             break;
+
+            case 'addPublicationSubject':
+                $actionName = "addPublicationSubject";
+
+                if(empty($_POST['codiAcord'])||empty($_POST['text'])){
+                    $data['success']=false;
+
+                }else{
+                    $data['codiAcord'] = $_POST['codiAcord'];
+                    $data['text'] = $_POST['text'];
+                    $data['success']=true;
+                }
+                array_push($parameters, $data);
+                break;
+
           case 'deletePublication':
             $data['idPublicacio'] = $_POST['idToDelete'];
             $actionName = "deletePublication";

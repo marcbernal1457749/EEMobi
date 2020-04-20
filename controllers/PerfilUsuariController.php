@@ -316,6 +316,7 @@ class PerfilUsuariController
         $niu = $_SESSION['niu'];
         $categories = $ratingsModel->getCategories();
         $idUniversitat = $data['idUniversitat'];
+        $ratingsModel->disconnect();
         /*
         if(isset($_SESSION['teacher'])){
             $universitiesSelect = $universitiesModel->getUniversityById($data['idUniversitat']);
@@ -328,6 +329,17 @@ class PerfilUsuariController
         include($route);
 
     }
+    public function openFormSubject($parameters){
+
+        $data = $parameters[0];
+        $route = $this->view->show("modalFormSubject.php");
+        $niu = $_SESSION['niu'];
+        $codiAcord = $data['codiAcord'];
+
+        include($route);
+
+    }
+
     public function openFormAcord($parameters){
         require_once 'models/StayModel.php';
         require_once 'models/AssignaturesModel.php';
@@ -359,11 +371,11 @@ class PerfilUsuariController
             $text = strip_tags($data['text']);
             $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
             $error['succes']=true;
-            $error['uploadFile']=false; 
+            $error['uploadFile']=false;
             if(isset($data['isFile'])){
                 $target_dir=$data['target_dir'];
-                $target_file=$data['target_file']; 
-                $imageFileType=$data['imageFileType']; 
+                $target_file=$data['target_file'];
+                $imageFileType=$data['imageFileType'];
                 $check=$data['check'];
 
                 if($check == false) {
@@ -373,19 +385,19 @@ class PerfilUsuariController
                 }
                 if (file_exists($target_file)) {
                     //echo "Sorry, file already exists.";
-                     $error['msg'] = "La imatge ja existeix.";
-                     $error['succes']=false;
+                    $error['msg'] = "La imatge ja existeix.";
+                    $error['succes']=false;
                 }
                 // Check file size
                 if ($_FILES['file']['size'] > 5000000) {
                     //echo "Sorry, your file is too large.";
-                     $error['msg'] = "La imatge es massa gran.";
-                     $error['succes']=false;
+                    $error['msg'] = "La imatge es massa gran.";
+                    $error['succes']=false;
                 }
                 // Allow certain file formats
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                     //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                   $error['msg'] = "Nomes estan permesos les extensions png,jpeg,jpg.";
+                    $error['msg'] = "Nomes estan permesos les extensions png,jpeg,jpg.";
                 }
                 if (empty($error['msg'])) {
                     if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
@@ -410,7 +422,6 @@ class PerfilUsuariController
 
         echo json_encode($error);
 
-
     }
     public function deletePublication($parameters){
         $data = $parameters[0];
@@ -420,6 +431,30 @@ class PerfilUsuariController
         $error['succes']=true;
         $publicationsModel->disconnect();
         echo json_encode($error);
+
+    }
+
+    public function addPublicationSubject($parameters){
+        $data = $parameters[0];
+        require_once 'models/PublicationsSubjectModel.php';
+        $publicationsModel = new PublicationsSubjectModel();
+        echo '<script>console.log($data)</script>';
+
+        if($data['success']){
+            $date = date('Y-m-d');
+            $text = strip_tags($data['text']);
+            $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
+            $error['success']=true;
+
+            $publicationsModel->addPublicationSubject($data['idUniversitat'],$_SESSION['niu'],$text,$date);
+
+        }else{
+            $error['msg'] = "No es permeten camps buits.";
+            $error['success']=false;
+        }
+
+        echo json_encode($error);
+
 
     }
     public function addAgreement($parameters){
