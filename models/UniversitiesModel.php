@@ -182,7 +182,9 @@ class UniversitiesModel{
                                                 FROM universitats uni
                                                 INNER JOIN pais ON pais.idPais = uni.idPais
                                                 INNER JOIN universitat_estudisuab ON universitat_estudisuab.idUniversitat = uni.idUniversitat
-                                                WHERE uni.nomUniversitat LIKE '%$search%' OR pais.nomPais LIKE '%$search%' AND universitat_estudisuab.codiEstudis=? ORDER BY uni.nomUniversitat");
+                                                WHERE uni.nomUniversitat LIKE '%$search%' OR pais.nomPais LIKE '%$search%' AND universitat_estudisuab.codiEstudis=? 
+                                                GROUP BY uni.nomUniversitat,uni.idUniversitat,uni.adreça,pais.nomPais,uni.urlUniversitat,uni.urlIntercanvis
+                                                 ORDER BY uni.nomUniversitat");
                     $consulta->execute(array($grau));
                     $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
                 } catch (Exception $e) {

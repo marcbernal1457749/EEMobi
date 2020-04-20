@@ -235,9 +235,13 @@ $(document).ready(function() {
     })
         , $(document).on("click", "#advancedOptions", function(e){
         e.preventDefault();
-        $("#advancedOptionsShow").css({ display: "block" });
+        var sw = document.getElementById("advancedOptionsShow");
+        if (sw.style.display === "block") {
+            sw.style.display = "none";
+        } else {
+            sw.style.display = "block";
+        }
 
-        return;
     })
 
         , $(document).on("click", "#searchDestinationAdvanced", function(e){
