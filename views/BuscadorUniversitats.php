@@ -20,7 +20,7 @@ if($logged){
                         <h4>Cerca:</h4>
                         <form id="searchUniForm" class="form-group has-feedback has-search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            <input id="searcherUni" type="text" class="form-control" placeholder="Cercar universitat...">
+                            <input id="searcherUni" type="text" class="form-control" placeholder="Cercar per nom o país...">
                         </form>
                         <small id="advancedOptions">Búsqueda avançada</small>
 
