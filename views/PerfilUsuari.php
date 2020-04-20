@@ -19,7 +19,7 @@
                             <th>Assignatures Cursades</th>
                             <th>Crèdits</th>
                             <th>Semestre</th>
-                            <th><em class="glyphicon glyphicon-thumbs-up"></em></th>
+                            <th><em class="glyphicon glyphicon-check"></em></th>
 
                         </tr>
                         </thead>
@@ -33,7 +33,7 @@
                                     <td><?php echo $subject->creditsAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->semestre; ?></td>
                                     <td align="center">
-                                        <a href="#" id="publicarp" at="">Opinar</a>
+                                        <a href="#" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>">Opinar</a>
                                     </td>
                                 </tr>
                             <?php endforeach;

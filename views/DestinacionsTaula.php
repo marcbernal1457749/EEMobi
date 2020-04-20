@@ -20,10 +20,10 @@
                    <td><?php echo $assignatura['nomUniversitat']; ?></td>
                    <td id="nomPais"><?php echo $assignatura['nomPais']; ?></td>
                    <td align="center" valign="middle">
-                       <a href="<?php echo $assignatura['urlUniversitat']; ?>"><img id="click" src="./resources/images/click.png"></a>
+                       <a target="_blank" href="<?php echo $assignatura['urlUniversitat']; ?>"><img id="click" src="./resources/images/click.png"></a>
                    </td>
                    <td align="center" valign="middle">
-                       <a href="<?php echo $assignatura['urlIntercanvis']; ?>"><img id="click" src="./resources/images/click.png"></a></td>
+                       <a target="_blank" href="<?php echo $assignatura['urlIntercanvis']; ?>"><img id="click" src="./resources/images/click.png"></a></td>
                    <td align="center" valign="middle">
                        <?php if($logged){?>
 

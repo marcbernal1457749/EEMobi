@@ -284,5 +284,13 @@ $(document).ready(function() {
         onEnterSearhUni(data);
 
     })
+        ,$(document).on("click", "#deleteDestinationAdvanced", function(e){
+
+        $("#searchUniForm")[0].reset();
+        $('#selectSubjectsDegree').prop('selectedIndex',0)
+        $('#selectSubjectsCountry').prop('selectedIndex',0)
+
+    })
+
 
 });

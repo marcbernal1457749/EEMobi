@@ -147,7 +147,7 @@ class UniversitiesModel{
                 $obj = $e;
             }
         }else{
-            $consulta = $this->db->prepare('SELECT un.idUniversitat,un.nomUniversitat,un.urlUniversitat,un.urlIntercanvis,un.codiUniversitat
+            $consulta = $this->db->prepare('SELECT un.idUniversitat,un.nomUniversitat,pa.nomPais,un.urlUniversitat,un.urlIntercanvis,un.codiUniversitat
                                             FROM universitats un,pais pa
                                             WHERE un.idPais = pa.idPais ORDER BY un.nomUniversitat');
             $consulta->execute();

@@ -20,10 +20,10 @@
                    <td><?php echo $destinacio->nomUniversitat; ?></td>
                    <td id="nomPais"><?php echo $destinacio->nomPais; ?></td>
                    <td align="center" valign="middle">
-                       <a href="<?php echo $destinacio->urlUniversitat; ?>"><img id="click" src="./resources/images/click.png"></a>
+                       <a target="_blank" href="<?php echo $destinacio->urlUniversitat; ?>"><img id="click" src="./resources/images/click.png"></a>
                    </td>
                    <td align="center" valign="middle">
-                       <a href="<?php echo $destinacio->urlIntercanvis; ?>"><img id="click" src="./resources/images/click.png"></a></td>
+                       <a target="_blank" href="<?php echo $destinacio->urlIntercanvis; ?>"><img id="click" src="./resources/images/click.png"></a></td>
                    <td align="center" valign="middle">
                        <?php if($logged){?>
 
