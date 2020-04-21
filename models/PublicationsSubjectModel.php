@@ -86,7 +86,7 @@ class PublicationsSubjectModel{
 
     public function addPublicationSubject($codiAcord,$niu,$text,$data){
         try{
-            $consulta = $this->db->prepare("INSERT INTO publicacionsassignatura (codiAcord, niuEstudiant, opinió, dataPublicació) VALUES (?, ?, ?, ?)");
+            $consulta = $this->db->prepare("INSERT INTO publicacionsassignatura (codiAcord, niuEstudiant, opinio, dataPublicacio) VALUES (?, ?, ?, ?)");
             $consulta->execute(array($codiAcord,$niu,$text,$data));
         }catch (Exception $e) {
             die($e->getMessage());

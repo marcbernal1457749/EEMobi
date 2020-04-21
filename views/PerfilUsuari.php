@@ -46,15 +46,8 @@
                         <?php } ?>
                         </tbody>
                     </table>
-                    <div class="modal fade" id="myModal1" role="dialog">
-                        <div class="modal-dialog">
-
-                        </div>
-                    </div>
-                    <div id="debug">
-
-                    </div>
                 </div>
+
             </div>
             <div class="tab-pane fade" id="tab3default">
                 <h5>Les teves valoracions:</h5>

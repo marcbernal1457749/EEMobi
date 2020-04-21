@@ -22,6 +22,12 @@
             	</div>
         	</div>
     	</div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div  class="modal-dialog">
+
+            </div>
+        </div>
     	<div class="col-sm-8">
     		<div class="panel with-nav-tabs panel-default">
         <?php
@@ -35,16 +41,12 @@
                                    <h4><?php echo $contentStay; ?></h4>
                                </div>
                                 <?php } ?>
+
                             <!-- Trigger the modal with a button -->
                           <div class="tab-pane fade" id="tab2default">
                           <h5>Les teves publicacions:</h5>
 
-                        <!-- Modal -->
-                          <div class="modal fade" id="myModal" role="dialog">
-                              <div class="modal-dialog">
-                                
-                              </div>
-                          </div>
+
                           <?php if($hasPublications){ ?>
                           <?php foreach ($publications  as $publication): ?>
                           <div class="item">

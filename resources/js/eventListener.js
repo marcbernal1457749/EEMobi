@@ -181,7 +181,7 @@ $(document).ready(function() {
     }), $(document).on("click", "#publicarp", function() {
         getUniversitiesByUser($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#opinarsubject", function() {
-        getSubjectsByUser($(this).attr("at")), $("#myModal1").modal("toggle")
+        getSubjectsByUser($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#acordp", function() {
         getAcordsById($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#crearAcord", function() {
@@ -246,13 +246,18 @@ $(document).ready(function() {
             type: "POST",
             url: "perfil.php/addPublicationSubject",
             data: t,
-            contentType: !1,
             cache: !1,
             dataType: "json",
             processData: !1,
-        }).done(function(e) {
-            e.succes ? ($("#myModal1").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
-        });
+            contentType: !1,
+            success:function(t,e,c){
+                $("#myModal").modal("toggle");
+                window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil");
+            },
+            error:function(e,a,t){
+                $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
+            }
+        })
     })
         , $(document).on("click", "#advancedOptions", function(e){
         e.preventDefault();

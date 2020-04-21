@@ -336,6 +336,7 @@ class PerfilUsuariController
         $niu = $_SESSION['niu'];
         $codiAcord = $data['codiAcord'];
 
+
         include($route);
 
     }
@@ -433,12 +434,11 @@ class PerfilUsuariController
         echo json_encode($error);
 
     }
-
     public function addPublicationSubject($parameters){
         $data = $parameters[0];
         require_once 'models/PublicationsSubjectModel.php';
         $publicationsModel = new PublicationsSubjectModel();
-        echo '<script>console.log($data)</script>';
+
 
         if($data['success']){
             $date = date('Y-m-d');
@@ -446,7 +446,7 @@ class PerfilUsuariController
             $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
             $error['success']=true;
 
-            $publicationsModel->addPublicationSubject($data['idUniversitat'],$_SESSION['niu'],$text,$date);
+            $publicationsModel->addPublicationSubject($data['codiAcord'],$_SESSION['niu'],$text,$date);
 
         }else{
             $error['msg'] = "No es permeten camps buits.";
@@ -457,6 +457,7 @@ class PerfilUsuariController
 
 
     }
+
     public function addAgreement($parameters){
         $data = $parameters[0];
         if(empty($data['codiEstada'])||empty($data['nomDesti'])||empty($data['linkDesti'])||empty($data['codiDesti'])||empty($data['creditsDesti'])||empty($data['assignatura'])){

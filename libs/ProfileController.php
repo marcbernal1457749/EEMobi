@@ -30,13 +30,6 @@ class ProfileController{
               array_push($parameters,$data);  
             }
             break;
-          case 'openFormAcord':
-            $actionName = "openFormAcord";
-            if(isset($url_parameters[4])){
-              $data['idConveni'] = $url_parameters[4];
-              array_push($parameters,$data);  
-            }
-            break;
             case 'openFormSubject':
                 $actionName = "openFormSubject";
                 if(isset($url_parameters[4])){
@@ -103,19 +96,6 @@ class ProfileController{
             array_push($parameters, $data);
             break;
 
-            case 'addPublicationSubject':
-                $actionName = "addPublicationSubject";
-
-                if(empty($_POST['codiAcord'])||empty($_POST['text'])){
-                    $data['success']=false;
-
-                }else{
-                    $data['codiAcord'] = $_POST['codiAcord'];
-                    $data['text'] = $_POST['text'];
-                    $data['success']=true;
-                }
-                array_push($parameters, $data);
-                break;
 
           case 'deletePublication':
             $data['idPublicacio'] = $_POST['idToDelete'];
@@ -138,6 +118,20 @@ class ProfileController{
             array_push($parameters, $data);
             $actionName="editPhoto";
             break;
+
+            case 'addPublicationSubject':
+                $actionName = "addPublicationSubject";
+                if(empty($_POST['codiAcord'])||empty($_POST['text'])){
+                    $data['success']=false;
+
+                }else{
+                    $data['codiAcord'] = $_POST['codiAcord'];
+                    $data['text'] = $_POST['text'];
+                    $data['success']=true;
+                }
+                array_push($parameters, $data);
+                break;
+
           case 'updateInfo':
             if (empty($_POST['name'])){
               $errors['name'] = 'Name is required.';

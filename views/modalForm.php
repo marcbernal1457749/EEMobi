@@ -24,12 +24,13 @@
     <label for="inputFile">Foto(Opcional):</label>
     <input type="file" class="form-control-file" id="inputFile" aria-describedby="fileHelp">
   </div>
-  </form>
-  </div>
-  <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
-      <button type="submit" class="btn btn-primary" id="publicar">Publicar</button>
-  </div>
-    <div class="text-center" id="debugimg">
+    <button type="submit" class="btn btn-primary" id="publicar">Publicar</button>
+</div>
+<div class="text-center" id="debugimg">
+</div>
 </div>
