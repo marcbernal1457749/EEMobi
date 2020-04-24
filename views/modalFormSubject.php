@@ -8,6 +8,7 @@
         <form id="formPubliSubject">
             <div class="form-group">
                 <input type="hidden" id="codiAcord" value="<?php echo $codiAcord; ?>">
+                <input type="hidden" id="codiAsignaturaDesti" value="<?php echo $codiAsignaturaDesti; ?>">
             </div>
             <div class="form-group">
                 <label for="textpubli">Escriu un comentari:</label>

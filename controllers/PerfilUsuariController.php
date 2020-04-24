@@ -334,8 +334,8 @@ class PerfilUsuariController
         $data = $parameters[0];
         $route = $this->view->show("modalFormSubject.php");
         $niu = $_SESSION['niu'];
-        $codiAcord = $data['codiAcord'];
-
+        $codiAcord = $data[0]['codiAcord'];
+        $codiAsignaturaDesti = $data[0]['codiAsignaturaDesti'];
 
         include($route);
 
@@ -446,7 +446,7 @@ class PerfilUsuariController
             $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
             $error['success']=true;
 
-            $publicationsModel->addPublicationSubject($data['codiAcord'],$_SESSION['niu'],$text,$date);
+            $publicationsModel->addPublicationSubject($data['codiAcord'],$_SESSION['niu'],$text,$date,$data['codiAsignaturaDesti']);
 
         }else{
             $error['msg'] = "No es permeten camps buits.";

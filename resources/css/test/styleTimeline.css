@@ -5,7 +5,7 @@
 .item .image img{border-radius:50%;height:5em;border:.35em solid #ff8229;width:60px}
 .item .image span{display:block;clear:both;padding:.25em 0;margin:.5em 0}
 .item .details{position:relative;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}
-#floating-button,#myBtn{width:55px;height:55px;background:#db4437;position:fixed;bottom:30px;right:30px;cursor:pointer;box-shadow:0 2px 5px #666}
+#floating-button,#myBtn{width:55px;height:55px;background:#D75A00;position:fixed;bottom:30px;right:30px;cursor:pointer;box-shadow:0 2px 5px #666}
 .item .details>div{border:1px solid #232b50;border-radius:.5em;padding:1.5em;margin:1em 0}
 .item .details>div .custom-h1{color:#ff8229;font-size:1.4em;margin:0;padding:0 0 .5em;text-align:left;text-transform:capitalize;line-height:2rem}
 .item .details>div p{margin:0;padding:0;font-size:14px;line-height:20px;display:block;word-wrap:break-word;-webkit-margin-before:1em;-webkit-margin-after:1em;-webkit-margin-start:0;-webkit-margin-end:0}

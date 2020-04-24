@@ -10,84 +10,42 @@ class PublicationsSubjectModel{
         $this->db = SPDO::getInstance();
     }
     public function getPublicationOfUser($niu){
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,es.nom,es.cognom,es.publicNom,es.publicMail,un.nomUniversitat 
-                                        FROM publicacions pu, estudiant es, universitats un
+        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
+                                        FROM publicacionsassignatura pu, estudiant es, acordestudis ae
                                         WHERE pu.niuEstudiant = es.niuEstudiant
                                         AND es.niuEstudiant = ?
-                                        AND pu.idUniversitat = un.idUniversitat
-                                        ORDER BY pu.dataPublicació');
+                                        AND pu.codiAcord = ae.codiAcord
+                                        ORDER BY pu.dataPublicacio');
         $consulta->execute(array($niu));
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.
         return $obj;
     }
-    public function getPublicationOfUniversity($idUniversitat){
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,pu.idCategoria,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,un.nomUniversitat 
-                                        FROM publicacions pu, estudiant es, universitats un
-                                        WHERE pu.idUniversitat = un.idUniversitat
-                                        AND un.idUniversitat = ?
-                                        AND pu.niuEstudiant = es.niuEstudiant
-                                        GROUP BY pu.idPublicació');
-        $consulta->execute(array($idUniversitat));
+
+    public function getAllSubjectPublications(){
+        $consulta = $this->db->prepare('SELECT * FROM publicacionsassignatura');
+        $consulta->execute();
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.
         return $obj;
     }
-    public function getPublicationsByFilter($idUniversitat,$filtre,$idCat){
-        switch ($filtre) {
-            case 1:
-                $fil = "pu.dataPublicació ASC";
-                break;
-            case 2:
-                $fil = "pu.dataPublicació DESC";
-                break;
-            default:
-                $fil = "pu.dataPublicació";
-                break;
-        }
-
-        switch($idCat){
-            case -1:
-                $cat = "";
-                $array = array($idUniversitat);
-                break;
-
-            default:
-                $cat = "AND pu.idCategoria = ?";
-                $array = array($idUniversitat, $idCat);
-                break;
-        }
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,pu.idCategoria,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,un.nomUniversitat 
-                                        FROM publicacions pu, estudiant es, universitats un
-                                        WHERE pu.idUniversitat = un.idUniversitat
-                                        AND un.idUniversitat = ? '.$cat.'
+    public function getPublicationOfSubject($idSubject){
+        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
+                                        FROM publicacionsassignatura pu, estudiant es, acordestudis ae
+                                        WHERE pu.codiAcord = ae.codiAcord
+                                        AND pu.codiAsignaturaDesti = ?
                                         AND pu.niuEstudiant = es.niuEstudiant
-                                        ORDER BY '.$fil);
-        $consulta->execute($array);
-        $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
-        //devolvemos la colección para que la vista la presente.
-        return $obj;
-
-    }
-
-    public function getPublicationOfUniversityAndCategory($idUni, $idCat){
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,pu.idCategoria,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,un.nomUniversitat 
-                                        FROM publicacions pu, estudiant es, universitats un
-                                        WHERE pu.idUniversitat = un.idUniversitat
-                                        AND un.idUniversitat = ?
-                                        AND pu.idCategoria = ?
-                                        AND pu.niuEstudiant = es.niuEstudiant
-                                        GROUP BY pu.idPublicació');
-        $consulta->execute(array($idUni, $idCat));
+                                        GROUP BY pu.idPublicacio');
+        $consulta->execute(array($idSubject));
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.
         return $obj;
     }
 
-    public function addPublicationSubject($codiAcord,$niu,$text,$data){
+    public function addPublicationSubject($codiAcord,$niu,$text,$data,$codiAsignaturaDesti){
         try{
-            $consulta = $this->db->prepare("INSERT INTO publicacionsassignatura (codiAcord, niuEstudiant, opinio, dataPublicacio) VALUES (?, ?, ?, ?)");
-            $consulta->execute(array($codiAcord,$niu,$text,$data));
+            $consulta = $this->db->prepare("INSERT INTO publicacionsassignatura (codiAcord, niuEstudiant, opinio, dataPublicacio, codiAsignaturaDesti) VALUES (?, ?, ?, ?,?)");
+            $consulta->execute(array($codiAcord,$niu,$text,$data,$codiAsignaturaDesti));
         }catch (Exception $e) {
             die($e->getMessage());
         }
@@ -95,7 +53,7 @@ class PublicationsSubjectModel{
 
     public function deletePublication($id,$niu){
         try {
-            $consulta = $this->db->prepare('DELETE FROM publicacions WHERE idPublicació=? AND niuEstudiant=?');
+            $consulta = $this->db->prepare('DELETE FROM publicacionsassignatura WHERE idPublicacio=? AND niuEstudiant=?');
             $consulta->execute(array($id,$niu));
             
         } catch (Exception $e) {

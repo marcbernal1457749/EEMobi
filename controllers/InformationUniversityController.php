@@ -12,6 +12,7 @@ class InformationUniversityController
         $idUniversity = $parameters[0];
         $degree = $parameters[1];
         $noInfo = false;
+
         $pathPhotos = "\EEmobi\\resources\img\post\\";
         $pathPhotoProfile = "\EEmobi\\resources\img\profiles\\";
         require 'models/UniversitiesModel.php';
@@ -20,14 +21,17 @@ class InformationUniversityController
         require 'models/TeachersModel.php';
         require 'models/RatingsModel.php';
 
+
         $universitymodel = new UniversitiesModel();
         $stateInfo = new StateModel();
         $degreeModel = new DegreesModel();
         $teachersModel = new TeachersModel();
         $ratingsModel = new RatingsModel();
 
+
         $categories = $ratingsModel->getCategories();
         $ratings = $ratingsModel->getRatingsByUni($idUniversity);
+
 
         $degreeSelected = false;
         if(strcmp($degree,"Tots-els-graus")==0){
@@ -149,6 +153,8 @@ class InformationUniversityController
 
         include ($route);
     }
+
+
 
 }
 ?>

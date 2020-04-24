@@ -46,11 +46,28 @@ function getUniversitiesByUser(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormPopup/"+e,success:function(e,n,t){$(".modal-dialog").html(e)},error:function(e,n,t){}})
 }
 function getSubjectsByUser(e){
-    $.ajax({type:"GET",url:"perfil.php",data:"/openFormSubject/"+e,success:function(e,n,t){$(".modal-dialog").html(e)},error:function(e,n,t){}})
+    console.log(e);
+    $.ajax({type:"POST",url:"perfil.php/" + "openFormSubject" ,data:{"data":e},success:function(e,n,t){$(".modal-dialog").html(e)},error:function(e,n,t){}})
 }
 
 function getAcordsById(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormAcord/"+e,success:function(e,n,t){$(".modal-dialog").html(e),$("#test").DataTable()},error:function(e,n,t){}})
+}
+
+function getSubjectPublication(data){
+    console.log("EntroFuncion");
+    $.ajax({
+        type: "POST",
+        url: "publicationsSubject.php/" + "subjectPublications",
+        data: {"data":data},
+        success: function(t, e, c) {
+            $("#publicationsInfoUni").html(data);
+            window.location.replace("http://localhost/EEmobi/publicationsSubject.php");
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar visualitzar les publicacions");
+        }
+    })
 }
 
 function firstRatings(data){

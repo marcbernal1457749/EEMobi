@@ -180,8 +180,19 @@ $(document).ready(function() {
         getUniversitiesByUser($("#uniEstanciaAlumne").val());
     }), $(document).on("click", "#publicarp", function() {
         getUniversitiesByUser($(this).attr("at")), $("#myModal").modal("toggle")
+
     }), $(document).on("click", "#opinarsubject", function() {
-        getSubjectsByUser($(this).attr("at")), $("#myModal").modal("toggle")
+        var data = [];
+
+        var codiAcord = $(this).attr("at");
+        var codiAsignaturaDesti = $("#codiAsignaturaDesti").val();
+
+        console.log(codiAcord,codiAsignaturaDesti);
+
+        data.push({"codiAcord":codiAcord,"codiAsignaturaDesti":codiAsignaturaDesti});
+
+        getSubjectsByUser(data), $("#myModal").modal("toggle")
+
     }), $(document).on("click", "#acordp", function() {
         getAcordsById($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#crearAcord", function() {
@@ -241,6 +252,7 @@ $(document).ready(function() {
 
         t.append("text", $("#text-publi").val());
         t.append("codiAcord", $("#codiAcord").val());
+        t.append("codiAsignaturaDesti", $("#codiAsignaturaDesti").val());
 
         $.ajax({
             type: "POST",
@@ -317,6 +329,8 @@ $(document).ready(function() {
         $('#selectSubjectsCountry').prop('selectedIndex',0)
 
     })
+
+
 
 
 });

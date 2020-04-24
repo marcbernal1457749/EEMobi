@@ -32,10 +32,10 @@ class ProfileController{
             break;
             case 'openFormSubject':
                 $actionName = "openFormSubject";
-                if(isset($url_parameters[4])){
-                    $data['codiAcord'] = $url_parameters[4];
-                    array_push($parameters,$data);
-                }
+                $data = $_POST['data'];
+
+                array_push($parameters, $data);
+
                 break;
 
             case 'firstRatings':
@@ -71,6 +71,13 @@ class ProfileController{
                 $data['idCat'] = $_POST['id'];
                 $data['idUni'] = $_POST['university'];
                 $data['idData'] = $_POST['data'];
+                array_push($parameters, $data);
+                break;
+
+            case 'subjectPublications':
+                $controllerName = "SubjectPublicationsController";
+                $actionName = "showSubjectPublications";
+                $data = $_POST['data'];
                 array_push($parameters, $data);
                 break;
 
@@ -121,11 +128,12 @@ class ProfileController{
 
             case 'addPublicationSubject':
                 $actionName = "addPublicationSubject";
-                if(empty($_POST['codiAcord'])||empty($_POST['text'])){
+                if(empty($_POST['codiAcord'])||empty($_POST['text'])||empty($_POST['codiAsignaturaDesti'])){
                     $data['success']=false;
 
                 }else{
                     $data['codiAcord'] = $_POST['codiAcord'];
+                    $data['codiAsignaturaDesti'] = $_POST['codiAsignaturaDesti'];
                     $data['text'] = $_POST['text'];
                     $data['success']=true;
                 }

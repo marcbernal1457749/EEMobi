@@ -44,8 +44,9 @@
                 </div>               
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left nav-scroll">
-                        <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
                         <li><a href="./searchUniversity.php">Cercar per universitat</a></li>
+                        <li><a href="./searchSubject.php">Cercar per assignatures</a></li>
+
                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="login "><a href="login">Identifica't</a></li>

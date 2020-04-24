@@ -32,6 +32,7 @@
                                     <td><?php echo $subject->nomAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->creditsAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->semestre; ?></td>
+                                    <input type="hidden" id="codiAsignaturaDesti" value="<?php echo $subject->codiAsignaturaDesti; ?>">
                                     <td align="center">
                                         <a href="#" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>">Opinar</a>
                                     </td>

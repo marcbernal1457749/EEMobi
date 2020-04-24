@@ -287,6 +287,7 @@
                                             <th>Grau</th>
                                             <th>Curs</th>
                                             <th>Estudiant</th>
+                                            <th>Opinions</th>
 
                                         </tr>
                                         </thead>
@@ -329,6 +330,9 @@
                                                         }
                                                         ?>
 
+                                                    </td>
+                                                    <td align="center" valign="middle" >
+                                                        <img onclick="getSubjectPublication(<?php echo $inf->codiAsignaturaDesti; ?>)" id="click" src="./resources/images/click.png"/><?php echo $inf->codiAsignaturaDesti; ?>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; }else{ ?>
