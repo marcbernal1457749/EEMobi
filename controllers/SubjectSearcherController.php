@@ -1,5 +1,5 @@
 <?php
-class SubjetSearcherController{
+class SubjectSearcherController{
 
     function __construct(){
 
@@ -36,3 +36,4 @@ class SubjetSearcherController{
     }
 
 }
+?>

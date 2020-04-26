@@ -1,6 +1,4 @@
-<?php
-class SubjectPublicationsController{
-
+<?php class SubjectPublicationsController{
     function __construct(){
 
         $this->view = new View();
@@ -9,17 +7,18 @@ class SubjectPublicationsController{
     public function showSubjectPublications($parameters){
 
         require 'models/PublicationsSubjectModel.php';
+
         $publicationsSubjectModel = new PublicationsSubjectModel();
         $data  = $parameters[0];
-        echo "<script>console.log('HOLA:');</script>";
-        $subjectPublications = $publicationsSubjectModel->getPublicationOfSubject($data['codiAsignaturaDesti']);
+        echo "<script>console.log('ENTROFINAL');</script>";
+        echo "<script>console.log('. json_encode( $data ) .');</script>";
+        $subjectPublications = $publicationsSubjectModel->getPublicationOfSubject($data);
 
-        $route = $this->view->show("PublicacionsAssignatura.php");
+        $route = $this->view->show("PublicationsSubject.php");
 
         $publicationsSubjectModel->disconnect();
 
         include ($route);
 
     }
-
-}
+}?>

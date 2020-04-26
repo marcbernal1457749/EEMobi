@@ -56,13 +56,14 @@ function getAcordsById(e){
 
 function getSubjectPublication(data){
     console.log("EntroFuncion");
+    console.log(data);
+
     $.ajax({
         type: "POST",
-        url: "publicationsSubject.php/" + "subjectPublications",
+        url: "perfil.php/" + "subjectPublications",
         data: {"data":data},
-        success: function(t, e, c) {
-            $("#publicationsInfoUni").html(data);
-            window.location.replace("http://localhost/EEmobi/publicationsSubject.php");
+        success: function(response) {
+            console.log(response);
         },
         error: function(t, e) {
             window.alert("Error al intentar visualitzar les publicacions");

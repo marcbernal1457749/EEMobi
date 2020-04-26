@@ -12,7 +12,7 @@ class SearchSubjectsController
         require 'configDB.php'; //Archivo con configuraciones.
 
         $parameters = array();
-        $controllerName = "SubjetSearcherController";
+        $controllerName = "SubjectSearcherController";
         $actionName = "loadSubjectSearcherView";
 
         $controllerPath = $config->get('controllersFolder') . $controllerName . '.php';

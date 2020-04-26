@@ -20,7 +20,6 @@ class PublicationsSubjectController
         $controllerName = "SubjectPublicationsController";
         switch ($controller) {
             case 'subjectPublications':
-                $controllerName = "SubjectPublicationsController";
                 $actionName = "showSubjectPublications";
                 $data = $_POST['data'];
                 array_push($parameters, $data);
