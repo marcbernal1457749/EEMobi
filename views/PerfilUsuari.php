@@ -35,7 +35,7 @@
                                     <input type="hidden" id="codiAsignaturaDesti" value="<?php echo $subject->codiAsignaturaDesti; ?>">
                                     <td align="center">
                                         <?php if($subject->codiAsignaturaDesti != ""){?>
-                                        <a href="#" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>">Opinar</a>
+                                        <a href="javascript: void(0)" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>">Opinar</a>
                                         <?php } else { ?>
                                             N/A
                                         <?php } ?>

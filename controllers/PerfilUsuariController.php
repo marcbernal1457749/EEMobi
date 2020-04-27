@@ -19,6 +19,7 @@ class PerfilUsuariController
             $stayed = false;
             $isTeacher  = false;
             $hasPublications=false;
+            $hasPublicationsSubject=false;
             $hasSubject=false;
             $path = "\EEmobi\\resources\\img\profile.png";
             $contentStay = "NO TENS CAP ESTADA ASIGNADA";
@@ -29,12 +30,15 @@ class PerfilUsuariController
             require_once 'models/PublicationsModel.php';
             require_once 'models/AcordEstudisModel.php';
             require_once 'models/RatingsModel.php';
+            require_once 'models/PublicationsSubjectModel.php';
+
             $stayModel = new StayModel();
             $studentsModel = new StudentsModel();
             $teachersModel = new TeachersModel();
             $publicationsModel = new PublicationsModel();
             $acordEstudisModel = new AcordEstudisModel();
             $ratingsModel = new RatingsModel();
+            $publicationsSubjectModel = new PublicationsSubjectModel();
             
             if($parameters){
                 $doneUpdateOrInsert=true;
@@ -58,6 +62,10 @@ class PerfilUsuariController
                     $src=$teacher->fotoProfessor;
                     $isTeacher  = true;
                     $publications = $publicationsModel -> getPublicationOfUser($niu);
+                    $publicationSubject = $publicationsSubjectModel -> getPublicationSubjectOfUser($niu);
+                    if(!empty($publicationSubject)){
+                        $hasPublicationsSubject=true;
+                    }
                     if(!empty($publications)){
                         $hasPublications=true;
                     }
@@ -87,10 +95,15 @@ class PerfilUsuariController
                             $periode = $stay[0]->semestre;
                             $stayed = true;
                             $publications = $publicationsModel -> getPublicationOfUser($niu);
+                            $publicationSubject = $publicationsSubjectModel -> getPublicationSubjectOfUser($niu);
                             $subjects = $acordEstudisModel->getAcordByNiu($niu);
                             $ratings =  $ratingsModel->getStudentRatings($stay[0]->codiEstada);
                             if(!empty($publications)){
                                 $hasPublications=true;
+                            }
+
+                            if(!empty($publicationSubject)){
+                                $hasPublicationsSubject=true;
                             }
                             if(!empty($subjects)){
                                 $hasSubject = true;

@@ -47,55 +47,110 @@
                           <h5>Les teves publicacions:</h5>
 
 
-                          <?php if($hasPublications){ ?>
-                          <?php foreach ($publications  as $publication): ?>
-                          <div class="item">
-                            <div class="image">
-                              <div>
-                              <?php if($publication->publicNom){ ?>
-                                <img src="<?php echo $path; ?>" />
-                                <?php }else{ ?>
-                                <img src="\EEmobi\\resources\\img\profile.png" />
-                                <?php } ?>
-                                <span>
-                                <?php 
-                                  $data = $publication->dataPublicació;
-                                  $data = str_replace("-", ".", $data);
-                                  echo $data; ?>
-                                </span>
-                              </div>
-                            </div>
-                            <div class="details">
-                              <div>
-                                           
-                                  <button type="button" class="close" aria-label="Close" at="<?php echo $publication->idPublicació; ?>">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                  <h1 class="custom-h1"><?php echo  $publication->nomUniversitat; ?></h1>
-
-
-                                <p><b><?php if($publication->publicNom){
-                                      echo $publication->nom.' '.$publication->cognom;
-                                }else{
-                                   echo "Anònim";
-                                } 
-                                ?></b></p>
-                                <p><?php echo $publication->opinió; ?> </p>
-                                <?php if(!empty($publication->fotoPublicació)){ ?>
-                                  <div class="AdaptiveMedia-container">
-                                        <img data-aria-label-part="" src="<?php echo $pathPhotos.$publication->fotoPublicació; ?>" alt="" style="width: auto;top: -0px;height: auto;max-height: 310px;">
-
+                          <?php if($hasPublications || $hasPublicationsSubject){ ?>
+                              <?php if($hasPublications){?>
+                              <?php foreach ($publications  as $publication): ?>
+                              <div class="item">
+                                <div class="image">
+                                  <div>
+                                  <?php if($publication->publicNom){ ?>
+                                    <img src="<?php echo $path; ?>" />
+                                    <?php }else{ ?>
+                                    <img src="\EEmobi\\resources\\img\profile.png" />
+                                    <?php } ?>
+                                    <span>
+                                    <?php
+                                      $data = $publication->dataPublicació;
+                                      $data = str_replace("-", ".", $data);
+                                      echo $data; ?>
+                                    </span>
                                   </div>
+                                </div>
+                                <div class="details">
+                                  <div>
 
-                                <?php } ?>
+                                      <button type="button" class="close" aria-label="Close" at="<?php echo $publication->idPublicació; ?>">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                      <h1 class="custom-h1"><?php echo  $publication->nomUniversitat; ?></h1>
+                                      <div class="row">
+                                          <div class="col-lg-8">
+                                              <p><b><?php if($publication->publicNom){
+                                                          echo $publication->nom.' '.$publication->cognom;
+                                                      }else{
+                                                          echo "Anònim";
+                                                      }
+                                                      ?></b></p>
+                                          </div>
+                                          <div class="col-lg-4 text-right">
+                                              <p class="text-right text-info"><em>Universitat</em></p>
+                                          </div>
+                                      </div>
+                                    <p><?php echo $publication->opinió; ?> </p>
+                                    <?php if(!empty($publication->fotoPublicació)){ ?>
+                                      <div class="AdaptiveMedia-container">
+                                            <img data-aria-label-part="" src="<?php echo $pathPhotos.$publication->fotoPublicació; ?>" alt="" style="width: auto;top: -0px;height: auto;max-height: 310px;">
+
+                                      </div>
+
+                                    <?php } ?>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                              <?php endforeach; ?>
-                          <?php }else{ ?>
-                          <div class="col-sm-12 text-center">
-                               <h4>No tens publicacions.</h4>
-                           </div>
+                                  <?php endforeach; ?>
+                          <?php } if ($hasPublicationsSubject){ ?>
+                              <?php foreach ($publicationSubject  as $publication): ?>
+                                  <div class="item">
+                                      <div class="image">
+                                          <div>
+                                              <?php if($publication->publicNom){ ?>
+                                                  <img src="<?php echo $path; ?>" />
+                                              <?php }else{ ?>
+                                                  <img src="\EEmobi\\resources\\img\profile.png" />
+                                              <?php } ?>
+                                              <span>
+                                <?php
+                                $data = $publication->dataPublicacio;
+                                $data = str_replace("-", ".", $data);
+                                echo $data; ?>
+                                </span>
+                                          </div>
+                                      </div>
+                                      <div class="details">
+                                          <div>
+                                              <button type="button" class="close" aria-label="Close" at="<?php echo $publication->idPublicacio; ?>">
+                                                  <span aria-hidden="true">&times;</span>
+                                              </button>
+                                              <h1 class="custom-h1"><?php echo  $publication->nomAsignaturaDesti; ?></h1>
+                                              <div class="row">
+                                                  <div class="col-lg-8">
+                                                      <p><b><?php if($publication->publicNom){
+                                                                  echo $publication->nom.' '.$publication->cognom;
+                                                              }else{
+                                                                  echo "Anònim";
+                                                              }
+                                                              ?></b></p>
+                                                  </div>
+                                                  <div class="col-lg-4 text-right">
+                                                      <p class="text-right text-info"><em>Assignatura</em></p>
+                                                  </div>
+                                              </div>
+                                              <p><?php echo $publication->opinio; ?> </p>
+                                              <?php if(!empty($publication->fotoPublicacio)){ ?>
+                                                  <div class="AdaptiveMedia-container">
+                                                      <img data-aria-label-part="" src="<?php echo $pathPhotos.$publication->fotoPublicacio; ?>" alt="" style="width: auto;top: -0px;height: auto;max-height: 310px;">
+
+                                                  </div>
+
+                                              <?php } ?>
+                                          </div>
+                                      </div>
+                                  </div>
+                              <?php endforeach; }?>
+                          <?php }else{?>
+                              <div class="col-sm-12 text-center">
+                                  <h4>No tens publicacions.</h4>
+                              </div>
                           <?php } ?>
                           <?php if(!isset($_SESSION['teacher'])){ ?>
                           <div id="container-floating">

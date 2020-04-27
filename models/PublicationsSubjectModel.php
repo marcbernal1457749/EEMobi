@@ -9,7 +9,7 @@ class PublicationsSubjectModel{
         //Traemos la única instancia de PDO
         $this->db = SPDO::getInstance();
     }
-    public function getPublicationOfUser($niu){
+    public function getPublicationSubjectOfUser($niu){
         $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
                                         FROM publicacionsassignatura pu, estudiant es, acordestudis ae
                                         WHERE pu.niuEstudiant = es.niuEstudiant
@@ -51,7 +51,7 @@ class PublicationsSubjectModel{
         }
     }
 
-    public function deletePublication($id,$niu){
+    public function deletePublicationSubject($id,$niu){
         try {
             $consulta = $this->db->prepare('DELETE FROM publicacionsassignatura WHERE idPublicacio=? AND niuEstudiant=?');
             $consulta->execute(array($id,$niu));
