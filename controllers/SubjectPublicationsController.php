@@ -8,11 +8,16 @@
 
         require 'models/PublicationsSubjectModel.php';
 
+        $hasPublicationsSubject=true;
+        $pathPhotoProfile = "\EEmobi\\resources\img\profiles\\";
+
         $publicationsSubjectModel = new PublicationsSubjectModel();
         $data  = $parameters[0];
-        echo "<script>console.log('ENTROFINAL');</script>";
-        echo "<script>console.log('. json_encode( $data ) .');</script>";
-        $subjectPublications = $publicationsSubjectModel->getPublicationOfSubject($data);
+        $nomSubject = $data[0]['nom'];
+        $subjectPublications = $publicationsSubjectModel->getPublicationOfSubject($data[0]['codi']);
+        if(!empty($subjectPublications)){
+            $hasPublicationsSubject=true;
+        }
 
         $route = $this->view->show("PublicationsSubject.php");
 

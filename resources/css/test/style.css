@@ -349,7 +349,7 @@ tr th,tr.info th{background:#000}
 .img-profile-tmp{height:152px}
 .no-info p{font-family:'Hoefler Text',Georgia,'Times New Roman',serif;font-size:1.75em;line-height:1.1em;margin:0}
 .panel-university h5{font-family:Georgia,"Times New Roman",Times,serif;font-size:24px;margin-top:5px;color:#222}
-.panel-university p{font-family:"Lucida Grande",Tahoma;font-size:10px;font-weight:lighter;font-variant:normal;color:#666;margin-top:10px;text-align:center!important}
+.panel-university p{font-family:Helvetica Neue,Arial,Tahoma;font-size:10px;font-weight:lighter;font-variant:normal;color:#666;margin-top:10px;text-align:center!important}
 tr th{color:#fff}ul.nav{border-bottom:0}
 .titulo{
     text-align: center;
@@ -360,14 +360,14 @@ tr th{color:#fff}ul.nav{border-bottom:0}
     margin-left: auto;
     margin-right: auto;
 }
-#click{
+.click{
     width: 25px;
     heigh: 25px;
     cursor: pointer;
     margin-left: auto;
     margin-right: auto;
 }
-#click:hover{
+.click:hover{
     .opacity=0.3;
 }
 .searcherbackground{
@@ -393,4 +393,7 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 }
 #advancedOptionsShow{
     display: none;
+}
+#curs{
+    font-family: a;
 }

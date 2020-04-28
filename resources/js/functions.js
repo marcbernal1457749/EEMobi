@@ -54,16 +54,25 @@ function getAcordsById(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormAcord/"+e,success:function(e,n,t){$(".modal-dialog").html(e),$("#test").DataTable()},error:function(e,n,t){}})
 }
 
-function getSubjectPublication(data){
-    console.log("EntroFuncion");
-    console.log(data);
+function getSubjectPublication(cadena){
 
+    var cadenaf = cadena.id;
+    var nom = cadenaf.split(',')[0];
+    var codi = cadenaf.split(',')[1];
+    console.log(nom);
+    console.log(codi);
+
+    var data= [];
+    data.push({"nom":nom,"codi":codi});
+    console.log(data);
     $.ajax({
         type: "POST",
         url: "perfil.php/" + "subjectPublications",
         data: {"data":data},
-        success: function(response) {
-            console.log(response);
+        success: function(e) {
+
+            //window.location.replace("http://localhost/EEmobi/Perfil/subjectPublications");
+            $(".container-publiSub").html(e);
         },
         error: function(t, e) {
             window.alert("Error al intentar visualitzar les publicacions");

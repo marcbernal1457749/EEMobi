@@ -136,13 +136,6 @@
                                                   </div>
                                               </div>
                                               <p><?php echo $publication->opinio; ?> </p>
-                                              <?php if(!empty($publication->fotoPublicacio)){ ?>
-                                                  <div class="AdaptiveMedia-container">
-                                                      <img data-aria-label-part="" src="<?php echo $pathPhotos.$publication->fotoPublicacio; ?>" alt="" style="width: auto;top: -0px;height: auto;max-height: 310px;">
-
-                                                  </div>
-
-                                              <?php } ?>
                                           </div>
                                       </div>
                                   </div>

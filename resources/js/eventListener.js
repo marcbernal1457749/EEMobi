@@ -184,8 +184,10 @@ $(document).ready(function() {
     }), $(document).on("click", "#opinarsubject", function() {
         var data = [];
 
-        var codiAcord = $(this).attr("at");
-        var codiAsignaturaDesti = $("#codiAsignaturaDesti").val();
+        var cadena = $(this).attr("at");
+        var codiAcord = cadena.split(',')[0];
+        var codiAsignaturaDesti = cadena.split(',')[1];
+
 
         console.log(codiAcord,codiAsignaturaDesti);
 

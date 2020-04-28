@@ -78,7 +78,6 @@ class ProfileController{
                 $controllerName = "SubjectPublicationsController";
                 $actionName = "showSubjectPublications";
                 $data = $_POST['data'];
-                echo "<script>console.log('. json_encode( $data ) .');</script>";
                 array_push($parameters, $data);
                 break;
 

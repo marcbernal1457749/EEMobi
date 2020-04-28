@@ -1,7 +1,7 @@
 <div class="panel-heading panel-university">
     <input type="hidden" id="uniEstanciaAlumne" value="<?php echo $stay[0]->idUniversitat; ?>" />
     <h5><a href="http://deic-projectes.uab.cat/EEmobi/Universitat/<?php echo $stay[0]->idUniversitat; ?>/Tots-els-graus" target="_blank"><?php echo $stay[0]->nomUniversitat ?></a></h5>
-    <p>Curs: <?php echo $stayed == true ? $stay[0]->curs : ''; ?> </p>
+    <p >Curs: <?php echo $stayed == true ? $stay[0]->curs : ''; ?> </p>
 </div>
 <div class="contingut">
     <ul class="nav nav-tabs">
@@ -32,10 +32,9 @@
                                     <td><?php echo $subject->nomAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->creditsAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->semestre; ?></td>
-                                    <input type="hidden" id="codiAsignaturaDesti" value="<?php echo $subject->codiAsignaturaDesti; ?>">
                                     <td align="center">
                                         <?php if($subject->codiAsignaturaDesti != ""){?>
-                                        <a href="javascript: void(0)" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>">Opinar</a>
+                                        <a href="javascript: void(0)" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>,<?php echo $subject->codiAsignaturaDesti; ?>">Opinar <?php echo $subject->codiAsignaturaDesti; ?></a>
                                         <?php } else { ?>
                                             N/A
                                         <?php } ?>
