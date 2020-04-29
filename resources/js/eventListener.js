@@ -208,7 +208,7 @@ $(document).ready(function() {
         }).done(function(e) {
             e.succes ? ($("#myModal").modal("toggle"), $("#debug").append('<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' + e.msg + "</div>")) : $("#debugimg").append('<div class="alert alert-danger">' + e.msg + "</div>")
         }), console.log($("#formAcord").serialize())
-    }), $(document).on("click", "button[class=close]", function() {
+    }), $(document).on("click", "#deletePubli", function() {
         alert("Segur que vols eliminar aquesta publicació?");
         var e = new FormData;
         e.append("idToDelete", $(this).attr("at")), $.ajax({

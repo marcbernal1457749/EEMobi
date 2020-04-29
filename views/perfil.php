@@ -69,7 +69,7 @@
                                 <div class="details">
                                   <div>
 
-                                      <button type="button" class="close" aria-label="Close" at="<?php echo $publication->idPublicació; ?>">
+                                      <button type="button" id="deletePubli" class="close" aria-label="Close" at="<?php echo $publication->idPublicació; ?>">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                       <h1 class="custom-h1"><?php echo  $publication->nomUniversitat; ?></h1>
