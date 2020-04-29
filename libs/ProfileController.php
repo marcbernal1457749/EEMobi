@@ -75,6 +75,7 @@ class ProfileController{
                 break;
 
             case 'subjectPublications':
+                echo "<script>console.log('ENTRO1')</script>";
                 $controllerName = "SubjectPublicationsController";
                 $actionName = "showSubjectPublications";
                 $data = $_POST['data'];
@@ -107,6 +108,12 @@ class ProfileController{
           case 'deletePublication':
             $data['idPublicacio'] = $_POST['idToDelete'];
             $actionName = "deletePublication";
+            array_push($parameters, $data);
+            break;
+
+        case 'deletePublicationSubject':
+            $data['idPublicacio'] = $_POST['idToDelete'];
+            $actionName = "deletePublicationSubject";
             array_push($parameters, $data);
             break;
 

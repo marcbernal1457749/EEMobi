@@ -34,7 +34,7 @@
                                     <td><?php echo $subject->semestre; ?></td>
                                     <td align="center">
                                         <?php if($subject->codiAsignaturaDesti != ""){?>
-                                        <a href="javascript: void(0)" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>,<?php echo $subject->codiAsignaturaDesti; ?>">Opinar <?php echo $subject->codiAsignaturaDesti; ?></a>
+                                        <a href="javascript: void(0)" id="opinarsubject" at="<?php echo $subject->codiAcord; ?>,<?php echo $subject->codiAsignaturaDesti; ?>">Opinar</a>
                                         <?php } else { ?>
                                             N/A
                                         <?php } ?>

@@ -447,6 +447,17 @@ class PerfilUsuariController
         echo json_encode($error);
 
     }
+
+    public function deletePublicationSubject($parameters){
+        $data = $parameters[0];
+        require_once 'models/PublicationsSubjectModel.php';
+        $publicationsModel = new PublicationsSubjectModel();
+        $publicationsModel->deletePublicationSubject($data['idPublicacio'],$_SESSION['niu']);
+        $error['succes']=true;
+        $publicationsModel->disconnect();
+        echo json_encode($error);
+
+    }
     public function addPublicationSubject($parameters){
         $data = $parameters[0];
         require_once 'models/PublicationsSubjectModel.php';

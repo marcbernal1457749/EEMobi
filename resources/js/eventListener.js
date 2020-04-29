@@ -209,10 +209,26 @@ $(document).ready(function() {
             e.succes ? ($("#myModal").modal("toggle"), $("#debug").append('<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' + e.msg + "</div>")) : $("#debugimg").append('<div class="alert alert-danger">' + e.msg + "</div>")
         }), console.log($("#formAcord").serialize())
     }), $(document).on("click", "button[class=close]", function() {
+        alert("Segur que vols eliminar aquesta publicació?");
         var e = new FormData;
         e.append("idToDelete", $(this).attr("at")), $.ajax({
             type: "POST",
             url: "perfil.php/deletePublication",
+            data: e,
+            contentType: !1,
+            cache: !1,
+            dataType: "json",
+            processData: !1
+        }).done(function(e) {
+            e.succes ? window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil") : alert("Error al borrar la publicació")
+        })
+    }), $(document).on("click", "#deletePubliSub", function() {
+
+        alert("Segur que vols eliminar aquesta publicació?");
+        var e = new FormData;
+        e.append("idToDelete", $(this).attr("at")), $.ajax({
+            type: "POST",
+            url: "perfil.php/deletePublicationSubject",
             data: e,
             contentType: !1,
             cache: !1,

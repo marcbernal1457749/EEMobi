@@ -65,19 +65,36 @@ function getSubjectPublication(cadena){
     var data= [];
     data.push({"nom":nom,"codi":codi});
     console.log(data);
+     /*$.ajax({
+        type: "GET",
+        url: "subjectPublications.php",
+        data: "/subjectPublications/showSubjectPublications/"+data,
+        success: function(response) {
+            console.log(response);
+            //window.location.replace("http://localhost/EEmobi/Perfil/subjectPublications");
+            $(".container-publiSub").html(response);
+        },
+        error: function(t, e) {
+            window.alert("Error al intentar visualitzar les publicacions");
+        }
+    })*/
     $.ajax({
         type: "POST",
         url: "perfil.php/" + "subjectPublications",
         data: {"data":data},
-        success: function(e) {
-
+        success: function(response) {
+            console.log(response);
             //window.location.replace("http://localhost/EEmobi/Perfil/subjectPublications");
-            $(".container-publiSub").html(e);
+            $(".container-publiSub").html(response);
         },
         error: function(t, e) {
             window.alert("Error al intentar visualitzar les publicacions");
         }
     })
+    /*$.post("perfil.php/" + "subjectPublications",{"data":data},function(response){
+        $(".container-publiSub").html(response);
+        }
+    )*/
 }
 
 function firstRatings(data){

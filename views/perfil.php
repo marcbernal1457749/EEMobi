@@ -118,7 +118,7 @@
                                       </div>
                                       <div class="details">
                                           <div>
-                                              <button type="button" class="close" aria-label="Close" at="<?php echo $publication->idPublicacio; ?>">
+                                              <button type="button" id="deletePubliSub" class="close" aria-label="Close" at="<?php echo $publication->idPublicacio; ?>">
                                                   <span aria-hidden="true">&times;</span>
                                               </button>
                                               <h1 class="custom-h1"><?php echo  $publication->nomAsignaturaDesti; ?></h1>
