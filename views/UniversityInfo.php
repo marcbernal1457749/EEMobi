@@ -1,6 +1,6 @@
-
 <?php include('templates/HeaderInfo.php') ?>
 <div class="container">
+    <div class="container-publiSub">
     <input type="hidden" id="idUni" value="<?php echo $university->idUniversitat; ?>">
     <div class="row">
         <div class="col-sm-12">
@@ -125,7 +125,7 @@
                                                         $grau = str_replace(" ", "-", $grau);?>
                                                         <!-- degree=/EEmobi/-->
 
-                                                        <td><a href="./<?php echo $grau?>"><img alt="info" id="click" src="/EEmobi/resources/images/click.png"/></a></td>
+                                                        <td><a href="./<?php echo $grau?>"><img alt="info" class="click" src="/EEmobi/resources/images/click.png"/></a></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                                 </tbody>
@@ -287,6 +287,7 @@
                                             <th>Grau</th>
                                             <th>Curs</th>
                                             <th>Estudiant</th>
+                                            <th>Opinions</th>
 
                                         </tr>
                                         </thead>
@@ -329,6 +330,9 @@
                                                         }
                                                         ?>
 
+                                                    </td>
+                                                    <td align="center" valign="middle">
+                                                        <img onclick="getSubjectPublication(this)" id="<?php echo $inf->nomAsignaturaDesti . ',' . $inf->codiAsignaturaDesti; ?>" class="click" src="/EEmobi/resources/images/click.png"/>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; }else{ ?>
@@ -423,5 +427,5 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
-</body>

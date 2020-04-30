@@ -180,6 +180,21 @@ $(document).ready(function() {
         getUniversitiesByUser($("#uniEstanciaAlumne").val());
     }), $(document).on("click", "#publicarp", function() {
         getUniversitiesByUser($(this).attr("at")), $("#myModal").modal("toggle")
+
+    }), $(document).on("click", "#opinarsubject", function() {
+        var data = [];
+
+        var cadena = $(this).attr("at");
+        var codiAcord = cadena.split(',')[0];
+        var codiAsignaturaDesti = cadena.split(',')[1];
+
+
+        console.log(codiAcord,codiAsignaturaDesti);
+
+        data.push({"codiAcord":codiAcord,"codiAsignaturaDesti":codiAsignaturaDesti});
+
+        getSubjectsByUser(data), $("#myModal").modal("toggle")
+
     }), $(document).on("click", "#acordp", function() {
         getAcordsById($(this).attr("at")), $("#myModal").modal("toggle")
     }), $(document).on("click", "#crearAcord", function() {
@@ -193,11 +208,27 @@ $(document).ready(function() {
         }).done(function(e) {
             e.succes ? ($("#myModal").modal("toggle"), $("#debug").append('<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' + e.msg + "</div>")) : $("#debugimg").append('<div class="alert alert-danger">' + e.msg + "</div>")
         }), console.log($("#formAcord").serialize())
-    }), $(document).on("click", "button[class=close]", function() {
+    }), $(document).on("click", "#deletePubli", function() {
+        alert("Segur que vols eliminar aquesta publicació?");
         var e = new FormData;
         e.append("idToDelete", $(this).attr("at")), $.ajax({
             type: "POST",
             url: "perfil.php/deletePublication",
+            data: e,
+            contentType: !1,
+            cache: !1,
+            dataType: "json",
+            processData: !1
+        }).done(function(e) {
+            e.succes ? window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil") : alert("Error al borrar la publicació")
+        })
+    }), $(document).on("click", "#deletePubliSub", function() {
+
+        alert("Segur que vols eliminar aquesta publicació?");
+        var e = new FormData;
+        e.append("idToDelete", $(this).attr("at")), $.ajax({
+            type: "POST",
+            url: "perfil.php/deletePublicationSubject",
             data: e,
             contentType: !1,
             cache: !1,
@@ -232,6 +263,31 @@ $(document).ready(function() {
         }).done(function(e) {
             e.succes ? ($("#myModal").modal("toggle"), window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil")) : $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
         });
+
+    }), $(document).on("click", "#publicarOpSubject", function(e) {
+        $("#debugimg .alert").remove(), e.preventDefault();
+        var t = new FormData;
+
+        t.append("text", $("#text-publi").val());
+        t.append("codiAcord", $("#codiAcord").val());
+        t.append("codiAsignaturaDesti", $("#codiAsignaturaDesti").val());
+
+        $.ajax({
+            type: "POST",
+            url: "perfil.php/addPublicationSubject",
+            data: t,
+            cache: !1,
+            dataType: "json",
+            processData: !1,
+            contentType: !1,
+            success:function(t,e,c){
+                $("#myModal").modal("toggle");
+                window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil");
+            },
+            error:function(e,a,t){
+                $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
+            }
+        })
     })
         , $(document).on("click", "#advancedOptions", function(e){
         e.preventDefault();
@@ -291,6 +347,8 @@ $(document).ready(function() {
         $('#selectSubjectsCountry').prop('selectedIndex',0)
 
     })
+
+
 
 
 });

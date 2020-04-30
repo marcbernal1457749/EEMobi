@@ -19,6 +19,7 @@ class PerfilUsuariController
             $stayed = false;
             $isTeacher  = false;
             $hasPublications=false;
+            $hasPublicationsSubject=false;
             $hasSubject=false;
             $path = "\EEmobi\\resources\\img\profile.png";
             $contentStay = "NO TENS CAP ESTADA ASIGNADA";
@@ -29,12 +30,15 @@ class PerfilUsuariController
             require_once 'models/PublicationsModel.php';
             require_once 'models/AcordEstudisModel.php';
             require_once 'models/RatingsModel.php';
+            require_once 'models/PublicationsSubjectModel.php';
+
             $stayModel = new StayModel();
             $studentsModel = new StudentsModel();
             $teachersModel = new TeachersModel();
             $publicationsModel = new PublicationsModel();
             $acordEstudisModel = new AcordEstudisModel();
             $ratingsModel = new RatingsModel();
+            $publicationsSubjectModel = new PublicationsSubjectModel();
             
             if($parameters){
                 $doneUpdateOrInsert=true;
@@ -58,6 +62,10 @@ class PerfilUsuariController
                     $src=$teacher->fotoProfessor;
                     $isTeacher  = true;
                     $publications = $publicationsModel -> getPublicationOfUser($niu);
+                    $publicationSubject = $publicationsSubjectModel -> getPublicationSubjectOfUser($niu);
+                    if(!empty($publicationSubject)){
+                        $hasPublicationsSubject=true;
+                    }
                     if(!empty($publications)){
                         $hasPublications=true;
                     }
@@ -87,10 +95,15 @@ class PerfilUsuariController
                             $periode = $stay[0]->semestre;
                             $stayed = true;
                             $publications = $publicationsModel -> getPublicationOfUser($niu);
+                            $publicationSubject = $publicationsSubjectModel -> getPublicationSubjectOfUser($niu);
                             $subjects = $acordEstudisModel->getAcordByNiu($niu);
                             $ratings =  $ratingsModel->getStudentRatings($stay[0]->codiEstada);
                             if(!empty($publications)){
                                 $hasPublications=true;
+                            }
+
+                            if(!empty($publicationSubject)){
+                                $hasPublicationsSubject=true;
                             }
                             if(!empty($subjects)){
                                 $hasSubject = true;
@@ -316,6 +329,7 @@ class PerfilUsuariController
         $niu = $_SESSION['niu'];
         $categories = $ratingsModel->getCategories();
         $idUniversitat = $data['idUniversitat'];
+        $ratingsModel->disconnect();
         /*
         if(isset($_SESSION['teacher'])){
             $universitiesSelect = $universitiesModel->getUniversityById($data['idUniversitat']);
@@ -328,6 +342,18 @@ class PerfilUsuariController
         include($route);
 
     }
+    public function openFormSubject($parameters){
+
+        $data = $parameters[0];
+        $route = $this->view->show("modalFormSubject.php");
+        $niu = $_SESSION['niu'];
+        $codiAcord = $data[0]['codiAcord'];
+        $codiAsignaturaDesti = $data[0]['codiAsignaturaDesti'];
+
+        include($route);
+
+    }
+
     public function openFormAcord($parameters){
         require_once 'models/StayModel.php';
         require_once 'models/AssignaturesModel.php';
@@ -359,11 +385,11 @@ class PerfilUsuariController
             $text = strip_tags($data['text']);
             $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
             $error['succes']=true;
-            $error['uploadFile']=false; 
+            $error['uploadFile']=false;
             if(isset($data['isFile'])){
                 $target_dir=$data['target_dir'];
-                $target_file=$data['target_file']; 
-                $imageFileType=$data['imageFileType']; 
+                $target_file=$data['target_file'];
+                $imageFileType=$data['imageFileType'];
                 $check=$data['check'];
 
                 if($check == false) {
@@ -373,19 +399,19 @@ class PerfilUsuariController
                 }
                 if (file_exists($target_file)) {
                     //echo "Sorry, file already exists.";
-                     $error['msg'] = "La imatge ja existeix.";
-                     $error['succes']=false;
+                    $error['msg'] = "La imatge ja existeix.";
+                    $error['succes']=false;
                 }
                 // Check file size
                 if ($_FILES['file']['size'] > 5000000) {
                     //echo "Sorry, your file is too large.";
-                     $error['msg'] = "La imatge es massa gran.";
-                     $error['succes']=false;
+                    $error['msg'] = "La imatge es massa gran.";
+                    $error['succes']=false;
                 }
                 // Allow certain file formats
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                     //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                   $error['msg'] = "Nomes estan permesos les extensions png,jpeg,jpg.";
+                    $error['msg'] = "Nomes estan permesos les extensions png,jpeg,jpg.";
                 }
                 if (empty($error['msg'])) {
                     if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
@@ -410,7 +436,6 @@ class PerfilUsuariController
 
         echo json_encode($error);
 
-
     }
     public function deletePublication($parameters){
         $data = $parameters[0];
@@ -422,6 +447,41 @@ class PerfilUsuariController
         echo json_encode($error);
 
     }
+
+    public function deletePublicationSubject($parameters){
+        $data = $parameters[0];
+        require_once 'models/PublicationsSubjectModel.php';
+        $publicationsModel = new PublicationsSubjectModel();
+        $publicationsModel->deletePublicationSubject($data['idPublicacio'],$_SESSION['niu']);
+        $error['succes']=true;
+        $publicationsModel->disconnect();
+        echo json_encode($error);
+
+    }
+    public function addPublicationSubject($parameters){
+        $data = $parameters[0];
+        require_once 'models/PublicationsSubjectModel.php';
+        $publicationsModel = new PublicationsSubjectModel();
+
+
+        if($data['success']){
+            $date = date('Y-m-d');
+            $text = strip_tags($data['text']);
+            $text = filter_var($text,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_SANITIZE_STRING);
+            $error['success']=true;
+
+            $publicationsModel->addPublicationSubject($data['codiAcord'],$_SESSION['niu'],$text,$date,$data['codiAsignaturaDesti']);
+
+        }else{
+            $error['msg'] = "No es permeten camps buits.";
+            $error['success']=false;
+        }
+
+        echo json_encode($error);
+
+
+    }
+
     public function addAgreement($parameters){
         $data = $parameters[0];
         if(empty($data['codiEstada'])||empty($data['nomDesti'])||empty($data['linkDesti'])||empty($data['codiDesti'])||empty($data['creditsDesti'])||empty($data['assignatura'])){

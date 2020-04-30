@@ -30,13 +30,13 @@ class ProfileController{
               array_push($parameters,$data);  
             }
             break;
-          case 'openFormAcord':
-            $actionName = "openFormAcord";
-            if(isset($url_parameters[4])){
-              $data['idConveni'] = $url_parameters[4];
-              array_push($parameters,$data);  
-            }
-            break;
+            case 'openFormSubject':
+                $actionName = "openFormSubject";
+                $data = $_POST['data'];
+
+                array_push($parameters, $data);
+
+                break;
 
             case 'firstRatings':
                 $actionName = "firstRatings";
@@ -74,6 +74,14 @@ class ProfileController{
                 array_push($parameters, $data);
                 break;
 
+            case 'subjectPublications':
+                echo "<script>console.log('ENTRO1')</script>";
+                $controllerName = "SubjectPublicationsController";
+                $actionName = "showSubjectPublications";
+                $data = $_POST['t'];
+                array_push($parameters, $data);
+                break;
+
           case 'addPublication':
             $actionName = "addPublication";
             if(isset($_FILES['file'])) {
@@ -95,11 +103,20 @@ class ProfileController{
             }
             array_push($parameters, $data);
             break;
+
+
           case 'deletePublication':
             $data['idPublicacio'] = $_POST['idToDelete'];
             $actionName = "deletePublication";
             array_push($parameters, $data);
             break;
+
+        case 'deletePublicationSubject':
+            $data['idPublicacio'] = $_POST['idToDelete'];
+            $actionName = "deletePublicationSubject";
+            array_push($parameters, $data);
+            break;
+
           case 'updatePhoto':
             if(isset($_FILES['file'])) {
                 $target_dir = "./resources/img/profiles/"; ///var/www/EEmobi/resources/img/profiles/
@@ -116,6 +133,21 @@ class ProfileController{
             array_push($parameters, $data);
             $actionName="editPhoto";
             break;
+
+            case 'addPublicationSubject':
+                $actionName = "addPublicationSubject";
+                if(empty($_POST['codiAcord'])||empty($_POST['text'])||empty($_POST['codiAsignaturaDesti'])){
+                    $data['success']=false;
+
+                }else{
+                    $data['codiAcord'] = $_POST['codiAcord'];
+                    $data['codiAsignaturaDesti'] = $_POST['codiAsignaturaDesti'];
+                    $data['text'] = $_POST['text'];
+                    $data['success']=true;
+                }
+                array_push($parameters, $data);
+                break;
+
           case 'updateInfo':
             if (empty($_POST['name'])){
               $errors['name'] = 'Name is required.';

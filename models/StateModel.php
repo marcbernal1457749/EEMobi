@@ -13,7 +13,7 @@ class StateModel
     public function getAllInfo($idUniversitat){
 
         $consulta = $this->db->prepare('
-                                        SELECT ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu, ac.linkAssignaturaDesti
+                                        SELECT ac.nomAsignaturaDesti, ac.codiAsignaturaDesti, ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu, ac.linkAssignaturaDesti, ac.codiAcord
                                         FROM conveni co, estada es,acordestudis ac,assignaturesuab ass,estudisuab est,estudiant estu, centreestudis ce,universitat_estudisuab ue
                                         WHERE co.codiConveni = es.codiConveni
                                         AND ue.idUniversitat= ?
@@ -24,7 +24,7 @@ class StateModel
                                         AND ac.codiEstada = es.codiEstada
                                         AND ass.codiAssignaturaUAB = ac.codiAssignaturaUAB
                                         AND ass.codiEstudis = est.codiEstudis
-                    GROUP BY ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti');
+                    GROUP BY ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti,ac.codiAcord');
         $consulta->execute(array($idUniversitat));
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.
@@ -32,7 +32,7 @@ class StateModel
     }
     public function getAllInfoByDegree($idUniversitat,$degree){
         $consulta = $this->db->prepare('
-                                        SELECT ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti
+                                        SELECT ac.nomAsignaturaDesti, ac.codiAsignaturaDesti, ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti, ac.codiAcord
                                         FROM conveni co, estada es,acordestudis ac,assignaturesuab ass,estudisuab est,estudiant estu, centreestudis ce,universitat_estudisuab ue
                                         WHERE co.codiConveni = es.codiConveni
                                         AND es.codiConveni = co.codiConveni
@@ -44,7 +44,7 @@ class StateModel
                                         AND ac.codiEstada = es.codiEstada
                                         AND ass.codiAssignaturaUAB = ac.codiAssignaturaUAB
                                         AND ass.codiEstudis = est.codiEstudis
-                    GROUP BY ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti');
+                    GROUP BY ac.nomAsignaturaDesti,ac.creditsAsignaturaDesti,ass.nomAssignatura, ass.crèdits,ass.url,est.nomGrau,es.curs,estu.niuEstudiant,estu.publicMail,estu.correu,ac.linkAssignaturaDesti,ac.codiAcord');
         $consulta->execute(array($idUniversitat,$degree));
         if($consulta==false){
             return false;
