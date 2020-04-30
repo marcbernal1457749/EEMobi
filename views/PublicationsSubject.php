@@ -4,17 +4,6 @@
             <h1 class="text-muted text-right"><em><?php echo $nomSubject?></em></h1>
     </div>
 <div class="panel-body">
-    <form>
-        <h4 class="form-signin-heading">Filtres</h4>
-        <div class="form-group">
-            <label for="sel1">Data</label>
-            <select class="selectpicker form-control" data-live-search="true" data-size="5" id="selectFilter" >
-                <option value="1">Data (Ascendent)</option>
-                <option value="2">Data (Descendent)</option>
-            </select>
-        </div>
-    </form>
-
     <div class="publications" id="publicationsInfoUni">
         <h5>Publicacions</h5>
         <?php if(!empty($subjectPublications)){?>
@@ -64,7 +53,7 @@
             <?php endforeach; ?>
         <?php } else { ?>
             <div class="col-sm-12 text-center">
-                <h4>No tens publicacions.</h4>
+                <h4>No hi ha publicacions.</h4>
             </div>
         <?php } ?>
     </div>

@@ -1,10 +1,9 @@
-<?php
-class SubjectPublicationsController{
-
+<?php class SubjectPublicationsController{
     function __construct(){
 
         $this->view = new View();
     }
+
     public function showSubjectPublications($parameters){
 
         require 'models/PublicationsSubjectModel.php';
@@ -19,13 +18,12 @@ class SubjectPublicationsController{
         if(!empty($subjectPublications)){
             $hasPublicationsSubject=true;
         }
-        echo "<script>console.log('ENTRO2')</script>";
 
         $route = $this->view->show("PublicationsSubject.php");
 
         $publicationsSubjectModel->disconnect();
 
-        include($route);
+        include ($route);
 
     }
 }?>

@@ -1,4 +1,3 @@
-
 <?php include('templates/HeaderInfo.php') ?>
 <div class="container">
     <div class="container-publiSub">

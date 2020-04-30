@@ -78,7 +78,7 @@ class ProfileController{
                 echo "<script>console.log('ENTRO1')</script>";
                 $controllerName = "SubjectPublicationsController";
                 $actionName = "showSubjectPublications";
-                $data = $_POST['data'];
+                $data = $_POST['t'];
                 array_push($parameters, $data);
                 break;
 
