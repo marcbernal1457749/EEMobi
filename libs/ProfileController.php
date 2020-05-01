@@ -30,12 +30,17 @@ class ProfileController{
               array_push($parameters,$data);  
             }
             break;
+            case 'openFormAcord':
+                $actionName = "openFormAcord";
+                if(isset($url_parameters[4])){
+                    $data['idConveni'] = $url_parameters[4];
+                    array_push($parameters,$data);
+                }
+                break;
             case 'openFormSubject':
                 $actionName = "openFormSubject";
                 $data = $_POST['data'];
-
                 array_push($parameters, $data);
-
                 break;
 
             case 'firstRatings':

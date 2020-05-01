@@ -19,37 +19,36 @@
         <!--Theme custom css -->
 
 
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- TEST -->
-<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="/EEmobi/resources/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
-<script src="/EEmobi/resources/js/altEditor/dataTables.altEditor.free.js"></script>
-<script src="/EEmobi/resources/js/toggleTable.js"></script>
+        <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="/EEmobi/resources/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+        <script src="/EEmobi/resources/js/altEditor/dataTables.altEditor.free.js"></script>
+        <script src="/EEmobi/resources/js/toggleTable.js"></script>
 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
-  <script src="resources/js/tablepagination.js"></script>
-<link rel="stylesheet" href="resources/css/test/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"/>
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css"/>
-<link rel="stylesheet" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css"/>
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.min.css"/>
-
-
+        <script src="resources/js/tablepagination.js"></script>
+        <link rel="stylesheet" href="resources/css/test/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.min.css"/>
 
 
-<script src="resources/js/eventListenerAdmin.js"></script>
- <link rel="stylesheet" href="resources/css/test/styleAdminPanel.css">
 
-         <script src="resources/js/functionsAdmin.js"></script>
+
+        <script src="resources/js/eventListenerAdmin.js"></script>
+        <link rel="stylesheet" href="resources/css/test/styleAdminPanel.css">
+
+        <script src="resources/js/functionsAdmin.js"></script>
 
 
 
