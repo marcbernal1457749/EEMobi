@@ -53,7 +53,7 @@
             <?php endforeach; ?>
         <?php } else { ?>
             <div class="col-sm-12 text-center">
-                <h4>No hi ha publicacions.</h4>
+                <h4>No hi ha opinions.</h4>
             </div>
         <?php } ?>
     </div>

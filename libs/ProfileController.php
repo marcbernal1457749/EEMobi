@@ -37,6 +37,13 @@ class ProfileController{
                     array_push($parameters,$data);
                 }
                 break;
+            case 'openFormListSubjects':
+                $actionName = "openFormListSubjects";
+                if(isset($url_parameters[4])){
+                    $data['idConveni'] = $url_parameters[4];
+                    array_push($parameters,$data);
+                }
+                break;
             case 'openFormSubject':
                 $actionName = "openFormSubject";
                 $data = $_POST['data'];

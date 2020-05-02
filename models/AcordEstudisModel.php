@@ -55,12 +55,30 @@ class AcordEstudisModel{
     
     public function getAcordsByStay($codiConveni){
         try{
-            $consulta = $this->db->prepare('SELECT es.niuEstudiant, ac.nomAsignaturaDesti, ass.nomAssignatura, ac.linkAssignaturaDesti
+            $consulta = $this->db->prepare('SELECT es.niuEstudiant, ac.nomAsignaturaDesti, ac.codiAsignaturaDesti, ass.nomAssignatura, ac.linkAssignaturaDesti
                                             FROM estada es, acordestudis ac, assignaturesuab ass, conveni co
                                             WHERE co.codiConveni = ?
                                             AND co.codiConveni = es.codiConveni
                                             AND es.codiEstada = ac.codiEstada
                                             AND ac.codiAssignaturaUAB = ass.codiAssignaturaUAB');
+            $consulta->execute(array($codiConveni));
+            $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+            return $obj;
+        }catch (Exception $e) {
+            die($e->getMessage());
+        }
+
+    }
+    public function getSubjectsByStay($codiConveni){
+        try{
+            $consulta = $this->db->prepare('SELECT ac.nomAsignaturaDesti, ac.codiAsignaturaDesti, ac.codiAcord
+                                            FROM estada es, acordestudis ac, assignaturesuab ass, conveni co
+                                            WHERE co.codiConveni = ?
+                                            AND co.codiConveni = es.codiConveni
+                                            AND es.codiEstada = ac.codiEstada
+                                            AND ac.codiAssignaturaUAB = ass.codiAssignaturaUAB
+                                            GROUP BY ac.nomAsignaturaDesti,ac.codiAsignaturaDesti,ac.codiAcord
+                                            ORDER BY ac.nomAsignaturaDesti');
             $consulta->execute(array($codiConveni));
             $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
             return $obj;

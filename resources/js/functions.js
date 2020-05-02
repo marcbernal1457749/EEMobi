@@ -53,6 +53,9 @@ function getSubjectsByUser(e){
 function getAcordsById(e){
     $.ajax({type:"GET",url:"perfil.php",data:"/openFormAcord/"+e,success:function(e,n,t){$(".modal-dialog").html(e),$("#test").DataTable()},error:function(e,n,t){}})
 }
+function getSubjectsByAcord(e){
+    $.ajax({type:"GET",url:"perfil.php",data:"/openFormListSubjects/"+e,success:function(e,n,t){$(".modal-dialog").html(e),$("#test").DataTable()},error:function(e,n,t){}})
+}
 
 function getSubjectPublication(cadena){
 

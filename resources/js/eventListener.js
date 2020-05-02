@@ -197,6 +197,10 @@ $(document).ready(function() {
 
     }), $(document).on("click", "#acordp", function() {
         getAcordsById($(this).attr("at")), $("#myModal").modal("toggle")
+
+    }), $(document).on("click", "#assignaturesp", function() {
+        getSubjectsByAcord($(this).attr("at")), $("#myModal").modal("toggle")
+
     }), $(document).on("click", "#crearAcord", function() {
         $("#debugimg .alert").remove(), $.ajax({
             url: "/EEmobi/perfil.php/addAgreement",
@@ -272,6 +276,37 @@ $(document).ready(function() {
         t.append("codiAcord", $("#codiAcord").val());
         t.append("codiAsignaturaDesti", $("#codiAsignaturaDesti").val());
 
+        $.ajax({
+            type: "POST",
+            url: "perfil.php/addPublicationSubject",
+            data: t,
+            cache: !1,
+            dataType: "json",
+            processData: !1,
+            contentType: !1,
+            success:function(t,e,c){
+                $("#myModal").modal("toggle");
+                window.location.replace("http://deic-projectes.uab.cat/EEmobi/Perfil");
+            },
+            error:function(e,a,t){
+                $("#debugimg").append('<div class="alert alert-danger"><strong>Error</strong> <i class="fa fa-exclamation"></i>  ' + e.msg + "</div>");
+            }
+        })
+    })
+        , $(document).on("click", "#publicarTeacherOpSubject", function(e) {
+        $("#debugimg .alert").remove(), e.preventDefault();
+        var t = new FormData;
+
+        var cadena = $("#codiAsignatura").children("option:selected").attr("id");
+        var codiAcord = cadena.split(',')[1];
+        var codiAsignaturaDesti = cadena.split(',')[0];
+
+        t.append("text", $("#text-publi").val());
+        t.append("codiAcord", codiAcord);
+        t.append("codiAsignaturaDesti", codiAsignaturaDesti);
+        console.log($("#text-publi").val());
+        console.log( codiAcord);
+        console.log( codiAsignaturaDesti);
         $.ajax({
             type: "POST",
             url: "perfil.php/addPublicationSubject",

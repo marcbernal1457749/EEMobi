@@ -376,6 +376,24 @@ class PerfilUsuariController
         include($route);
 
     }
+
+    public function openFormListSubjects($parameters){
+        require_once 'models/AcordEstudisModel.php';
+        $acordEstudisModel = new AcordEstudisModel();
+        $route = $this->view->show("ModalFormListSubjects.php");
+        $niu = $_SESSION['niu'];
+        $data = $parameters[0];
+        $idConveni = $data['idConveni'];
+
+        if(isset($_SESSION['teacher'])){
+            $agreements = $acordEstudisModel->getSubjectsByStay($idConveni);
+        }
+
+        $acordEstudisModel->disconnect();
+        include($route);
+
+    }
+
     public function addPublication($parameters){
         $data = $parameters[0];
         require_once 'models/PublicationsModel.php';
