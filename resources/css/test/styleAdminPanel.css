@@ -456,8 +456,8 @@ textarea::-ms-input-placeholder {
 
 .navbar-default .navbar-nav>li>a {
     color: #fff9f9;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     text-transform: uppercase
 }
 
@@ -1648,7 +1648,7 @@ h1 {
 }
 
 .welcome {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     padding-top: 15px;
     padding-bottom: 15px;

@@ -100,7 +100,7 @@ textarea::-ms-input-placeholder{color:#CACACA;font-size:12px;padding-top:2px}
 .social-wrapper .social-contact a i{padding-right:5px}
 .navbar-default{background-color:#d75a00;border-color:transparent;border-radius:0;padding-top:15px;padding-bottom:15px}
 .navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:focus,.navbar-default .navbar-nav>.active>a:hover{color:wheat;background-color:transparent}
-.navbar-default .navbar-nav>li>a{color:#fff9f9;font-size:15px;font-weight:600;text-transform:uppercase}
+.navbar-default .navbar-nav>li>a{color:#fff9f9;font-size:16px;font-weight:500;text-transform:uppercase}
 .navbar-default .navbar-nav li a :hover{opacity:0.9;}
 .navbar-default .collapse .login a{color:wheat;border:1px solid wheat;border-radius:20px;padding:4px 30px;font-size:12px;margin-top:10px;margin-left:30px;display:inline-block;overflow:hidden}
 .navbar-default .collapse .login:hover a{background-color:white;color:darkorange}
@@ -326,7 +326,7 @@ li.UAB a{text-indent:-1000em}
 .button-custom{background:#D75A00}
 .personal-li li{margin-left:57px}
 h1{color:#111;font-family:Montserrat,sans-serif;font-size:35px;line-height:64px;text-align:center}
-.welcome{font-size:14px;font-weight:600;padding:15px;color:#FCE8D7;}
+.welcome{font-size:15px;font-weight:600;padding:15px;color:#FCE8D7;}
 .panel-heading-custom div{margin-top:-18px;font-size:15px}
 .panel-heading-custom div span{margin-left:5px}
 .panel-heading-custom{padding-top:2%}
