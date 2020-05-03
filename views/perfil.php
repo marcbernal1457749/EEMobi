@@ -153,7 +153,11 @@
                             </div>
                           </div>
                           <button  id="myBtn" title="Ves adalt"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-                          <?php } ?>
+                          <?php }else{?>
+                              <div id="container-floating">
+                                 <button  id="myBtn" title="Ves adalt"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                              </div>
+                              <?php } ?>
                         </div>
                       </div>
                   </div>
