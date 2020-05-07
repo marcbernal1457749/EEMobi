@@ -10,6 +10,7 @@
         </div>
     </div>
 
+
     <div class="row">
         <div class="col-sm-12">
             <form>
@@ -23,15 +24,15 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="name">Nom</label>
+                            <label for="name">Nom*</label>
                             <input type="text" class="form-control" id="Nom"
-                                   placeholder="Nom de la universitat">
+                                   placeholder="Nom de la universitat" required>
                         </div>
                     </div>
 
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="country">Pais</label>
+                            <label for="country">Pais*</label>
                             <select class="form-control" id="País">
                                 <?php foreach ($countries as $country):?>
                                     <option id="<?php echo $country->idPais?>"><?php echo $country->nomPais?></option>
@@ -45,9 +46,9 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="address">Direcció</label>
+                            <label for="address">Direcció*</label>
                             <input type="text" class="form-control" id="Adreça"
-                                   placeholder="Direcció">
+                                   placeholder="Direcció" required>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -69,9 +70,9 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="univertityCode">Codi Universitat</label>
+                            <label for="univertityCode">Codi Universitat*</label>
                             <input type="text" class="form-control" id="CodiUniversitat"
-                                   placeholder="Codi">
+                                   placeholder="Codi" required>
                         </div>
                     </div>
                 </div>
@@ -79,16 +80,16 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="univertityLat">Latitud</label>
+                            <label for="univertityLat">Latitud*</label>
                             <input type="text" class="form-control" id="Latitud"
-                                   placeholder="Latitud">
+                                   placeholder="Latitud" required>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="form-group">
-                            <label for="univertityLong">Longitud</label>
+                            <label for="univertityLong">Longitud*</label>
                             <input type="text" class="form-control" id="Longitud"
-                                   placeholder="Longitud">
+                                   placeholder="Longitud" required>
                         </div>
                     </div>
                 </div>

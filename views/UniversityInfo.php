@@ -44,6 +44,18 @@
 
                                                 </ul>
                                             </div>
+                                            <div class="col-lg-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>
+                                                        <?php if(($countryES != "") || ($countryES != null )){?>
+                                                        <a <?php echo 'href="https://erasmusu.com/es/erasmus-'.$countryES.'"';?> target="_blank" id="forumExtern">Fòrum extern</a>
+                                                        <?php } else {?>
+                                                            <a href="https://erasmusu.com/es/" target="_blank" id="forumExtern">Fòrum extern</a>
+                                                        <?php } ?>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

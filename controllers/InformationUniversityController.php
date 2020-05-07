@@ -20,6 +20,7 @@ class InformationUniversityController
         require 'models/DegreesModel.php';
         require 'models/TeachersModel.php';
         require 'models/RatingsModel.php';
+        require 'models/CountriesModel.php';
 
 
         $universitymodel = new UniversitiesModel();
@@ -27,7 +28,12 @@ class InformationUniversityController
         $degreeModel = new DegreesModel();
         $teachersModel = new TeachersModel();
         $ratingsModel = new RatingsModel();
+        $countryModel = new CountriesModel();
 
+        $country = $countryModel->getCountryESByUniversityId($idUniversity);
+        $country = strtolower($country->nomPaisES);
+        $countryES = str_replace(" ","-",$country);
+        $countryModel->disconnect();
 
         $categories = $ratingsModel->getCategories();
         $ratings = $ratingsModel->getRatingsByUni($idUniversity);

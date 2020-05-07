@@ -50,7 +50,7 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-                <button id="addAcordRow" class="btn-success">Afegeix Assignatura</button>
+                <button id="addAcordRow" class="btn-default">Afegeix Assignatura</button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tanca</button>
