@@ -44,8 +44,9 @@ if($logged){
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationAdvanced"/>
-                            <input type="button" class="btn btn-default" value="Netejar Dades" id="deleteDestinationAdvanced"/>
+                            <br/>
+                            <input type="button" class="btn btn-primary" value="Cercar Destinacions" id="searchDestinationAdvanced"/>
+                            <input type="button" class="btn btn-danger" value="Netejar Dades" id="deleteDestinationAdvanced"/>
                         </div>
 
                         <div class="col-sm-12 padding-top-20" id="resultsTable"></div>
