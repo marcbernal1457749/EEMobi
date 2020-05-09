@@ -52,7 +52,9 @@
             <p>L’alumnat haurà de cercar, a través de la web de la universitat de destí, quines assignatures d’allà es corresponen amb les que s’hagi matriculat a la UAB (quant a crèdits, contingut, objectius, càrrega horària, etc.). És important que abans de triar on es vol anar, es tingui la seguretat que allà es podran cursar un mínim de crèdits per ser reconeguts a la UAB (mínim 15ECTS/semestre). </p>
             <p>A EEMobi podràs trobar assignatures que han cursat altres alumnes per poder corroborar-ho.</p>
 
-            <p>En aquest portal trobaràs tota la informació necessària sobre els següents programes de mobilitat: Erasmus+, UAB Exchange (Propi) i SICUE.</p>
+            <p>En aquest portal trobaràs tota la informació necessària sobre els següents programes de mobilitat: Erasmus+, UAB Exchange i SICUE. </p>
+              <small>Recorda que a la <a href="https://www.uab.cat/mobilitat/" target="_blank">pàgina de mobilitat</a> de la universitat trobaràs informació més específica sobre en què
+                  consisteix cada programa.</small>
           </div>
         </div>
       </div>
@@ -70,8 +72,10 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-4">Troba la teva destinació!</h2>
-            <p>Accedeix al portal i troba la teva destinació. Podràs cercar destinacions per país, programa, grau i assignatures, entre d'altres.</p>
-            <p>Recorda: Pots accedir al portal com a convidat, si no tens cap estada assignada, o com a usuari. T'esperem!</p>
+            <p>Accedeix a EEMobi i troba la teva destinació. Podràs cercar destinacions per país, programa, grau, nom de la universitat i assignatures que es cursen a la destinació, entre d'altres.</p>
+            <p>A més, si has ja has marxat d'intercanvi, podràs deixar opinions sobre la teva destinació o les assignatures cursades, per així afavorir la tria de destinacions a futurs estudiants.</p>
+              <p>Recorda que pots accedir al portal iniciant sessió amb les credencials d'estudiant de la UAB o com a convidat!</p>
+
           </div>
         </div>
       </div>

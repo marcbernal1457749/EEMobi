@@ -16,7 +16,7 @@ if($logged){
                     </div>
 
                     <div class="panel-body">
-                        <h4>Cerca per assignatures:</h4>
+                        <h4>Cerca universitat per assignatures:</h4>
                         <div class="col-sm-7">
                             <div class="row bg-info padding-bottom-20 ">
                                 <div class="col-lg-6">

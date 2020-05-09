@@ -16,7 +16,7 @@ if($logged){
                     </div>
 
                     <div class="panel-body">
-                        <h4>Cerca Universitat:</h4>
+                        <h4>Cerca universitat:</h4>
                         <form id="searchUniForm" class="form-group has-feedback has-search">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             <input id="searcherUni" type="text" class="form-control" placeholder="Cercar per nom o país...">
