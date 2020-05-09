@@ -33,6 +33,8 @@ class InformationUniversityController
         $country = $countryModel->getCountryESByUniversityId($idUniversity);
         $country = strtolower($country->nomPaisES);
         $countryES = str_replace(" ","-",$country);
+
+        $pais = $countryModel ->getCountryByUniversityId($idUniversity);
         $countryModel->disconnect();
 
         $categories = $ratingsModel->getCategories();
@@ -64,7 +66,9 @@ class InformationUniversityController
 
         }
         $university = $universitymodel -> getUniversityById($idUniversity);
+
         $universitymodel->disconnect();
+
        if(!empty($university)){
             require_once 'models/PublicationsModel.php';
             $publicationsModel = new PublicationsModel();

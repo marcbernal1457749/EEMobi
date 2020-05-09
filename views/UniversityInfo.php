@@ -48,9 +48,9 @@
                                                 <ul class="list-unstyled mb-0">
                                                     <li>
                                                         <?php if(($countryES != "") || ($countryES != null )){?>
-                                                        <a <?php echo 'href="https://erasmusu.com/es/erasmus-'.$countryES.'"';?> target="_blank" id="forumExtern">Fòrum extern</a>
+                                                        <a <?php echo 'href="https://erasmusu.com/es/erasmus-'.$countryES.'"';?> target="_blank" id="forumExtern">Fòrum extern (<?php echo $pais->nomPais; ?>)</a>
                                                         <?php } else {?>
-                                                            <a href="https://erasmusu.com/es/" target="_blank" id="forumExtern">Fòrum extern</a>
+                                                            <a href="https://erasmusu.com/es/" target="_blank" id="forumExtern">Fòrum extern (<?php echo $pais->nomPais; ?>)</a>
                                                         <?php } ?>
                                                     </li>
 

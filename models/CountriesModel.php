@@ -66,6 +66,16 @@ class CountriesModel{
 
     }
 
+    public function getCountryByUniversityId($idUniversitat){
+
+        $consulta = $this->db->prepare("SELECT nomPais FROM pais INNER JOIN universitats on universitats.idPais=pais.idPais WHERE universitats.idUniversitat=?");
+        $consulta->execute(array($idUniversitat));
+        $obj = $consulta->fetch(PDO::FETCH_OBJ);
+        //devolvemos la colección para que la vista la presente.
+        return $obj;
+
+    }
+
     public function deleteCountry($idCountry){
         $consulta = $this->db->prepare('DELETE FROM pais WHERE idPais =?');
         $consulta->execute(array($idCountry));
