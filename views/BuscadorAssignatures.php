@@ -49,7 +49,6 @@ if($logged){
                                 <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
                                 <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                             </div>
-                            <small id="advancedOptionsAssignatures">Cerca avançada</small>
                         </div>
 
 
@@ -68,6 +67,10 @@ if($logged){
                                 </tr>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="col-sm-7">
+                            <small id="advancedOptionsAssignatures">Cerca avançada</small>
                         </div>
                         <div id="advancedOptionsSubjectShow">
                             <div class="col-sm-12 padding-bottom-20">
