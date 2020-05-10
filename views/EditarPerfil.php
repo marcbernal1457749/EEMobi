@@ -64,8 +64,10 @@
                 <input type="radio" name="opcioCorreu" <?php echo $checkedCorreu == true ? '' : 'checked'; ?> value="No">No
               </label>
             </div>
+
             <div class="col-md-8 input-group" id="debug">
             </div>
+            <small>*Activant el nom i/o correu públic permetràs que altres estudiants puguin contactar amb tú.</small>
             <div class="col-md-8 input-group">              
               <input type="reset" class="btn btn-default btn-edit" value="Desfés canvis">
               <input type="button" class="btn btn-default btn-edit btn-person" value="Desar canvis">
