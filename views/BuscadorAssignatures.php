@@ -47,8 +47,9 @@ if($logged){
 
                             <div class="padding-bottom-20">
                                 <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
+                                <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                             </div>
-
+                            <small id="advancedOptionsAssignatures">Cerca avançada</small>
                         </div>
 
 
@@ -68,28 +69,26 @@ if($logged){
                                 </tbody>
                             </table>
                         </div>
+                        <div id="advancedOptionsSubjectShow">
+                            <div class="col-sm-12 padding-bottom-20">
+                                <hr>
 
-                        <div class="col-sm-12 padding-bottom-20">
-                            <hr>
-
-                            <div class="col-lg-2">
-                                <label for="sel1">Tipus de Cerca:</label>
-                                <select class="selectpicker form-control" id="logicOperator" >
-                                    <option value="0">And</option>
-                                    <option value="1">Or</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="sel1">Programes:</label>
-                                <select class="selectpicker form-control" data-live-search="true" data-size="5" id="selectDegreesProgram" >
-                                    <option value="-1">Selecciona un programa </option>
-                                    <?php foreach($programs as $program): ?>
-                                        <option value="<?php echo $program->codiPrograma; ?>"><?php echo $program->nom; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="col-lg-3">
-                                <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
+                                <div class="col-lg-2">
+                                    <label for="sel1">Tipus de Cerca:</label>
+                                    <select class="selectpicker form-control" id="logicOperator" >
+                                        <option value="0">And</option>
+                                        <option value="1">Or</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="sel1">Programes:</label>
+                                    <select class="selectpicker form-control" data-live-search="true" data-size="5" id="selectDegreesProgram" >
+                                        <option value="-1">Selecciona un programa </option>
+                                        <?php foreach($programs as $program): ?>
+                                            <option value="<?php echo $program->codiPrograma; ?>"><?php echo $program->nom; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
