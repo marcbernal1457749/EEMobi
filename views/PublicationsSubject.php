@@ -30,7 +30,11 @@
                                 <div class="col-lg-8">
                                     <p>
                                         <b><?php if($publication->publicNom){
-                                                echo $publication->nom.' '.$publication->cognom;
+                                                if($publication->publicMail){?>
+                                                    <a href="mailto:<?php echo $publication->correu; ?>" target="_top"><?php echo $publication->nom.' '.$publication->cognom;?></a>
+                                                <?php }else{
+                                                    echo $publication->nom.' '.$publication->cognom;
+                                                }
                                             }else{
                                                 echo "Anònim";
                                             }

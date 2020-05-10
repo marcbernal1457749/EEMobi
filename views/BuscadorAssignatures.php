@@ -7,7 +7,6 @@ if($logged){
 
 <div class="searcherbackground">
     <div class="container">
-        <br/>
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel">
@@ -17,7 +16,7 @@ if($logged){
                     </div>
 
                     <div class="panel-body">
-                        <h4>Cerca per assignatures:</h4>
+                        <h4>Cerca universitat per assignatures:</h4>
                         <div class="col-sm-7">
                             <div class="row bg-info padding-bottom-20 ">
                                 <div class="col-lg-6">
@@ -48,8 +47,8 @@ if($logged){
 
                             <div class="padding-bottom-20">
                                 <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
+                                <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                             </div>
-
                         </div>
 
 
@@ -70,27 +69,29 @@ if($logged){
                             </table>
                         </div>
 
-                        <div class="col-sm-12 padding-bottom-20">
-                            <hr>
+                        <div class="col-sm-7">
+                            <small id="advancedOptionsAssignatures">Cerca avançada</small>
+                        </div>
+                        <div id="advancedOptionsSubjectShow">
+                            <div class="col-sm-12 padding-bottom-20">
+                                <hr>
 
-                            <div class="col-lg-2">
-                                <label for="sel1">Tipus de Cerca:</label>
-                                <select class="selectpicker form-control" id="logicOperator" >
-                                    <option value="0">And</option>
-                                    <option value="1">Or</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="sel1">Programes:</label>
-                                <select class="selectpicker form-control" data-live-search="true" data-size="5" id="selectDegreesProgram" >
-                                    <option value="-1">Selecciona un programa </option>
-                                    <?php foreach($programs as $program): ?>
-                                        <option value="<?php echo $program->codiPrograma; ?>"><?php echo $program->nom; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="col-lg-3">
-                                <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
+                                <div class="col-lg-2">
+                                    <label for="sel1">Tipus de Cerca:</label>
+                                    <select class="selectpicker form-control" id="logicOperator" >
+                                        <option value="0">And</option>
+                                        <option value="1">Or</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="sel1">Programes:</label>
+                                    <select class="selectpicker form-control" data-live-search="true" data-size="5" id="selectDegreesProgram" >
+                                        <option value="-1">Selecciona un programa </option>
+                                        <?php foreach($programs as $program): ?>
+                                            <option value="<?php echo $program->codiPrograma; ?>"><?php echo $program->nom; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 

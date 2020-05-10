@@ -10,7 +10,7 @@ class PublicationsSubjectModel{
         $this->db = SPDO::getInstance();
     }
     public function getPublicationSubjectOfUser($niu){
-        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
+        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.correu,es.foto,es.publicMail,ae.nomAsignaturaDesti
                                         FROM publicacionsassignatura pu, estudiant es, acordestudis ae
                                         WHERE pu.niuEstudiant = es.niuEstudiant
                                         AND es.niuEstudiant = ?
@@ -30,7 +30,7 @@ class PublicationsSubjectModel{
         return $obj;
     }
     public function getPublicationOfSubject($idSubject){
-        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
+        $consulta = $this->db->prepare('SELECT pu.idPublicacio,pu.opinio,pu.dataPublicacio,es.nom,es.cognom,es.correu,es.publicNom,es.foto,es.publicMail,ae.nomAsignaturaDesti
                                         FROM publicacionsassignatura pu, estudiant es, acordestudis ae
                                         WHERE pu.codiAcord = ae.codiAcord
                                         AND pu.codiAsignaturaDesti = ?

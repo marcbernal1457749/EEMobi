@@ -31,12 +31,15 @@
     	<div class="col-sm-8">
     		<div class="panel with-nav-tabs panel-default">
         <?php
-        /*EL PROBLEMA ESTÁ EN QUE ESTAYED ESTA COMO FALSE*/
+
         if($isTeacher){
           require_once 'views/PerfilProfessor.php';  
         }else if($stayed){
           require_once 'views/PerfilUsuari.php';
+        }else if(($nomComplet != "Sense especificar") && (!$stayed)){
+            require_once 'views/PerfilUsuariSenseEstada.php';
         }else{?>
+
                                 <div class="col-sm-12 text-center">
                                    <h4><?php echo $contentStay; ?></h4>
                                </div>

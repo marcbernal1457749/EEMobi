@@ -333,6 +333,15 @@ $(document).ready(function() {
             sw.style.display = "block";
         }
 
+    }), $(document).on("click", "#advancedOptionsAssignatures", function(e){
+        e.preventDefault();
+        var sw = document.getElementById("advancedOptionsSubjectShow");
+        if (sw.style.display === "block") {
+            sw.style.display = "none";
+        } else {
+            sw.style.display = "block";
+        }
+
     })
 
         , $(document).on("click", "#searchDestinationAdvanced", function(e){

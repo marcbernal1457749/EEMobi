@@ -392,7 +392,16 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 #advancedOptions:hover{
     font-weight: bold;
 }
+#advancedOptionsAssignatures{
+    cursor:pointer;
+}
+#advancedOptionsAssignatures:hover{
+    font-weight: bold;
+}
 #advancedOptionsShow{
+    display: none;
+}
+#advancedOptionsSubjectShow{
     display: none;
 }
 #curs{
