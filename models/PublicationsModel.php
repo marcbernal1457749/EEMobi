@@ -10,7 +10,7 @@ class PublicationsModel{
         $this->db = SPDO::getInstance();
     }
     public function getPublicationOfUser($niu){
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,es.nom,es.cognom,es.publicNom,es.publicMail,un.nomUniversitat 
+        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,es.nom,es.cognom,es.correu,es.publicNom,es.publicMail,un.nomUniversitat 
                                         FROM publicacions pu, estudiant es, universitats un
                                         WHERE pu.niuEstudiant = es.niuEstudiant
                                         AND es.niuEstudiant = ?
@@ -22,7 +22,7 @@ class PublicationsModel{
         return $obj;
     }
     public function getPublicationOfUniversity($idUniversitat){
-        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,pu.idCategoria,es.nom,es.cognom,es.publicNom,es.foto,es.publicMail,un.nomUniversitat 
+        $consulta = $this->db->prepare('SELECT pu.idPublicació,pu.opinió,pu.fotoPublicació,pu.dataPublicació,pu.idCategoria,es.nom,es.cognom,es.correu,es.publicNom,es.foto,es.publicMail,un.nomUniversitat 
                                         FROM publicacions pu, estudiant es, universitats un
                                         WHERE pu.idUniversitat = un.idUniversitat
                                         AND un.idUniversitat = ?

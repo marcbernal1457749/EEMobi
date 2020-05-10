@@ -21,11 +21,15 @@
         <div class="row">
             <div class="col-lg-8">
                   <p><b><?php if($publication->publicNom){
-                        echo $publication->nom.' '.$publication->cognom;
-                  }else{
-                     echo "Anònim";
-                  }
-                  ?></b></p>
+                              if($publication->publicMail){?>
+                                  <a href="mailto:<?php echo $publication->correu; ?>" target="_top"><?php echo $publication->nom.' '.$publication->cognom;?></a>
+                              <?php }else{
+                                  echo $publication->nom.' '.$publication->cognom;
+                              }
+                          }else{
+                              echo "Anònim";
+                          }
+                          ?></b></p>
             </div>
             <div class="col-lg-4 text-right">
                 <p class="text-right text-info"><em><?php echo $categories[$publication->idCategoria]['titolCategoria']; ?></em></p>
