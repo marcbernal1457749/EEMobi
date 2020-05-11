@@ -2,7 +2,7 @@ function newMap(e) {
     var n, i = [],
         a = JSON.parse(e),
         t = new google.maps.Map(document.getElementById("map"), {
-            zoom: 7,
+            zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }),
         o = new google.maps.LatLngBounds,

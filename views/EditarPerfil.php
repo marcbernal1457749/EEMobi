@@ -1,5 +1,5 @@
-
-  <hr>
+<img onclick="location.reload()" class="click" src="/EEmobi/resources/images/return.png" />
+<hr>
 	<div class="row">
       <!-- left column -->
       <div class="col-sm-3">
@@ -21,7 +21,7 @@
       <!-- edit form column -->
       <div class="col-sm-9 personal-info">
 
-        <h5>Informació personal</h5>     
+        <h5>Informació personal</h5>
         <form class="form-horizontal" role="form" id="formulari">
             <div class="col-md-8 input-group">
               <span class="input-group-addon"><i class="fa fa-university"></i></span>

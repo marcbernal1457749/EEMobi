@@ -56,3 +56,8 @@
 .rating-stars ul > li.star.selected > i.fa {
     color:#FF912C;
 }
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected.hover > i.fa {
+    color:#FFCC36;
+}

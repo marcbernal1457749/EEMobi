@@ -356,16 +356,18 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 }
 #info{
     width: 25px;
-    heigh: 25px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 .click{
     width: 25px;
-    heigh: 25px;
+    height: auto;
     cursor: pointer;
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .click:hover{
     .opacity=0.3;
