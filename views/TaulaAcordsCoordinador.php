@@ -1,6 +1,7 @@
 <?php foreach ($agree as $ag): ?>
     <tr >
         <td><?php echo $ag->nomUniversitat; ?></td>
+        <td><?php echo $ag->nomGrau; ?></td>
         <td><?php echo $ag->plaçes; ?></td>
         <td><?php echo $ag->mesos; ?></td>
         <td><?php echo $ag->període; ?></td>

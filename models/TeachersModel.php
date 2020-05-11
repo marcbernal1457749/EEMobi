@@ -89,10 +89,11 @@ class TeachersModel{
     }
     public function getAgreementsTeacher($niu){
         try {
-            $consulta = $this->db->prepare('SELECT ce.plaçes, ce.mesos, ce.període , un.nomUniversitat ,un.idUniversitat,co.codiConveni
-                                            FROM professorscentre pr, centreestudis ce, universitat_estudisuab ue, universitats un, conveni co
+            $consulta = $this->db->prepare('SELECT ce.plaçes, ce.mesos, ce.període , un.nomUniversitat ,un.idUniversitat,co.codiConveni, eu.nomGrau
+                                            FROM professorscentre pr, centreestudis ce, universitat_estudisuab ue, estudisuab eu, universitats un, conveni co
                                             WHERE pr.niuProfessor = ?
                                             AND ce.codiCentreEstudis = pr.codiCentreEstudis
+                                            AND ue.codiEstudis = eu.codiEstudis
                                             AND ce.codiUniEstudis = ue.codiUniEstudis
                                             AND un.idUniversitat = ue.idUniversitat
                                             AND co.codiCentreEstudis = ce.codiCentreEstudis
