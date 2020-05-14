@@ -46,7 +46,7 @@ if($logged){
 
 
                             <div class="padding-bottom-20">
-                                <input type="button" class="btn btn-default" value="Afegeix Assignatura" id="addSubject" />
+                                <input type="button" class="btn btn-default-2" value="Afegeix Assignatura" id="addSubject" />
                                 <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                             </div>
                         </div>

@@ -48,8 +48,8 @@ class UserVerifyController
 */
         // Identificar alumno
         // Comprueba que phpCAS::getUser() es un usuario del sistema
-        $niu = '1458082'; //1001691 1001210 1457749 1358575 1456923 1457227
-        if((/*phpCAS::getUser()*/ $niu == "1458082" )) //!=null
+        $niu = '1001691'; //1001691 1001210 1457749 1358575 1456923 1457227
+        if((/*phpCAS::getUser()*/ $niu == "1001691" )) //!=null
         {
             //$_SESSION["niu"] = phpCAS::getUser(); // Guardar el niu en variable de sesión
             $_SESSION['loggedin'] = true;

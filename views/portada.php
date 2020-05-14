@@ -88,7 +88,7 @@
           <div class="row">
               <div class="footer-wrapper">
                   <p class="drets text-center"> © 2020 Universitat Autònoma de Barcelona - &nbsp;<img src="./resources/img/uab.png" alt="logo"/></p>
-                  <small class="drets text-center">Website developed by Pau Albert Martin Sans (2017) , Alfredo Bianchi Bleda (2019) & Marc Bernal Ortiz (2020)</small>
+                  <small class="drets text-center">Developed by Pau A. Martin (2017), Jaume Mir (2018), Alfredo Bianchi (2019), Marc Bernal (2020) & Jordi Pons</small>
               </div>
           </div>
       </div>

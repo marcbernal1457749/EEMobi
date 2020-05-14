@@ -60,7 +60,7 @@ section .subtitle-half h5{font-weight:100;font-size:12px}
 .btn{display:inline-block;margin-bottom:0;font-size:14px;line-height:1.728571;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:3px;width:200px;height:50px;padding:1em}
 btn-default{border-radius:0;background-color:#d75a00;color:white;border:0;padding:12px 15px;max-width:160px}
 btn-default:hover{background-color: rgba(215, 90, 0, 0.65);}
-.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:white;background-color:#d75a00;border-color:transparent}
+.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:white;background-color: rgba(215, 90, 0, 0.65);border-color:transparent}
 .form-group-lg .form-control,.input-lg{height:46px;width:100%;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:0}
 .btn-group-lg>.btn,.btn-lg{font-size:18px;line-height:26px;border-radius:0;background:#82ca9c;border:0;padding:10px 25px}
 .input-group button a i{color:#fff}
@@ -344,7 +344,7 @@ h1{color:#111;font-family:Montserrat,sans-serif;font-size:35px;line-height:64px;
     background: rgba(215, 90, 0, 0.69);color:white;
 }
 .btn-search{background-color:#a9a9a9;width:66%;cursor:pointer;border:1px solid transparent;border-radius:4px}
-tr th,tr.info th{background:#391C09}
+tr th,tr.info th{background:black}
 .img-profile{height:337px}
 .img-profile-tmp{height:152px}
 .no-info p{font-family:'Hoefler Text',Georgia,'Times New Roman',serif;font-size:1.75em;line-height:1.1em;margin:0}
@@ -412,3 +412,12 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 #footerp2{
     font-size: 0.75em;
 }
+.btn-danger {
+    color: #d9534f;
+    background-color: transparent;
+    border: 1px solid #d9534f;
+}
+
+.btn-default-2{margin-top:20px; ;background-color:transparent;color:#d75a00;border: 1px solid #d75a00 ;padding:12px 15px;}
+.btn-default-2:hover{background-color: rgba(215, 90, 0, 0.65);}
+.btn-default-2.active,.btn-default-2.focus,.btn-default-2:active,.btn-default-2:focus,.btn-default-2:hover,.open>.dropdown-toggle.btn-default-2{color:white;background-color:#d75a00;border-color:transparent}
