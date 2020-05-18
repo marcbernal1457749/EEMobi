@@ -12,7 +12,7 @@
         <tbody id="resultsTable">
     <?php if(!$areThereIds) { ?>
         <tr>
-            <td colspan="6" class="text-muted"><p class="text-center">Encara no existeixen Universitats amb aquesta combinació d'assignatures</p></td>
+            <td colspan="6" class="text-muted"><p class="text-center">Encara no existeixen Universitats amb aquest nom o en aquest país</p></td>
         </tr>
     <?php }else{
            foreach($destinacions as $destinacio) : ?>

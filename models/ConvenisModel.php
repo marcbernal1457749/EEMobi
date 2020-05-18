@@ -27,6 +27,25 @@ class ConvenisModel{
         return $obj;   
     }
 
+    public function getConvenisByGrau($grau){
+        try {
+            $consulta = $this->db->prepare('SELECT uni.nomUniversitat, uni.idUniversitat, es.nomGrau,co.codiConveni,co.codiCentreEstudis,ce.plaçes,ce.mesos,ce.període
+                                            FROM centreestudis ce, universitat_estudisuab un,universitats uni,estudisuab es,conveni co
+                                            WHERE ce.codiUniEstudis = un.codiUniEstudis
+                                            AND uni.idUniversitat = un.idUniversitat
+                                            AND un.codiEstudis = es.codiEstudis
+                                            AND co.codiCentreEstudis = ce.codiCentreEstudis
+                                            AND es.codiEstudis = ?
+                                            ORDER BY uni.nomUniversitat');
+            $consulta->execute(array($grau));
+            $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
+
+        } catch (Exception $e) {
+
+        }
+        return $obj;
+    }
+
     public function getConvenisByIdUniversity($idUni){
         try {
             $consulta = $this->db->prepare('SELECT ce.codiCentreEstudis, ce.actiu, ce.plaçes, ce.mesos, ce.període, co.codiConveni, es.nomGrau, es.codiEstudis, pr.nom, pr.cognoms, pr.niuProfessor  

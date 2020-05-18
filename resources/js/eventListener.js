@@ -39,6 +39,15 @@ $(document).ready(function() {
 
             filtrarAcordsAdmin(data);
     })
+        ,$(document).on("change", "#selectGrauAdmin", function(e){
+        e.preventDefault();
+
+        var data = {};
+        data.niu = $("#niuProfessor").val();
+        data.filtre = $(this).val();
+
+        filtrarAcordsAdminGrau(data);
+    })
 
         , $(document).on("click", "#addSubject", function(e) {
 

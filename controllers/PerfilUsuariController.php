@@ -31,6 +31,7 @@ class PerfilUsuariController
             require_once 'models/AcordEstudisModel.php';
             require_once 'models/RatingsModel.php';
             require_once 'models/PublicationsSubjectModel.php';
+            require_once 'models/DegreesModel.php';
 
             $stayModel = new StayModel();
             $studentsModel = new StudentsModel();
@@ -39,7 +40,11 @@ class PerfilUsuariController
             $acordEstudisModel = new AcordEstudisModel();
             $ratingsModel = new RatingsModel();
             $publicationsSubjectModel = new PublicationsSubjectModel();
-            
+            $degreesModel = new DegreesModel();
+
+            $degrees = $degreesModel->getDegrees();
+            $degreesModel->disconnect();
+
             if($parameters){
                 $doneUpdateOrInsert=true;
             }
@@ -564,6 +569,23 @@ class PerfilUsuariController
         }
 
         $teachersModel->disconnect();
+        $convenisModel->disconnect();
+
+        $route = $this->view->show("TaulaAcordsCoordinador.php");
+        include($route);
+    }
+    public function filtrarAcordsAdminGrau($parameters){
+        $data = json_decode($parameters[0]['data']);
+
+        require_once 'models/ConvenisModel.php';
+        $convenisModel = new ConvenisModel();
+            if($data->filtre != -1){
+            $agree = $convenisModel->getConvenisByGrau($data->filtre);
+            }else{
+                $agree = $convenisModel->getConvenis();
+            }
+
+
         $convenisModel->disconnect();
 
         $route = $this->view->show("TaulaAcordsCoordinador.php");

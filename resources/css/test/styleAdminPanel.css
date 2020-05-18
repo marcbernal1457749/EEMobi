@@ -1744,3 +1744,24 @@ h1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    color: black;
+    font-weight: bold;
+}
+.btn-default{
+    background-color: black;
+}
+.btn-default:hover{
+    background-color: grey;
+}
+.btn-primary {
+    color: white;
+    background-color: grey;
+    border-color: darkgrey;
+}
+.btn-primary:hover {
+    color: white;
+    background-color: black;
+    border-color: black;
+}

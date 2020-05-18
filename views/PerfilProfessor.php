@@ -25,13 +25,21 @@
                           <option id="allAdmin" value="allAdmin">Totes les Universitats</option>
                       </select>
                   </div>
+                  <div id="showByGrau" class="padding-bottom-20" >
+                      <select id="selectGrauAdmin">
+                          <option value="-1">Tots els graus </option>
+                          <?php foreach($degrees as $degree): ?>
+                              <option value="<?php echo $degree->codiEstudis; ?>"><?php echo $degree->nomGrau; ?></option>
+                          <?php endforeach; ?>
+                      </select>
+                  </div>
               <?php } ?>
-            <div class="table-responsive">
+            <div id="acordsTeacherAdmin" class="table-responsive">
               <table class="table table-hover cell-border display compact" id="dev-table">
                 <thead>
                   <tr>
                     <th>Universitat</th>
-                      <th>Grau</th>
+                      <!-- <th>Grau</th>-->
                     <th>Places</th>
                     <th>Mesos</th>
                     <th>Període</th>
@@ -44,7 +52,7 @@
                   <?php foreach ($agree as $ag): ?>
                   <tr >
                     <td><?php echo $ag->nomUniversitat; ?></td>
-                      <td><?php echo $ag->nomGrau; ?></td>
+                      <!--<td><?php echo $ag->nomGrau; ?></td>-->
                     <td><?php echo $ag->plaçes; ?></td>
                     <td><?php echo $ag->mesos; ?></td>
                     <td><?php echo $ag->període; ?></td>

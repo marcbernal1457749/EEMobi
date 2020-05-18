@@ -116,12 +116,30 @@ function filtrarAcordsAdmin(data){
         url: "perfil.php/" + "filtrarAcordsAdmin",
         data: {"data":JSON.stringify(data)},
         success: function(t, e, c) {
-            $("#taulaAcordsCoordinador").html(t);
+            $("#acordsTeacherAdmin").html(t);
+            if(data.filtre === "allAdmin"){$("#showByGrau").css('display','block');}
+            else{$("#showByGrau").css('display','none');}
+
         },
         error: function(t, e) {
         }
     })
 }
+
+function filtrarAcordsAdminGrau(data){
+    $.ajax({
+        type: "POST",
+        url: "perfil.php/" + "filtrarAcordsAdminGrau",
+        data: {"data":JSON.stringify(data)},
+        success: function(t, e, c) {
+            $("#acordsTeacherAdmin").html(t);
+
+        },
+        error: function(t, e) {
+        }
+    })
+}
+
 
 //Funciones para ordenar una tabla
 function comparer(index) {

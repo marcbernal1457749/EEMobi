@@ -421,3 +421,7 @@ tr th{color:#fff}ul.nav{border-bottom:0}
 .btn-default-2{margin-top:20px; ;background-color:transparent;color:#d75a00;border: 1px solid #d75a00 ;padding:12px 15px;}
 .btn-default-2:hover{background-color: rgba(215, 90, 0, 0.65);}
 .btn-default-2.active,.btn-default-2.focus,.btn-default-2:active,.btn-default-2:focus,.btn-default-2:hover,.open>.dropdown-toggle.btn-default-2{color:white;background-color:#d75a00;border-color:transparent}
+
+#showByGrau{
+    display: none;
+}

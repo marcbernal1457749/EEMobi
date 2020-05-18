@@ -68,6 +68,12 @@ class ProfileController{
                 array_push($parameters,$data);
                 break;
 
+            case 'filtrarAcordsAdminGrau':
+                $actionName = "filtrarAcordsAdminGrau";
+                $data['data'] = $_POST['data'];
+                array_push($parameters,$data);
+                break;
+
           case 'orderPublicationsByFilter':
             $controllerName = "InformationUniversityController";
             $actionName = "orderPublicationsByFilter";

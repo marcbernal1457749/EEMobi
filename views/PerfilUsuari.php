@@ -29,7 +29,7 @@
                         if($hasSubject){
                             foreach($subjects as $subject): ?>
                                 <tr >
-                                    <td><?php echo $subject->nomAsignaturaDesti; ?></td>
+                                    <td><a href="http://deic-projectes.uab.cat/EEmobi/Universitat/<?php echo $stay[0]->idUniversitat; ?>/Tots-els-graus#tab1default"><?php echo $subject->nomAsignaturaDesti; ?></a></td>
                                     <td><?php echo $subject->creditsAsignaturaDesti; ?></td>
                                     <td><?php echo $subject->semestre; ?></td>
                                     <td align="center">

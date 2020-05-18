@@ -12,7 +12,7 @@ class DegreesModel
 
     public function getDegrees(){
 
-        $consulta = $this->db->prepare('SELECT codiEstudis,nomGrau FROM estudisuab');
+        $consulta = $this->db->prepare('SELECT codiEstudis,nomGrau FROM estudisuab ORDER BY nomGrau');
         $consulta->execute();
         $obj = $consulta->fetchAll(PDO::FETCH_OBJ);
         //devolvemos la colección para que la vista la presente.

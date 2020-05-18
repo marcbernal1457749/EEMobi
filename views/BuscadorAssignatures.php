@@ -47,6 +47,7 @@ if($logged){
 
                             <div class="padding-bottom-20">
                                 <input type="button" class="btn btn-default-2" value="Afegeix Assignatura" id="addSubject" />
+                                <?php 
                                 <input type="button" class="btn btn-default" value="Cercar Destinacions" id="searchDestinationBySubjects"/>
                             </div>
                         </div>
@@ -62,7 +63,7 @@ if($logged){
                                 <tbody id="subjectBodyTable">
                                 <tr id="defaultrow">
                                     <td>
-                                        <p>Afegeix una assignatura per a poder cercar</p>
+                                        <p>Afegeix una o més assignatures per a poder cercar</p>
                                     </td>
                                 </tr>
                                 </tbody>
