@@ -1,4 +1,4 @@
-# EEMobi
+# EEMobi 3.0
 Web-app de mobilidad - Ingeniería Informática UAB
 
 ## How to run the application
