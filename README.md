@@ -4,7 +4,7 @@ Web-app de mobilidad - Ingeniería Informática UAB
 ## How to run the application
 http://deic-projectes.uab.cat/EEmobi/
 
-##Features
+## Features
 La aplicación soporta las siguientes funcionalidades:
 * Inicio de sesión mediante CAS UAB o como invitado (con restricciones).
 * Búsqueda de destinos ofertados mediante Google Maps
